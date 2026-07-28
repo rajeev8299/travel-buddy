@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="logo.png" />
+    <link rel="apple-touch-icon" href="logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Meet a few of the local buddies you could travel India with — ID-verified, reference-checked, and met on a video call first." />
+    <meta name="theme-color" content="#3F2617" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Your Buddies — TravelOnBuddy</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <div id="site-header"></div>
+
+      <main>
+        <div
+          id="page-header-slot"
+          data-eyebrow="Your buddies"
+          data-title="The people you'd actually be travelling with"
+          data-intro="180+ buddies across 42 towns, all ID-verified and reference-checked. You meet yours on a video call before anything is booked."
+          data-image="img/varanasi.jpg"
+          data-pos="center 45%"
+        ></div>
+
+        <section class="section">
+          <div class="shell">
+            <div class="grid grid--buddies" id="buddies-grid"></div>
+          </div>
+        </section>
+
+        <section class="section section--tint">
+          <div class="shell promise" data-reveal>
+            <h2>Not seeing your town?</h2>
+            <p>
+              This is a sample. We have buddies in 42 towns and cities, and we add people faster than
+              we update this page. Tell us where you're headed and we'll check.
+            </p>
+            <div class="cta__actions">
+              <a class="btn btn--solid btn--lg" href="plan.html">Ask about a town</a>
+              <a class="btn btn--outline btn--lg" href="become-a-buddy.html">Become a buddy</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <div id="site-footer"></div>
+    </div>
+
+    <script src="js/util.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/scene.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/page-header.js"></script>
+    <script src="js/buddies.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => initReveal());
+    </script>
+  </body>
+</html>

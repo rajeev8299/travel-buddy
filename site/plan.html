@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="logo.png" />
+    <link rel="apple-touch-icon" href="logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Tell us what you're curious about and we'll match you with a local buddy. No payment yet — just a conversation." />
+    <meta name="theme-color" content="#3F2617" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Plan My Trip — TravelOnBuddy</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <div id="site-header"></div>
+
+      <main>
+        <div
+          id="page-header-slot"
+          data-eyebrow="Plan my trip"
+          data-title="Tell us what you're curious about"
+          data-intro="No payment yet — just a conversation. Most travellers get a draft plan back within a day."
+          data-image="img/boats.jpg"
+          data-pos="center 55%"
+        ></div>
+
+        <section class="section">
+          <div class="shell plan__finder" data-reveal>
+            <div id="finder-slot"></div>
+          </div>
+        </section>
+
+        <section class="section section--tint">
+          <div class="shell grid grid--reach">
+            <div class="panel" data-reveal>
+              <span class="feature__icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+              </span>
+              <h3>Email</h3>
+              <p>Best for detail — dates, dietary needs, accessibility, who's coming.</p>
+              <a class="panel__link" href="mailto:hello@travelonbuddy.in">hello@travelonbuddy.in</a>
+            </div>
+
+            <div class="panel" data-reveal style="--delay: 80ms">
+              <span class="feature__icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </span>
+              <h3>Phone</h3>
+              <p>A real person in Delhi, not a menu. Good for the awkward questions.</p>
+              <a class="panel__link" href="tel:+911140001234">+91 11 4000 1234</a>
+            </div>
+
+            <div class="panel" data-reveal style="--delay: 160ms">
+              <span class="feature__icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </span>
+              <h3>Hours</h3>
+              <p>Mon–Sat, 9am–8pm IST. The 24-hour line is for travellers already on a trip.</p>
+              <span class="panel__link">Reply within one working day</span>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <div id="site-footer"></div>
+    </div>
+
+    <script src="js/util.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/scene.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/page-header.js"></script>
+    <script src="js/finder.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => initReveal());
+    </script>
+  </body>
+</html>

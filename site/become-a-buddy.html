@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="logo.png" />
+    <link rel="apple-touch-icon" href="logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Apply to become a TravelOnBuddy local guide — ID-verified, insured, and paid weekly." />
+    <meta name="theme-color" content="#3F2617" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Become a Buddy — TravelOnBuddy</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <div id="site-header"></div>
+
+      <main>
+        <div
+          id="page-header-slot"
+          data-eyebrow="Become a buddy"
+          data-title="If you know your town properly, we'd like to meet you"
+          data-intro="We're not looking for tour guides. We're looking for people who can show someone their own city the way they'd show a friend."
+          data-image="img/ladakh.jpg"
+          data-pos="center 55%"
+        ></div>
+
+        <section class="section">
+          <div class="shell grid grid--split">
+            <div class="panel" data-reveal>
+              <h2>What we ask</h2>
+              <ul class="ticks">
+                <li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>You actually live in the place you'd be guiding — not a nearby city.</li>
+                <li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>You can hold a conversation in English plus at least one local language.</li>
+                <li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>You're happy to be ID-verified and to give us two references we can call.</li>
+                <li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>You'd rather change the plan than push someone through it.</li>
+              </ul>
+            </div>
+
+            <div class="panel panel--warm" data-reveal style="--delay: 90ms">
+              <h2>What you get</h2>
+              <ul class="ticks">
+                <li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>₹2,800–₹4,500 a day depending on the town and group size, paid weekly.</li>
+                <li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Public liability cover for every day you're out with travellers.</li>
+                <li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>You choose your own dates. No minimum, no exclusivity.</li>
+                <li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>A 24-hour support line for you, not just for the travellers.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section section--tint" id="apply">
+          <div class="shell">
+            <header class="section__head" data-reveal>
+              <div>
+                <p class="eyebrow eyebrow--dark">Application</p>
+                <h2>Tell us about yourself</h2>
+              </div>
+              <p class="section__note">
+                About ten minutes. We reply to every application within three working days —
+                yes, including the ones we turn down.
+              </p>
+            </header>
+
+            <div id="buddy-form-slot"></div>
+          </div>
+        </section>
+      </main>
+
+      <div id="site-footer"></div>
+    </div>
+
+    <script src="js/util.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/scene.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/page-header.js"></script>
+    <script src="js/buddy-form.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => initReveal());
+    </script>
+  </body>
+</html>
