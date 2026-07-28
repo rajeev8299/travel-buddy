@@ -1,6 +1,11 @@
 /* Minimal global reset */
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
+/* Mobile Safari paints the <html> background (not the hero photo, which is
+   an inner element) during the rubber-band bounce above the top of the
+   page — without this it shows as a white gap over the dark homepage
+   header. Only the homepage has a dark hero, so scope it to that page. */
+html:has(.hero) { background: var(--ink); }
 body {
   font-family: 'Work Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -339,19 +344,27 @@ p { margin: 0; }
 .drawer__links {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 420px;
+  margin-inline: auto;
 }
 
 .drawer__links a {
-  padding: 16px 2px;
+  padding: 12px 2px;
   border-bottom: 1px solid var(--line);
   font-family: var(--display);
-  font-size: 1.35rem;
+  font-size: 1.05rem;
   font-weight: 600;
   color: var(--ink);
   text-decoration: none;
 }
 
-.drawer .btn { margin-top: 22px; }
+.drawer .btn {
+  width: 100%;
+  max-width: 420px;
+  margin-inline: auto;
+  margin-top: 18px;
+}
 
 /* -------------------------------------------------------------------- hero */
 

@@ -355,20 +355,26 @@ p {
 .drawer__links {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 420px;
+  margin-inline: auto;
 }
 
 .drawer__links a {
-  padding: 16px 2px;
+  padding: 12px 2px;
   border-bottom: 1px solid var(--line);
   font-family: var(--display);
-  font-size: 1.35rem;
+  font-size: 1.05rem;
   font-weight: 600;
   color: var(--ink);
   text-decoration: none;
 }
 
 .drawer .btn {
-  margin-top: 22px;
+  width: 100%;
+  max-width: 420px;
+  margin-inline: auto;
+  margin-top: 18px;
 }
 
 /* -------------------------------------------------------------------- hero */

@@ -1,6 +1,11 @@
 /* Minimal global reset — all component styles live inside the component's <style> block */
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
+/* Mobile Safari paints the <html> background (not the hero photo, which is
+   an inner element) during the rubber-band bounce above the top of the
+   page — without this it shows as a white gap over the dark homepage
+   header. Only the homepage has a dark hero, so scope it to that page. */
+html:has(.hero) { background: var(--ink); }
 body {
   font-family: 'Work Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
