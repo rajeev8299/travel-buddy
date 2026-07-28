@@ -16,7 +16,7 @@ export function createApp() {
   const clientOrigin = process.env.CLIENT_ORIGIN || "http://localhost:5173";
   app.use(
     cors({
-      // The plain HTML site in site/ is meant to be opened straight off disk
+      // The plain HTML site in docs/ is meant to be opened straight off disk
       // (double-click, no server) — browsers send `Origin: null` for those
       // file:// pages, so it's allowed alongside the Vite dev origin. A null
       // origin can't carry the session cookie either way (SameSite blocks
