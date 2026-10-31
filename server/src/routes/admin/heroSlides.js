@@ -8,9 +8,20 @@ import { asyncHandler } from "../../middleware/asyncHandler.js";
 
 const router = Router();
 
+function isValidPos(pos) {
+  if (typeof pos !== "string") return false;
+  const trimmed = pos.trim();
+  if (!trimmed || trimmed.length > 50) return false;
+  // Common valid formats: 'center 50%', '50% 50%', 'top left', 'center', 'right 40%', etc.
+  return /^[a-zA-Z0-9\s%.-]+$/.test(trimmed);
+}
+
 function deleteUploadedFile(imagePath) {
-  const full = path.join(uploadsDir, imagePath);
-  fs.unlink(full, () => {}); // best-effort — a missing file isn't worth failing the request over
+  if (!imagePath || typeof imagePath !== "string") return;
+  // Security guard against directory traversal
+  const safeBase = path.basename(imagePath);
+  const full = path.join(uploadsDir, "hero", safeBase);
+  fs.unlink(full, () => {}); // best-effort
 }
 
 function nextSortOrder() {
@@ -36,7 +47,12 @@ router.post(
   uploadHeroImage.single("image"),
   asyncHandler(async (req, res) => {
     if (!req.file) return res.status(400).json({ message: "An image file is required." });
-    const pos = (req.body?.pos || "center 50%").trim();
+    const rawPos = (req.body?.pos || "center 50%").trim();
+    if (!isValidPos(rawPos)) {
+      if (req.file) deleteUploadedFile(`hero/${req.file.filename}`);
+      return res.status(400).json({ message: "Invalid focal position format. Example: 'center 50%'" });
+    }
+    const pos = rawPos;
     const imagePath = `hero/${req.file.filename}`;
 
     const result = db
@@ -57,9 +73,24 @@ router.put(
     if (!Array.isArray(order) || order.length === 0) {
       return res.status(400).json({ message: "order must be a non-empty array of slide ids." });
     }
-    const update = db.prepare("UPDATE hero_slides SET sort_order = ? WHERE id = ?");
-    order.forEach((id, i) => update.run(i, id));
-    res.json({ ok: true });
+
+    // Verify all IDs are valid numbers and exist
+    const numericIds = order.map(Number);
+    if (numericIds.some(isNaN)) {
+      return res.status(400).json({ message: "order must contain valid numeric IDs." });
+    }
+
+    // Transactionally update sort orders to prevent corrupted states
+    db.exec("BEGIN TRANSACTION;");
+    try {
+      const update = db.prepare("UPDATE hero_slides SET sort_order = ? WHERE id = ?");
+      numericIds.forEach((id, i) => update.run(i, id));
+      db.exec("COMMIT;");
+      res.json({ ok: true });
+    } catch (err) {
+      db.exec("ROLLBACK;");
+      throw err;
+    }
   }),
 );
 
@@ -70,7 +101,11 @@ router.put(
     const existing = db.prepare("SELECT * FROM hero_slides WHERE id = ?").get(req.params.id);
     if (!existing) return res.status(404).json({ message: "Slide not found." });
 
-    const pos = req.body?.pos !== undefined ? req.body.pos.trim() : existing.pos;
+    const rawPos = req.body?.pos !== undefined ? req.body.pos.trim() : existing.pos;
+    if (!isValidPos(rawPos)) {
+      return res.status(400).json({ message: "Invalid focal position format. Example: 'center 50%'" });
+    }
+    const pos = rawPos;
     let source = existing.source;
     let imagePath = existing.image_path;
 

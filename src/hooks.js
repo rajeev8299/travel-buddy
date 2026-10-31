@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
 /** Today as `yyyy-mm-dd` in local time, so <input min> blocks past dates. */
 export function todayISO() {
