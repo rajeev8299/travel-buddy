@@ -20,6 +20,7 @@ function initPageHeader() {
         ${eyebrow ? `<p class="eyebrow">${eyebrow}</p>` : ""}
         <h1>${title}</h1>
         ${intro ? `<p class="pagehead__intro">${intro}</p>` : ""}
+        <div id="pagehead-custom-slot" class="pagehead__slot"></div>
       </div>
     </header>`;
 

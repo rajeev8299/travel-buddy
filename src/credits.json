@@ -2,49 +2,49 @@
   {
     "id": "boats",
     "title": "Boats on the Ganga at Sankatha Ghat, Varanasi",
-    "creator": "Unsplash",
+    "creator": "Martijn Vonk (Unsplash)",
     "license": "Unsplash License",
     "source": "https://unsplash.com/photos/wloNuC7qKf8"
   },
   {
     "id": "mural",
     "title": "Steps and mural at Bundiparkota Ghat, Varanasi",
-    "creator": "Unsplash",
+    "creator": "ARTO SURAJ (Unsplash)",
     "license": "Unsplash License",
     "source": "https://unsplash.com/photos/35nn8_KxZCQ"
   },
   {
     "id": "market",
-    "title": "Boats at the market, Varanasi",
-    "creator": "Unsplash",
+    "title": "Boats and waterfront market, Varanasi",
+    "creator": "Snowscat (Unsplash)",
     "license": "Unsplash License",
     "source": "https://unsplash.com/photos/JIjCxenDxPY"
   },
   {
     "id": "harbour",
-    "title": "The Ganga filled with boats, Varanasi",
-    "creator": "Unsplash",
+    "title": "The Ganga filled with wooden boats, Varanasi",
+    "creator": "Brian Scott (Unsplash)",
     "license": "Unsplash License",
     "source": "https://unsplash.com/photos/9mlsS7ViHkE"
   },
   {
     "id": "riverfront",
-    "title": "Ganges riverfront with buildings and boats",
+    "title": "Ganges riverfront heritage and morning boats, Varanasi",
     "creator": "Unsplash",
     "license": "Unsplash License",
     "source": "https://unsplash.com/photos/i6mwttXNB8M"
   },
   {
     "id": "stupa",
-    "title": "Ancient brick ruins and the Dhamek Stupa, Sarnath",
+    "title": "Ancient brick ruins and the Dhamek Stupa, Sarnath (Varanasi)",
     "creator": "Unsplash",
     "license": "Unsplash License",
     "source": "https://unsplash.com/photos/hBR4rerbBQs"
   },
   {
     "id": "monks",
-    "title": "Two monks near the stupa at sunrise, Sarnath",
-    "creator": "Unsplash",
+    "title": "Two monks meditating near the stupa at sunrise, Sarnath (Varanasi)",
+    "creator": "Rohit Dey (Unsplash)",
     "license": "Unsplash License",
     "source": "https://unsplash.com/photos/jeNWkvy8llE"
   },
@@ -56,38 +56,59 @@
     "source": "https://commons.wikimedia.org/w/index.php?curid=106201607"
   },
   {
-    "id": "jaipur",
-    "title": "City Palace interior, Jaipur",
-    "creator": "Richard Moross",
-    "license": "CC BY 2.0",
-    "source": "https://commons.wikimedia.org/w/index.php?curid=8720839"
+    "id": "dev_diwali",
+    "title": "Dev Deepawali grand illumination and diyas on Varanasi Ghats",
+    "creator": "Unsplash",
+    "license": "Unsplash License",
+    "source": "https://unsplash.com/photos/a-view-of-a-temple-lit-up-at-night-with-water-in-front-of-it-e05294dd1970"
   },
   {
-    "id": "alleppey",
-    "title": "Kerala backwaters, houseboats",
-    "creator": "Vyacheslav Argenberg",
-    "license": "CC BY 4.0",
-    "source": "https://commons.wikimedia.org/w/index.php?curid=123031037"
+    "id": "ghats_dawn",
+    "title": "Morning light and temple pavilions along Varanasi Ghats",
+    "creator": "Unsplash",
+    "license": "Unsplash License",
+    "source": "https://unsplash.com/photos/2d000a50f0dc"
   },
   {
-    "id": "ladakh",
-    "title": "Reflection at Pangong Tso, Ladakh",
-    "creator": "kamaljith",
-    "license": "CC BY 2.0",
-    "source": "https://commons.wikimedia.org/w/index.php?curid=27393500"
+    "id": "kashi_vishwanath",
+    "title": "Traditional temple architecture & golden spires in Varanasi",
+    "creator": "Unsplash",
+    "license": "Unsplash License",
+    "source": "https://unsplash.com/photos/2138af692e32"
   },
   {
-    "id": "meghalaya",
-    "title": "A double-decker living root bridge, Meghalaya",
-    "creator": "Vinayak Hegde",
-    "license": "CC BY 2.0",
-    "source": "https://commons.wikimedia.org/w/index.php?curid=18808200"
+    "id": "ganga_sunrise",
+    "title": "Golden sunrise and morning rowboats on the Holy Ganga",
+    "creator": "Unsplash",
+    "license": "Unsplash License",
+    "source": "https://unsplash.com/photos/30451e3955d8"
   },
   {
-    "id": "goa",
-    "title": "Palolem Beach coastline, South Goa",
-    "creator": "Meet Makadia",
-    "license": "CC0 1.0",
-    "source": "https://wordpress.org/photos/photo/695662884a/"
+    "id": "banaras_silk",
+    "title": "Authentic Banarasi silk saree with pure zari brocade",
+    "creator": "Unsplash",
+    "license": "Unsplash License",
+    "source": "https://unsplash.com/photos/98e550d6193c"
+  },
+  {
+    "id": "banaras_chai",
+    "title": "Traditional clay kulhad chai in Varanasi old city",
+    "creator": "Unsplash",
+    "license": "Unsplash License",
+    "source": "https://unsplash.com/photos/392fe2489ffa"
+  },
+  {
+    "id": "street_food",
+    "title": "Fresh golden heritage street sweets and kachoris, Banaras",
+    "creator": "Unsplash",
+    "license": "Unsplash License",
+    "source": "https://unsplash.com/photos/60fce055bc82"
+  },
+  {
+    "id": "banaras_ghats_steps",
+    "title": "Ancient stone steps leading to the Ganga at Assi Ghat",
+    "creator": "Unsplash",
+    "license": "Unsplash License",
+    "source": "https://unsplash.com/photos/136574528ed5"
   }
 ]

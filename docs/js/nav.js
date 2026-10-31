@@ -125,8 +125,17 @@ function footerMarkup() {
       </div>
 
       <div class="shell foot__credits">
-        <h4>Photography</h4>
-        <p>${credits}</p>
+        <h4>Popular Destinations</h4>
+        <p>
+          <a href="plan.html">Varanasi Ghats &amp; Ganga Aarti</a> · 
+          <a href="plan.html">Jaipur Pink City &amp; Forts</a> · 
+          <a href="plan.html">Kerala Backwaters &amp; Alleppey</a> · 
+          <a href="plan.html">Leh-Ladakh Mountain Passes</a> · 
+          <a href="plan.html">Meghalaya Living Root Bridges</a> · 
+          <a href="plan.html">South Goa Heritage &amp; Beaches</a> · 
+          <a href="plan.html">Udaipur Lakes &amp; Palaces</a> · 
+          <a href="plan.html">Rishikesh Rafting &amp; Yoga</a>
+        </p>
       </div>
 
       <div class="shell foot__base">

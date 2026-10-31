@@ -27,7 +27,7 @@ export default function BecomeBuddy() {
         eyebrow="Become a buddy"
         title="If you know your town properly, we'd like to meet you"
         intro="We're not looking for tour guides. We're looking for people who can show someone their own city the way they'd show a friend."
-        image={asset("img/ladakh.jpg")}
+        image={asset("img/ghats_dawn.jpg")}
         pos="center 55%"
       />
 

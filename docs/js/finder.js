@@ -78,9 +78,12 @@ function finderMarkup() {
 }
 
 function initFinder() {
-  const slot = document.getElementById("finder-slot");
+  let slot = document.getElementById("finder-slot");
+  if (!slot) {
+    slot = document.getElementById("pagehead-custom-slot");
+  }
   if (!slot) return;
-  slot.outerHTML = finderMarkup();
+  slot.innerHTML = finderMarkup();
 
   const whereWrap = document.getElementById("where-wrap");
   const whereInput = document.getElementById("where-input");

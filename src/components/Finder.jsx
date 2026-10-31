@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef, useCallback, memo } from "react";
+import { useNavigate } from "react-router-dom";
 import { MapPin, PlaneLanding, PlaneTakeoff, Users, Search } from "lucide-react";
 import { CITIES } from "../data";
 import { todayISO, formatDay, countNights } from "../hooks";
-import { api } from "../lib/api";
 
 /* ------------------------------------------------------- where-to combobox -- */
 
@@ -147,6 +147,7 @@ const WhereField = memo(function WhereField({ value, onChange }) {
 /* ------------------------------------------------------------ search panel -- */
 
 export default function Finder() {
+  const navigate = useNavigate();
   const [search, setSearch] = useState({ where: "", arrive: "", depart: "", who: "2 travellers" });
   const [receipt, setReceipt] = useState(null);
   const [dateError, setDateError] = useState("");
@@ -173,7 +174,7 @@ export default function Finder() {
   );
 
   const onSearch = useCallback(
-    async (e) => {
+    (e) => {
       e.preventDefault();
 
       if (search.arrive && search.depart && search.depart <= search.arrive) {
@@ -183,32 +184,15 @@ export default function Finder() {
       }
 
       setDateError("");
-      const where = search.where.trim() || "anywhere in India";
-      const n = countNights(search.arrive, search.depart);
-      const dates =
-        search.arrive && search.depart
-          ? `${formatDay(search.arrive)} → ${formatDay(search.depart)} (${n} ${n === 1 ? "night" : "nights"})`
-          : "dates flexible";
+      const params = new URLSearchParams();
+      if (search.where) params.set("where", search.where);
+      if (search.arrive) params.set("arrive", search.arrive);
+      if (search.depart) params.set("depart", search.depart);
+      if (search.who) params.set("who", search.who);
 
-      try {
-        const data = await api.post("/plan-requests", {
-          where: search.where,
-          arrive: search.arrive,
-          depart: search.depart,
-          who: search.who,
-        });
-        setReceipt(
-          `Got it — ${where}, ${dates}, ${search.who}. Reference ${data.reference}. ` +
-            `We'll match you with a buddy and email a draft plan within 24 hours.`,
-        );
-      } catch {
-        setReceipt(
-          `Got it — ${where}, ${dates}, ${search.who}. ` +
-            `We'll match you with a buddy and email a draft plan within 24 hours.`,
-        );
-      }
+      navigate(`/book-trip?${params.toString()}`);
     },
-    [search],
+    [search, navigate],
   );
 
   return (

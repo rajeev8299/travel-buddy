@@ -45,6 +45,29 @@ function migrateUsersTableForAdminRole() {
 
 migrateUsersTableForAdminRole();
 
+function migratePlanRequestsTable() {
+  const existing = db
+    .prepare("SELECT sql FROM sqlite_master WHERE type = 'table' AND name = 'plan_requests'")
+    .get();
+  if (!existing) return;
+
+  const cols = db.prepare("PRAGMA table_info(plan_requests)").all().map((c) => c.name);
+  if (!cols.includes("email")) {
+    db.exec(`
+      ALTER TABLE plan_requests ADD COLUMN full_name TEXT;
+      ALTER TABLE plan_requests ADD COLUMN email TEXT;
+      ALTER TABLE plan_requests ADD COLUMN phone TEXT;
+      ALTER TABLE plan_requests ADD COLUMN style TEXT;
+      ALTER TABLE plan_requests ADD COLUMN pace TEXT;
+      ALTER TABLE plan_requests ADD COLUMN special_requests TEXT;
+      ALTER TABLE plan_requests ADD COLUMN buddy_name TEXT;
+      ALTER TABLE plan_requests ADD COLUMN status TEXT DEFAULT 'pending';
+    `);
+  }
+}
+
+migratePlanRequestsTable();
+
 db.exec(`
   CREATE TABLE IF NOT EXISTS users (
     id TEXT PRIMARY KEY,

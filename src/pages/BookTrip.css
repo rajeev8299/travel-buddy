@@ -1,0 +1,560 @@
+/* =========================================================================
+   Dedicated Book Trip Page Styles
+   Step Progress, Two-Column Summary, Form Cards, Live Feedback & Review
+   ========================================================================= */
+
+.booking-page {
+  background: var(--bg-main, #F3F0E7);
+  min-height: calc(100vh - var(--nav-h));
+  padding-bottom: 80px;
+}
+
+.booking-hero {
+  background: linear-gradient(180deg, rgba(63, 38, 23, 0.04) 0%, rgba(255, 252, 246, 0) 100%);
+  padding: 48px 0 28px;
+  border-bottom: 1px solid var(--line, #F0DCC2);
+}
+
+.booking-hero__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.booking-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--muted, #6D5646);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.booking-back-btn:hover {
+  color: var(--orange-deeper, #B85C00);
+}
+
+.booking-hero h1 {
+  font-size: clamp(2rem, 3.8vw, 2.75rem);
+  color: var(--ink, #3F2617);
+  margin-bottom: 8px;
+}
+
+.booking-hero p {
+  color: var(--muted, #6D5646);
+  font-size: 1.05rem;
+  max-width: 64ch;
+  line-height: 1.5;
+}
+
+/* -------------------------------------------------------- Step Indicator -- */
+.booking-steps-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 32px;
+  position: relative;
+  max-width: 760px;
+}
+
+.booking-steps-bar::before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  right: 20px;
+  height: 2px;
+  background: var(--line, #F0DCC2);
+  z-index: 1;
+}
+
+.booking-step-node {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: var(--cream, #FFFCF6);
+  padding: 0 8px;
+  cursor: pointer;
+}
+
+.booking-step-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 2px solid var(--line, #F0DCC2);
+  color: var(--muted, #6D5646);
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.booking-step-node--active .booking-step-num {
+  background: var(--orange, #F2921D);
+  border-color: var(--orange, #F2921D);
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(242, 146, 29, 0.35);
+}
+
+.booking-step-node--done .booking-step-num {
+  background: #EBF8F2;
+  border-color: #2CA268;
+  color: #2CA268;
+}
+
+.booking-step-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--muted, #6D5646);
+  white-space: nowrap;
+}
+
+.booking-step-node--active .booking-step-label {
+  color: var(--ink, #3F2617);
+  font-weight: 700;
+}
+
+/* -------------------------------------------------- 2-Column Content Layout */
+.booking-layout {
+  display: grid;
+  grid-template-columns: 1.4fr 0.9fr;
+  gap: 36px;
+  margin-top: 36px;
+  align-items: start;
+}
+
+.booking-main-card {
+  background: var(--bg-card, #FAF8F2);
+  border: 1px solid var(--line, #D8D0C3);
+  border-radius: 20px;
+  padding: 36px 32px;
+  box-shadow: var(--shadow-sm);
+}
+
+.booking-step-head {
+  margin-bottom: 24px;
+}
+
+.booking-step-head h2 {
+  font-size: 1.5rem;
+  color: var(--ink, #3F2617);
+  margin-bottom: 6px;
+}
+
+.booking-step-head p {
+  color: var(--muted, #6D5646);
+  font-size: 0.92rem;
+}
+
+/* Form Groups & Grid Controls */
+.bform-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.bform-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.bfield {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.bfield label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink, #3F2617);
+}
+
+.bfield input,
+.bfield select,
+.bfield textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--line, #F0DCC2);
+  background: var(--cream, #FFFCF6);
+  font-family: inherit;
+  font-size: 0.94rem;
+  color: var(--ink, #3F2617);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.bfield input:focus,
+.bfield select:focus,
+.bfield textarea:focus {
+  border-color: var(--orange, #F2921D);
+  box-shadow: 0 0 0 3px rgba(242, 146, 29, 0.18);
+  background: #FFFFFF;
+}
+
+/* Selectable Pills Grid */
+.bpills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.bpill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 12px;
+  border-radius: 99px;
+  border: 1px solid var(--line, #F0DCC2);
+  background: var(--cream, #FFFCF6);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--ink, #3F2617);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.bpill:hover {
+  border-color: var(--orange, #F2921D);
+  background: #FFFFFF;
+}
+
+.bpill--selected {
+  background: var(--orange, #F2921D);
+  border-color: var(--orange, #F2921D);
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+/* Buddy Cards Selection */
+.buddies-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.buddy-pick-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid var(--line, #F0DCC2);
+  background: var(--cream, #FFFCF6);
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.buddy-pick-card:hover {
+  border-color: var(--orange, #F2921D);
+  background: #FFFFFF;
+}
+
+.buddy-pick-card--active {
+  border-color: var(--orange, #F2921D);
+  background: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(242, 146, 29, 0.15);
+}
+
+.buddy-pick-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.buddy-avatar-mark {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: #FFFFFF;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.buddy-pick-details h4 {
+  font-size: 1rem;
+  margin-bottom: 2px;
+  color: var(--ink, #3F2617);
+}
+
+.buddy-pick-meta {
+  font-size: 0.82rem;
+  color: var(--muted, #6D5646);
+  display: flex;
+  gap: 12px;
+}
+
+/* Form Actions */
+.bform-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line, #F0DCC2);
+}
+
+/* ----------------------------------------------------- Summary Aside Card */
+.booking-summary-card {
+  background: #FFFFFF;
+  border: 1px solid var(--line, #F0DCC2);
+  border-radius: 20px;
+  padding: 28px 24px;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: calc(var(--nav-h) + 20px);
+}
+
+.bsummary-title {
+  font-size: 1.25rem;
+  color: var(--ink, #3F2617);
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line, #F0DCC2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bsummary-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: var(--sand, #FDF3E6);
+  color: var(--orange-deeper, #B85C00);
+  padding: 3px 9px;
+  border-radius: 99px;
+  border: 1px solid var(--line, #F0DCC2);
+}
+
+.bsummary-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.bsummary-row svg {
+  color: var(--orange, #F2921D);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.bsummary-row div {
+  flex: 1;
+}
+
+.bsummary-label {
+  font-size: 0.76rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted, #6D5646);
+  margin-bottom: 2px;
+  display: block;
+}
+
+.bsummary-val {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink, #3F2617);
+}
+
+.bsummary-subval {
+  font-size: 0.82rem;
+  color: var(--muted, #6D5646);
+  margin-top: 2px;
+}
+
+.bsummary-guarantee {
+  margin-top: 20px;
+  padding: 16px;
+  background: var(--sand, #FDF3E6);
+  border-radius: 12px;
+  border: 1px solid var(--line, #F0DCC2);
+}
+
+.bsummary-guarantee strong {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--ink, #3F2617);
+  margin-bottom: 4px;
+}
+
+.bsummary-guarantee p {
+  font-size: 0.8rem;
+  color: var(--muted, #6D5646);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ----------------------------------------------------------- Review Cards */
+.review-block {
+  background: var(--cream, #FFFCF6);
+  border: 1px solid var(--line, #F0DCC2);
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 16px;
+}
+
+.review-block-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.review-block-head h4 {
+  font-size: 0.95rem;
+  color: var(--ink, #3F2617);
+  margin: 0;
+}
+
+.review-edit-btn {
+  background: none;
+  border: none;
+  color: var(--orange-deeper, #B85C00);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.review-item strong {
+  display: block;
+  font-size: 0.74rem;
+  color: var(--muted, #6D5646);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.review-item span {
+  font-size: 0.92rem;
+  color: var(--ink, #3F2617);
+  font-weight: 500;
+}
+
+/* ----------------------------------------------------- Confirmation State */
+.booking-success-box {
+  background: var(--bg-card, #FAF8F2);
+  border: 1px solid var(--line, #D8D0C3);
+  border-radius: 24px;
+  padding: 48px 36px;
+  max-width: 680px;
+  margin: 40px auto 0;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+
+.bsuccess-icon-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #EBF8F2;
+  color: #2CA268;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+}
+
+.booking-ref-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--sand, #FDF3E6);
+  border: 1px solid var(--line, #F0DCC2);
+  padding: 8px 18px;
+  border-radius: 99px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--orange-deeper, #B85C00);
+  margin: 16px 0 24px;
+}
+
+.bsuccess-timeline {
+  text-align: left;
+  background: var(--cream, #FFFCF6);
+  border: 1px solid var(--line, #F0DCC2);
+  border-radius: 14px;
+  padding: 20px;
+  margin: 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.bsuccess-step {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.bsuccess-step-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--orange, #F2921D);
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ------------------------------------------------------------- Breakpoints */
+@media (max-width: 900px) {
+  .booking-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-summary-card {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .booking-main-card {
+    padding: 24px 18px;
+  }
+
+  .bform-grid-2,
+  .bform-grid-3,
+  .review-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-steps-bar {
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+}
+

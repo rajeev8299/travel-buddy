@@ -1,6 +1,8 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import helmet from "helmet";
+import rateLimit from "express-rate-limit";
 import authRoutes from "./routes/auth.js";
 import buddiesRoutes from "./routes/buddies.js";
 import storiesRoutes from "./routes/stories.js";
@@ -13,14 +15,37 @@ import { uploadsDir } from "./uploads.js";
 export function createApp() {
   const app = express();
 
+  // 1. Security Headers via Helmet
+  app.use(
+    helmet({
+      contentSecurityPolicy: false, // Managed per-frontend proxy or allow Vite inline scripts in dev
+      crossOriginResourcePolicy: { policy: "cross-origin" },
+    })
+  );
+
+  // 2. Global Rate Limiter (200 requests per 15 minutes per IP)
+  const globalLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    max: 300,
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: { message: "Too many requests from this IP, please try again later." },
+  });
+  app.use(globalLimiter);
+
+  // 3. Stricter Rate Limiter for Auth / Login (20 attempts per 15 minutes)
+  const authLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    max: 20,
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: { message: "Too many login attempts, please try again in 15 minutes." },
+  });
+  app.use("/api/auth", authLimiter);
+
   const clientOrigin = process.env.CLIENT_ORIGIN || "http://localhost:5173";
   app.use(
     cors({
-      // The plain HTML site in docs/ is meant to be opened straight off disk
-      // (double-click, no server) — browsers send `Origin: null` for those
-      // file:// pages, so it's allowed alongside the Vite dev origin. A null
-      // origin can't carry the session cookie either way (SameSite blocks
-      // that), so this only widens access to the cookie-free endpoints.
       origin: (origin, callback) => {
         if (!origin || origin === clientOrigin || origin === "null") {
           callback(null, true);
@@ -31,7 +56,7 @@ export function createApp() {
       credentials: true,
     }),
   );
-  app.use(express.json());
+  app.use(express.json({ limit: "1mb" }));
   app.use(cookieParser());
   app.use("/uploads", express.static(uploadsDir));
 

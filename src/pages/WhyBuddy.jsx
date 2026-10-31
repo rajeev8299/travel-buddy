@@ -36,7 +36,7 @@ export default function WhyBuddy() {
         eyebrow="Why Buddy"
         title="The difference is the person, not the package"
         intro="A tour sells you a route. A buddy gives you someone who already knows the shortcuts, the closures, and where to sit down when you're tired."
-        image={asset("img/meghalaya.jpg")}
+        image={asset("img/banaras_ghats_steps.jpg")}
         pos="center 50%"
       />
 

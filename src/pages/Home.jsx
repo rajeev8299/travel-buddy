@@ -2,6 +2,17 @@ import { Link } from "react-router-dom";
 import { Sparkles, ArrowRight, Compass, ShieldCheck, Quote, Users } from "lucide-react";
 import HeroBackdrop from "../components/HeroBackdrop";
 import Finder from "../components/Finder";
+import { BanarasCanvas3D } from "../components/BanarasCanvas3D";
+import { BanarasEditorial } from "../components/BanarasEditorial";
+import { DestinationShowcase } from "../components/DestinationShowcase";
+import {
+  TrustStrip,
+  AboutSection,
+  ServicesSection,
+  HowWeWorkSection,
+  FAQSection,
+  ContactEnquirySection,
+} from "../components/HomeSections";
 import { useReveal } from "../hooks";
 import { STATS } from "../data";
 
@@ -112,6 +123,37 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Trust & Credibility Strip */}
+      <TrustStrip />
+
+      {/* 3D Banaras Twilight Ganga Experience */}
+      <section className="section" style={{ paddingTop: "1rem", paddingBottom: "1rem" }}>
+        <div className="shell">
+          <BanarasCanvas3D />
+        </div>
+      </section>
+
+      {/* Deep Banaras Editorial: Ghats, Temples, Silk, Food & Itineraries */}
+      <BanarasEditorial />
+
+      {/* Other Curated India Destinations */}
+      <DestinationShowcase />
+
+      {/* About Company & Local Travel Philosophy */}
+      <AboutSection />
+
+      {/* Tailored Experience Categories */}
+      <ServicesSection />
+
+      {/* 4-Step Process & How We Work */}
+      <HowWeWorkSection />
+
+      {/* Genuine FAQ Accordion */}
+      <FAQSection />
+
+      {/* Direct Contact & Custom Trip Enquiry */}
+      <ContactEnquirySection />
     </div>
   );
 }

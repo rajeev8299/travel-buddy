@@ -9,7 +9,7 @@ export default function NotFound() {
         eyebrow="404"
         title="That page took a detour"
         intro="Which is on brand, but not much help. Here's everywhere else."
-        image={asset("img/goa.jpg")}
+        image={asset("img/mural.jpg")}
         pos="center 60%"
       />
 

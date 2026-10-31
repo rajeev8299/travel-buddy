@@ -5,7 +5,14 @@ import { GhatsPanorama } from "./Scene";
  * The banner every inner page opens with. It also gives the transparent header
  * something dark to sit on, which is what keeps the nav legible site-wide.
  */
-const PageHeader = memo(function PageHeader({ eyebrow, title, intro, image, pos = "center 45%" }) {
+const PageHeader = memo(function PageHeader({
+  eyebrow,
+  title,
+  intro,
+  image,
+  pos = "center 45%",
+  children,
+}) {
   const [broken, setBroken] = useState(false);
 
   return (
@@ -29,6 +36,7 @@ const PageHeader = memo(function PageHeader({ eyebrow, title, intro, image, pos 
         {eyebrow && <p className="eyebrow">{eyebrow}</p>}
         <h1>{title}</h1>
         {intro && <p className="pagehead__intro">{intro}</p>}
+        {children && <div className="pagehead__slot">{children}</div>}
       </div>
     </header>
   );

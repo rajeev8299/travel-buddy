@@ -15,13 +15,9 @@ export default function Plan() {
         intro="No payment yet — just a conversation. Most travellers get a draft plan back within a day."
         image={asset("img/boats.jpg")}
         pos="center 55%"
-      />
-
-      <section className="section">
-        <div className="shell plan__finder" data-reveal>
-          <Finder />
-        </div>
-      </section>
+      >
+        <Finder />
+      </PageHeader>
 
       <section className="section section--tint">
         <div className="shell grid grid--reach">

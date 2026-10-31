@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#3F2617" />
+    <title>Offline — TravelOnBuddy</title>
+    <style>
+      :root {
+        --ink: #3F2617;
+        --orange: #F2921D;
+        --cream: #FFFCF6;
+        --sand: #FDF3E6;
+        --muted: #6D5646;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        background: var(--cream);
+        color: var(--ink);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 24px;
+        text-align: center;
+      }
+      .card {
+        background: #fff;
+        border: 1px solid #F0DCC2;
+        border-radius: 20px;
+        padding: 40px 28px;
+        max-width: 440px;
+        box-shadow: 0 4px 24px rgba(63, 38, 23, 0.08);
+      }
+      .icon-box {
+        width: 64px;
+        height: 64px;
+        background: var(--sand);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        color: var(--orange);
+      }
+      h1 {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+        color: var(--ink);
+      }
+      p {
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 24px;
+      }
+      .btn {
+        display: inline-block;
+        background: var(--orange);
+        color: #fff;
+        padding: 12px 24px;
+        border-radius: 99px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        cursor: pointer;
+        border: none;
+        transition: opacity 0.2s;
+      }
+      .btn:hover {
+        opacity: 0.9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="icon-box">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="1" y1="1" x2="23" y2="23"></line>
+          <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"></path>
+          <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"></path>
+          <path d="M10.71 5.05A16 16 0 0 1 22.58 9"></path>
+          <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"></path>
+          <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+          <line x1="12" y1="20" x2="12.01" y2="20"></line>
+        </svg>
+      </div>
+      <h1>You're currently offline</h1>
+      <p>It looks like you've lost your internet connection. Cached pages are still accessible, and live features will reconnect once you're back online.</p>
+      <button class="btn" onclick="window.location.reload()">Retry Connection</button>
+    </div>
+  </body>
+</html>
+

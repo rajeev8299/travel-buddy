@@ -22,20 +22,20 @@ export const NAV = [
   { to: "/stories", label: "Stories" },
 ];
 
-/* Interleaved so no two consecutive frames share a palette or a subject —
-   the Varanasi shots are spaced out between the other destinations. Each
-   `pos` keeps that photo's subject in frame once the wide hero crop bites. */
+/* All hero slides are authentic Varanasi (Banaras) & Sarnath photographs.
+   Features sunrise Ganga boats, Dev Deepawali night reflections, riverfront ghats,
+   ancient stone steps, and morning Dhamek Stupa ruins. */
 export const HERO_SLIDES = [
   { src: asset("img/boats.jpg"), pos: "center 46%" },
-  { src: asset("img/jaipur.jpg"), pos: "center 52%" },
+  { src: asset("img/dev_diwali.jpg"), pos: "center 50%" },
   { src: asset("img/market.jpg"), pos: "center 55%" },
-  { src: asset("img/ladakh.jpg"), pos: "center 50%" },
+  { src: asset("img/ganga_sunrise.jpg"), pos: "center 48%" },
   { src: asset("img/mural.jpg"), pos: "center 55%" },
-  { src: asset("img/meghalaya.jpg"), pos: "center 50%" },
+  { src: asset("img/ghats_dawn.jpg"), pos: "center 50%" },
   { src: asset("img/harbour.jpg"), pos: "center 55%" },
-  { src: asset("img/alleppey.jpg"), pos: "center 52%" },
+  { src: asset("img/kashi_vishwanath.jpg"), pos: "center 52%" },
   { src: asset("img/monks.jpg"), pos: "center 60%" },
-  { src: asset("img/goa.jpg"), pos: "center 55%" },
+  { src: asset("img/banaras_ghats_steps.jpg"), pos: "center 55%" },
   { src: asset("img/riverfront.jpg"), pos: "center 48%" },
   { src: asset("img/stupa.jpg"), pos: "center 45%" },
 ];

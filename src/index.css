@@ -1,21 +1,20 @@
 /* Minimal global reset — all component styles live inside the component's <style> block */
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
-/* Mobile Safari paints the <html> background (not the hero/banner photo,
-   which is an inner element) during the rubber-band bounce above the top
-   of the page — without this it shows as a white gap over the dark header.
-   Both the homepage hero and the inner-page banners (.pagehead) are dark,
-   so scope it to any page carrying either. */
-html:has(.hero), html:has(.pagehead) { background: var(--ink); }
+
+/* Keep dark backdrop on bounce for hero/pagehead headers */
+html:has(.hero), html:has(.pagehead) { background: #1C0E04; }
+
 body {
   font-family: 'Work Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  background: #FFFCF6;
-  color: #3F2617;
+  background: #F3F0E7;
+  color: #30271F;
   overflow-x: hidden;
 }
+
 #root { width: 100%; min-height: 100vh; }
 img { max-width: 100%; display: block; }
 a { color: inherit; }

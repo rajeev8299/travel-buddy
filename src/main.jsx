@@ -8,6 +8,7 @@ import Buddies from "./pages/Buddies.jsx";
 import Stories from "./pages/Stories.jsx";
 import BecomeBuddy from "./pages/BecomeBuddy.jsx";
 import Plan from "./pages/Plan.jsx";
+import BookTrip from "./pages/BookTrip.jsx";
 import Login from "./pages/Login.jsx";
 import Signup from "./pages/Signup.jsx";
 import NotFound from "./pages/NotFound.jsx";
@@ -50,6 +51,7 @@ createRoot(document.getElementById("root")).render(
             <Route path="stories" element={<Stories />} />
             <Route path="become-a-buddy" element={<BecomeBuddy />} />
             <Route path="plan" element={<Plan />} />
+            <Route path="book-trip" element={<BookTrip />} />
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<Signup />} />
             <Route path="*" element={<NotFound />} />
@@ -59,3 +61,28 @@ createRoot(document.getElementById("root")).render(
     </HashRouter>
   </StrictMode>,
 );
+
+// Register Progressive Web App Service Worker in production/http environments
+if (typeof window !== "undefined" && "serviceWorker" in navigator) {
+  if (window.location.protocol.startsWith("http")) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker
+        .register("./sw.js")
+        .then((reg) => {
+          reg.onupdatefound = () => {
+            const installingWorker = reg.installing;
+            if (installingWorker) {
+              installingWorker.onstatechange = () => {
+                if (installingWorker.state === "installed" && navigator.serviceWorker.controller) {
+                  console.info("[PWA] New update ready. Refresh to update.");
+                }
+              };
+            }
+          };
+        })
+        .catch((err) => {
+          console.warn("[PWA] ServiceWorker registration failed: ", err);
+        });
+    });
+  }
+}

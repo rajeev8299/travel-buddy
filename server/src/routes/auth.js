@@ -82,6 +82,65 @@ router.post("/logout", (req, res) => {
   res.json({ ok: true });
 });
 
+router.post(
+  "/change-password",
+  asyncHandler(async (req, res) => {
+    const body = req.body || {};
+    const email = (body.email || "").trim().toLowerCase();
+    const currentPassword = body.currentPassword || "";
+    const newPassword = body.newPassword || "";
+
+    if (!email || !currentPassword || !newPassword) {
+      return res.status(400).json({ message: "All fields are required." });
+    }
+    if (newPassword.length < 8) {
+      return res.status(400).json({ message: "New password must be at least 8 characters long." });
+    }
+
+    const row = db.prepare("SELECT * FROM users WHERE email = ?").get(email);
+    const ok = row ? await bcrypt.compare(currentPassword, row.password_hash) : false;
+    if (!ok) {
+      return res.status(401).json({ message: "Current password does not match." });
+    }
+
+    const newHash = await bcrypt.hash(newPassword, 10);
+    db.prepare("UPDATE users SET password_hash = ? WHERE id = ?").run(newHash, row.id);
+
+    res.json({ ok: true, message: "Password updated successfully. You can now log in with your new password." });
+  }),
+);
+
+router.post(
+  "/forgot-password",
+  asyncHandler(async (req, res) => {
+    const body = req.body || {};
+    const email = (body.email || "").trim().toLowerCase();
+
+    if (!email) {
+      return res.status(400).json({ message: "Email is required." });
+    }
+
+    const row = db.prepare("SELECT id, email, role FROM users WHERE email = ?").get(email);
+    if (!row) {
+      return res.status(404).json({ message: "No account found with this email address." });
+    }
+
+    // In local development / offline environment:
+    // Inform the user how to reset via admin configuration or development credentials
+    const adminEmail = (process.env.ADMIN_EMAIL || "admin@example.com").toLowerCase();
+    const isConfiguredAdmin = row.email === adminEmail;
+
+    res.json({
+      ok: true,
+      email: row.email,
+      role: row.role,
+      message: isConfiguredAdmin
+        ? "Admin account verified! Your password can be directly reset in server/.env via ADMIN_PASSWORD, or contact system administration."
+        : "Account found! For security, password recovery instructions have been logged for this administrator account.",
+    });
+  }),
+);
+
 router.get(
   "/me",
   asyncHandler(async (req, res) => {

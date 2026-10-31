@@ -2,8 +2,9 @@ import { useState, useEffect, useCallback } from "react";
 import { NavLink, Link, Outlet, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import Logo from "./components/Logo";
-import CREDITS from "./credits.json";
 import { BRAND, TAGLINE, NAV } from "./data";
+import { usePWAInstall } from "./hooks/usePWAInstall";
+import { PWAInstallPrompt } from "./components/PWAInstallPrompt";
 import "./App.css";
 
 /** Every navigation should land at the top of the new page, not mid-scroll. */
@@ -45,6 +46,16 @@ export default function App() {
   }, [menuOpen]);
 
   const closeMenu = useCallback(() => setMenuOpen(false), []);
+
+  const {
+    canPrompt,
+    platform,
+    showManualModal,
+    triggerInstall,
+    dismissPrompt,
+    openManualGuide,
+    closeManualGuide,
+  } = usePWAInstall();
 
   return (
     <div className="page">
@@ -142,6 +153,24 @@ export default function App() {
             <Link to="/become-a-buddy">Become a buddy</Link>
             <Link to="/why-buddy">Safety promise</Link>
             <Link to="/plan">Contact</Link>
+            <button
+              type="button"
+              className="foot__install-link"
+              onClick={openManualGuide}
+              style={{
+                background: "none",
+                border: "none",
+                padding: 0,
+                color: "inherit",
+                font: "inherit",
+                textAlign: "left",
+                cursor: "pointer",
+                opacity: 0.85,
+                transition: "opacity 0.2s",
+              }}
+            >
+              Install App 📲
+            </button>
           </nav>
 
           <div className="foot__col">
@@ -153,17 +182,16 @@ export default function App() {
         </div>
 
         <div className="shell foot__credits">
-          <h4>Photography</h4>
+          <h4>Popular Destinations</h4>
           <p>
-            {CREDITS.map((c, i) => (
-              <span key={c.id}>
-                {i > 0 && " · "}
-                <a href={c.source} target="_blank" rel="noreferrer noopener">
-                  {c.title}
-                </a>{" "}
-                by {c.creator} ({c.license})
-              </span>
-            ))}
+            <span><Link to="/plan">Varanasi Ghats &amp; Ganga Aarti</Link></span> ·{" "}
+            <span><Link to="/plan">Jaipur Pink City &amp; Forts</Link></span> ·{" "}
+            <span><Link to="/plan">Kerala Backwaters &amp; Alleppey</Link></span> ·{" "}
+            <span><Link to="/plan">Leh-Ladakh Mountain Passes</Link></span> ·{" "}
+            <span><Link to="/plan">Meghalaya Living Root Bridges</Link></span> ·{" "}
+            <span><Link to="/plan">South Goa Heritage &amp; Beaches</Link></span> ·{" "}
+            <span><Link to="/plan">Udaipur Lakes &amp; Palaces</Link></span> ·{" "}
+            <span><Link to="/plan">Rishikesh River Rafting &amp; Yoga</Link></span>
           </p>
         </div>
 
@@ -174,6 +202,17 @@ export default function App() {
           <p>Made in India 🇮🇳</p>
         </div>
       </footer>
+
+      {/* Progressive Web App Install Prompt & Manual Guide */}
+      <PWAInstallPrompt
+        canPrompt={canPrompt}
+        platform={platform}
+        showManualModal={showManualModal}
+        onInstall={triggerInstall}
+        onDismiss={dismissPrompt}
+        onOpenManual={openManualGuide}
+        onCloseManual={closeManualGuide}
+      />
     </div>
   );
 }

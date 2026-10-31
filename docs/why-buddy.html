@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="logo.png" />
     <link rel="apple-touch-icon" href="logo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="description" content="What a verified local buddy actually changes about a trip, and what TravelOnBuddy promises when things go sideways." />
     <meta name="theme-color" content="#3F2617" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -119,5 +123,6 @@
     <script>
       document.addEventListener("DOMContentLoaded", () => initReveal());
     </script>
+    <script src="js/pwa.js"></script>
   </body>
 </html>

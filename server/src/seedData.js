@@ -13,20 +13,18 @@ export const BUDDIES = [
   { name: "Farhan A.", city: "Srinagar", years: 6, rating: 4.9, tongue: "Kashmiri, Urdu, English", hue: "#7A5AA8" },
 ];
 
-// Same 12 photos the frontend ships in its own public/img/ folder (see
-// src/data.js HERO_SLIDES) — seeded as "static" slides so the homepage has a
-// rotating backdrop before an admin uploads anything of their own.
+// Authentic Banaras & Sarnath photographs
 export const HERO_SLIDES = [
   { path: "img/boats.jpg", pos: "center 46%" },
-  { path: "img/jaipur.jpg", pos: "center 52%" },
+  { path: "img/dev_diwali.jpg", pos: "center 50%" },
   { path: "img/market.jpg", pos: "center 55%" },
-  { path: "img/ladakh.jpg", pos: "center 50%" },
+  { path: "img/ganga_sunrise.jpg", pos: "center 48%" },
   { path: "img/mural.jpg", pos: "center 55%" },
-  { path: "img/meghalaya.jpg", pos: "center 50%" },
+  { path: "img/ghats_dawn.jpg", pos: "center 50%" },
   { path: "img/harbour.jpg", pos: "center 55%" },
-  { path: "img/alleppey.jpg", pos: "center 52%" },
+  { path: "img/kashi_vishwanath.jpg", pos: "center 52%" },
   { path: "img/monks.jpg", pos: "center 60%" },
-  { path: "img/goa.jpg", pos: "center 55%" },
+  { path: "img/banaras_ghats_steps.jpg", pos: "center 55%" },
   { path: "img/riverfront.jpg", pos: "center 48%" },
   { path: "img/stupa.jpg", pos: "center 45%" },
 ];

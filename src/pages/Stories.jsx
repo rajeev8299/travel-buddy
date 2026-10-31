@@ -43,7 +43,7 @@ export default function Stories() {
         eyebrow="Stories"
         title="Trips that went sideways and got better for it"
         intro="Told by the travellers they happened to. We don't edit out the parts where the plan fell apart — those are usually the point."
-        image={asset("img/alleppey.jpg")}
+        image={asset("img/ganga_sunrise.jpg")}
         pos="center 48%"
       />
 

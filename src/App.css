@@ -1,36 +1,41 @@
 /* ============================================================== tokens == */
 
-/* Saffron-led palette. Orange is the brand colour and carries every primary
-   action; brown is demoted to text and rules so the orange stays loud. */
+/* Saffron-led palette with warm, high-contrast Banaras aesthetic.
+   Warm off-white background with clear, readable dark-brown typography. */
 :root {
-  --orange: #f2921d;
-  --orange-deep: #d9740a;
-  --orange-deeper: #b85c00;
-  --orange-soft: #fef3e3;
-  --saffron: #fbb040;
+  --bg-main: #F3F0E7;
+  --bg-surface: #EAE5D9;
+  --bg-card: #FAF8F2;
+  --text-main: #30271F;
+  --text-secondary: #65594E;
+  --text-muted: #776A5E;
 
-  --ink: #3f2617;
-  --muted: #6d5646;
-  --cream: #fffcf6;
-  --sand: #fdf3e6;
-  --line: #f0dcc2;
+  --orange: #F7931A;
+  --orange-deep: #D97706;
+  --orange-deeper: #B45309;
+  --orange-soft: #FDF3E6;
+  --saffron: #FBB040;
+
+  --ink: #30271F;
+  --muted: #65594E;
+  --cream: #FAF8F2;
+  --sand: #EAE5D9;
+  --line: #D8D0C3;
 
   /* kept as an alias so older rules keep resolving */
   --marigold: var(--orange);
-  --teal: #1f6f6b;
-  --warn: #b4442f;
+  --teal: #1F6F6B;
+  --warn: #B4442F;
 
   --radius: 18px;
   --radius-sm: 11px;
   --shell: 1160px;
 
-  /* Nav padding (14px) + logo (48px) + padding (14px). The banners pull
-     themselves up by exactly this, so the two must never drift apart —
-     every breakpoint that resizes the nav has to restate it. */
+  /* Nav padding (14px) + logo (48px) + padding (14px). */
   --nav-h: 76px;
 
-  --shadow-sm: 0 1px 2px rgba(63, 38, 23, 0.07), 0 4px 14px rgba(63, 38, 23, 0.06);
-  --shadow-md: 0 2px 6px rgba(63, 38, 23, 0.08), 0 18px 40px rgba(63, 38, 23, 0.1);
+  --shadow-sm: 0 1px 3px rgba(48, 39, 31, 0.06), 0 4px 14px rgba(48, 39, 31, 0.05);
+  --shadow-md: 0 4px 12px rgba(48, 39, 31, 0.08), 0 16px 36px rgba(48, 39, 31, 0.1);
 
   --display: "Fraunces", Georgia, "Times New Roman", serif;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -176,7 +181,11 @@ p {
   top: 0;
   z-index: 50;
   padding: 14px 0;
-  border-bottom: 1px solid transparent;
+  background: rgba(243, 240, 231, 0.95);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 1px 10px rgba(48, 39, 31, 0.05);
   transition:
     background 0.28s ease,
     box-shadow 0.28s ease,
@@ -184,11 +193,9 @@ p {
 }
 
 .nav--solid {
-  background: #fffcf6ee;
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
+  background: rgba(243, 240, 231, 0.98);
   border-bottom-color: var(--line);
-  box-shadow: 0 1px 20px rgba(36, 31, 46, 0.05);
+  box-shadow: 0 2px 14px rgba(48, 39, 31, 0.08);
 }
 
 .nav__inner {
@@ -197,44 +204,44 @@ p {
   gap: 26px;
 }
 
-/* Before the header goes solid it floats on the hero photo — invert the type. */
-.nav:not(.nav--solid) .logo__word {
-  color: var(--cream);
-  text-shadow: 0 1px 12px #1c0e0473;
+/* Nav typography: crisp, clean dark brown text without blurry white shadows */
+.nav .logo__word {
+  color: var(--ink);
+  text-shadow: none;
 }
 
-.nav:not(.nav--solid) .logo__word span {
-  color: var(--saffron);
+.nav .logo__word span {
+  color: var(--orange-deep);
 }
 
-.nav:not(.nav--solid) .nav__links a {
-  color: #fffcf6ed;
-  text-shadow: 0 1px 6px #1c0e04b3;
+.nav .nav__links a {
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-shadow: none;
 }
 
-.nav:not(.nav--solid) .nav__links a:hover,
-.nav:not(.nav--solid) .nav__links a.is-active {
-  color: #fff;
+.nav .nav__links a:hover,
+.nav .nav__links a.is-active {
+  color: var(--ink);
+  font-weight: 600;
 }
 
-.nav:not(.nav--solid) .nav__links a::after {
-  background: var(--saffron);
+.nav .nav__links a::after {
+  background: var(--orange);
 }
 
-.nav:not(.nav--solid) .btn--ghost {
-  color: var(--cream);
+.nav .btn--ghost {
+  color: var(--ink);
 }
 
-.nav:not(.nav--solid) .btn--ghost:hover {
-  background: #ffffff26;
+.nav .btn--ghost:hover {
+  background: rgba(48, 39, 31, 0.06);
 }
 
-.nav:not(.nav--solid) .nav__burger {
-  background: #ffffff1f;
-  border-color: #ffffff45;
-  color: var(--cream);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+.nav .nav__burger {
+  background: var(--bg-card);
+  border-color: var(--line);
+  color: var(--ink);
 }
 
 .logo {
@@ -390,9 +397,8 @@ p {
 
 .hero {
   position: relative;
-  /* pulled up under the sticky nav so the photo runs behind it */
-  margin-top: calc(var(--nav-h) * -1);
-  padding: clamp(140px, 17vw, 210px) 0 clamp(64px, 8vw, 100px);
+  /* Natural padding without pulling under the opaque header */
+  padding: clamp(60px, 10vw, 120px) 0 clamp(64px, 8vw, 100px);
   isolation: isolate;
   color: var(--cream);
 }
@@ -512,18 +518,14 @@ p {
   max-width: 1010px;
   margin-top: 38px;
   padding: 7px;
-  /* Frosted glass at 0.52 — about as sheer as a light panel goes. Past this the
-     labels cannot be darkened any further to compensate; a dark glass panel
-     with light type would be the next step, not more opacity shaved off here. */
-  background: #fffcf685;
-  -webkit-backdrop-filter: blur(26px) saturate(1.5);
-  backdrop-filter: blur(26px) saturate(1.5);
-  border: 1px solid #ffffff99;
+  background: rgba(250, 248, 242, 0.94);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--line);
   border-radius: 999px;
   box-shadow:
-    inset 0 1px 0 #ffffffa6,
-    0 2px 8px #1c0e0433,
-    0 24px 54px #1c0e044d;
+    0 4px 16px rgba(48, 39, 31, 0.12),
+    0 20px 48px rgba(48, 39, 31, 0.18);
 }
 
 .finder__field {
@@ -541,7 +543,7 @@ p {
 }
 
 .finder__field:hover {
-  background: #ffffff73;
+  background: rgba(234, 229, 217, 0.5);
 }
 
 .finder__field > svg {
@@ -748,13 +750,10 @@ p {
 
 .pagehead {
   position: relative;
-  margin-top: calc(var(--nav-h) * -1);
-  /* Height comes from min-height rather than padding so the banner keeps its
-     proportions at any viewport; the extra top padding clears the fixed nav. */
-  min-height: clamp(600px, 80vh, 940px);
+  min-height: clamp(520px, 70vh, 860px);
   display: flex;
   align-items: center;
-  padding: 132px 0 72px;
+  padding: 64px 0 72px;
   isolation: isolate;
   color: var(--cream);
   text-align: center;
@@ -818,6 +817,14 @@ p {
   text-shadow:
     0 1px 4px #1c0e04e0,
     0 4px 20px #1c0e04c4;
+}
+
+.pagehead__slot {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 14px;
 }
 
 /* --------------------------------------------------------- home: the doors */
@@ -1703,7 +1710,9 @@ p {
 
 .foot {
   padding-top: 58px;
-  background: var(--cream);
+  background: #30271F;
+  color: #FAF8F2;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .foot__inner {
@@ -1713,19 +1722,27 @@ p {
   padding-bottom: 44px;
 }
 
+.foot__brand .logo__word {
+  color: #FAF8F2;
+}
+
+.foot__brand .logo__word span {
+  color: var(--orange);
+}
+
 .foot__brand p {
   max-width: 30ch;
   margin-top: 14px;
   font-size: 0.87rem;
   line-height: 1.6;
-  color: var(--muted);
+  color: #C8BFB5;
 }
 
 .foot__tagline {
   font-family: var(--display);
   font-size: 0.95rem !important;
   font-style: italic;
-  color: var(--orange-deeper) !important;
+  color: var(--saffron) !important;
 }
 
 .foot__col {
@@ -1741,28 +1758,28 @@ p {
   font-weight: 600;
   letter-spacing: 0.13em;
   text-transform: uppercase;
-  color: var(--ink);
+  color: #FAF8F2;
 }
 
 .foot__col a {
   font-size: 0.875rem;
-  color: var(--muted);
+  color: #B5A89B;
   text-decoration: none;
   transition: color 0.18s ease;
 }
 
 .foot__col a:hover {
-  color: var(--orange-deep);
+  color: var(--orange);
 }
 
 .foot__hours {
   font-size: 0.8rem;
-  color: #8b8394;
+  color: #9E9184;
 }
 
 .foot__credits {
   padding-bottom: 22px;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 20px;
 }
 
@@ -1773,23 +1790,23 @@ p {
   font-weight: 600;
   letter-spacing: 0.13em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: #A39688;
 }
 
 .foot__credits p {
   font-size: 0.74rem;
   line-height: 1.75;
-  color: #8b7a6b;
+  color: #9E9184;
 }
 
 .foot__credits a {
-  color: #8b7a6b;
+  color: #B5A89B;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
 .foot__credits a:hover {
-  color: var(--orange-deep);
+  color: var(--orange);
 }
 
 .foot__base {
@@ -1798,9 +1815,9 @@ p {
   justify-content: space-between;
   gap: 10px;
   padding-block: 20px 26px;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 0.8rem;
-  color: var(--muted);
+  color: #A39688;
 }
 
 /* ------------------------------------------------------------------- focus */
