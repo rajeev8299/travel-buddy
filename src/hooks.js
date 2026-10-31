@@ -20,36 +20,8 @@ export function countNights(arrive, depart) {
   return Math.max(0, Math.round(ms / 86_400_000));
 }
 
-/** Adds `.is-in` to every `[data-reveal]` node once it scrolls into view. */
-export function useReveal(dep) {
+/** Instant render without scroll delay */
+export function useReveal() {
   const scopeRef = useRef(null);
-
-  useEffect(() => {
-    const scope = scopeRef.current;
-    if (!scope) return;
-
-    const nodes = scope.querySelectorAll("[data-reveal]:not(.is-in)");
-    if (!nodes.length) return;
-
-    if (typeof IntersectionObserver === "undefined") {
-      nodes.forEach((n) => n.classList.add("is-in"));
-      return;
-    }
-
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add("is-in");
-          io.unobserve(entry.target);
-        });
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -60px 0px" },
-    );
-
-    nodes.forEach((n) => io.observe(n));
-    return () => io.disconnect();
-  }, [dep]);
-
   return scopeRef;
 }

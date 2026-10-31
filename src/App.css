@@ -89,11 +89,8 @@ p {
 /* ------------------------------------------------------------------ reveal */
 
 [data-reveal] {
-  opacity: 0;
-  transform: translateY(20px);
-  transition:
-    opacity 0.7s var(--ease) var(--delay, 0ms),
-    transform 0.7s var(--ease) var(--delay, 0ms);
+  opacity: 1;
+  transform: none;
 }
 
 [data-reveal].is-in {
@@ -397,8 +394,8 @@ p {
 
 .hero {
   position: relative;
-  /* Natural padding without pulling under the opaque header */
-  padding: clamp(60px, 10vw, 120px) 0 clamp(64px, 8vw, 100px);
+  /* Lifted higher up to sit beautifully above the fold */
+  padding: clamp(32px, 5vw, 68px) 0 clamp(48px, 6vw, 76px);
   isolation: isolate;
   color: var(--cream);
 }
@@ -484,9 +481,9 @@ p {
 
 .hero h1 {
   max-width: 15ch;
-  margin-top: 20px;
-  font-size: clamp(2.5rem, 6.4vw, 4.35rem);
-  line-height: 1.04;
+  margin-top: 14px;
+  font-size: clamp(2.35rem, 5.8vw, 4.1rem);
+  line-height: 1.05;
   text-shadow:
     0 2px 6px #1c0e04cc,
     0 10px 40px #1c0e04d9;
@@ -499,9 +496,9 @@ p {
 
 .hero__sub {
   max-width: 60ch;
-  margin-top: 20px;
-  font-size: clamp(1rem, 1.6vw, 1.14rem);
-  line-height: 1.65;
+  margin-top: 14px;
+  font-size: clamp(0.98rem, 1.5vw, 1.1rem);
+  line-height: 1.55;
   color: #fffcf6f7;
   text-shadow:
     0 1px 4px #1c0e04e0,
@@ -516,7 +513,7 @@ p {
   gap: 4px;
   width: 100%;
   max-width: 1010px;
-  margin-top: 38px;
+  margin-top: 26px;
   padding: 7px;
   background: rgba(250, 248, 242, 0.94);
   -webkit-backdrop-filter: blur(20px);
@@ -1991,7 +1988,7 @@ p {
   }
 
   .hero {
-    padding: 118px 0 56px;
+    padding: 72px 0 44px;
   }
 
   .pagehead {
@@ -2305,15 +2302,25 @@ p {
   margin-top: 18px;
 }
 
-/* In the transparent header (over a photo) the new "Log in" link should read
-   white, like the other ghost actions. */
+/* Login button in nav header: harmonized with brand typography and warmth */
+.nav .nav__login {
+  color: var(--ink);
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.nav .nav__login:hover {
+  background: var(--orange-soft);
+  color: var(--orange-deeper);
+}
+
 .nav:not(.nav--solid) .nav__login {
-  color: #fffcf6ed;
+  color: var(--ink);
 }
 
 .nav:not(.nav--solid) .nav__login:hover {
-  background: #fffcf614;
-  color: #fff;
+  background: var(--orange-soft);
+  color: var(--orange-deeper);
 }
 
 @media (max-width: 560px) {

@@ -183,8 +183,20 @@ export const BanarasCanvas3D = memo(function BanarasCanvas3D() {
     let animationFrameId: number;
     let clock = new THREE.Clock();
 
+    // IntersectionObserver to only render when visible in viewport
+    let isVisible = false;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+      },
+      { threshold: 0.05 }
+    );
+    observer.observe(container);
+
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
+      if (!isVisible) return; // Skip CPU/GPU rendering when user scrolled away!
+
       const elapsedTime = clock.getElapsedTime();
 
       // Damped camera tilt
@@ -244,6 +256,7 @@ export const BanarasCanvas3D = memo(function BanarasCanvas3D() {
 
     return () => {
       cancelAnimationFrame(animationFrameId);
+      observer.disconnect();
       container.removeEventListener("mousemove", handlePointerMove);
       window.removeEventListener("resize", handleResize);
       renderer.dispose();
