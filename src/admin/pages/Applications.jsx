@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Check, X, Eye, Loader2 } from "lucide-react";
 import { api } from "../../lib/api";
 
@@ -12,6 +12,14 @@ function DetailModal({ id, onClose }) {
   const [detail, setDetail] = useState(null);
   const [error, setError] = useState("");
 
+  const cardRef = useRef(null);
+  const closeRef = useRef(null);
+  // Read through a ref so the effect below runs once, not on every parent render.
+  const onCloseRef = useRef(onClose);
+  useEffect(() => {
+    onCloseRef.current = onClose;
+  });
+
   useEffect(() => {
     api
       .get(`/admin/buddy-applications/${id}`)
@@ -19,11 +27,58 @@ function DetailModal({ id, onClose }) {
       .catch((err) => setError(err.message));
   }, [id]);
 
+  // Behave like a real modal for keyboard users: focus moves in on open,
+  // Tab stays inside, Escape closes, and focus goes back to the "View
+  // details" button afterwards.
+  useEffect(() => {
+    const opener = document.activeElement;
+    closeRef.current?.focus();
+
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") {
+        onCloseRef.current();
+        return;
+      }
+      if (e.key !== "Tab" || !cardRef.current) return;
+      const focusable = cardRef.current.querySelectorAll(
+        'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])',
+      );
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      opener?.focus?.();
+    };
+  }, []);
+
   return (
-    <div className="admin-modal" role="dialog" aria-modal="true" onClick={onClose}>
-      <div className="admin-modal__card" onClick={(e) => e.stopPropagation()}>
-        <button type="button" className="admin-modal__close" onClick={onClose} aria-label="Close">
-          <X size={18} strokeWidth={2.2} />
+    <div className="admin-modal" onClick={onClose}>
+      <div
+        ref={cardRef}
+        className="admin-modal__card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={detail ? "application-detail-title" : undefined}
+        aria-label={detail ? undefined : "Application details"}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          ref={closeRef}
+          type="button"
+          className="admin-modal__close"
+          onClick={onClose}
+          aria-label="Close"
+        >
+          <X size={18} strokeWidth={2.2} aria-hidden="true" />
         </button>
 
         {error && <p className="admin__error">{error}</p>}
@@ -31,7 +86,7 @@ function DetailModal({ id, onClose }) {
 
         {detail && (
           <>
-            <h2>{detail.full_name}</h2>
+            <h2 id="application-detail-title">{detail.full_name}</h2>
             <p className="admin-modal__meta">
               {detail.city}, {detail.state} · {detail.email} · {detail.phone}
             </p>

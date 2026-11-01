@@ -3,7 +3,14 @@
 // (SameSite blocks cross-site cookies), so login won't persist there — but
 // the cookie-free endpoints (buddies, stories, hero-slides, buddy
 // applications, plan requests) work either way.
-const API_BASE = "http://localhost:4000/api";
+// The live API's address, set by scripts/build-site.mjs from
+// scripts/site.config.json ("api"). Local copies (localhost or file://) always
+// talk to the API on this machine.
+const PRODUCTION_API = "";
+const API_BASE =
+  !PRODUCTION_API || ["localhost", "127.0.0.1", ""].includes(location.hostname)
+    ? "http://localhost:4000/api"
+    : PRODUCTION_API;
 
 async function apiRequest(path, { method = "GET", body } = {}) {
   const isFormData = body instanceof FormData;

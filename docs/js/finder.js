@@ -2,36 +2,26 @@
 // homepage and the Plan page. Renders into any element with id="finder-slot".
 
 const CITIES = [
-  { name: "Varanasi", state: "Uttar Pradesh" },
-  { name: "Jaipur", state: "Rajasthan" },
-  { name: "Udaipur", state: "Rajasthan" },
-  { name: "Jaisalmer", state: "Rajasthan" },
-  { name: "Pushkar", state: "Rajasthan" },
-  { name: "Agra", state: "Uttar Pradesh" },
-  { name: "Rishikesh", state: "Uttarakhand" },
-  { name: "Amritsar", state: "Punjab" },
-  { name: "Leh–Ladakh", state: "Ladakh" },
-  { name: "Spiti Valley", state: "Himachal Pradesh" },
-  { name: "Darjeeling", state: "West Bengal" },
-  { name: "Shillong", state: "Meghalaya" },
-  { name: "Cherrapunji", state: "Meghalaya" },
-  { name: "Kaziranga", state: "Assam" },
-  { name: "Alleppey", state: "Kerala" },
-  { name: "Munnar", state: "Kerala" },
-  { name: "Kochi", state: "Kerala" },
-  { name: "Hampi", state: "Karnataka" },
-  { name: "Coorg", state: "Karnataka" },
-  { name: "Mysore", state: "Karnataka" },
-  { name: "Pondicherry", state: "Puducherry" },
-  { name: "South Goa", state: "Goa" },
-  { name: "Khajuraho", state: "Madhya Pradesh" },
-  { name: "Andaman Islands", state: "Andaman & Nicobar" },
+  { name: "Varanasi", state: "Anywhere in the city" },
+  { name: "Dashashwamedh Ghat", state: "Ganga Aarti" },
+  { name: "Assi Ghat", state: "Southern ghats" },
+  { name: "Manikarnika Ghat", state: "Northern ghats" },
+  { name: "Kashi Vishwanath", state: "Old city" },
+  { name: "Godowlia & Chowk", state: "Old-city bazaars" },
+  { name: "Madanpura", state: "Silk weavers" },
+  { name: "Sarnath", state: "Day trip, 10 km" },
+  { name: "Ramnagar Fort", state: "Across the river" },
+  { name: "BHU & Lanka", state: "University area" },
 ];
 
 const ICON_MAPPIN = `<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>`;
 const ICON_LANDING = `<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20h20"/><path d="M4 18l6.5-2 8-7.5c.8-.8.8-2 0-2.8-.8-.8-2-.8-2.8 0L8 13l-4-1"/></svg>`;
 const ICON_TAKEOFF = `<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20h20"/><path d="M17.8 11.2 21 8c.8-.8.8-2 0-2.8-.8-.8-2-.8-2.8 0l-3.2 3.2-7-2-2 1 5 4-3 3-3-1-1.5 1.5L8 16l3.5 3.5L13 18l-1-3 3-3 4 5 1-2-2-6.8Z"/></svg>`;
 const ICON_USERS = `<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`;
+const ICON_CONTACT_USER = `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`;
+const ICON_CONTACT_MAIL = `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>`;
+const ICON_CONTACT_PHONE = `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2"/><line x1="11" y1="18" x2="13" y2="18"/></svg>`;
+const ICON_CONTACT_SEND = `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>`;
 const ICON_SEARCH = `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>`;
 
 function finderMarkup() {
@@ -41,7 +31,7 @@ function finderMarkup() {
         ${ICON_MAPPIN}
         <label class="finder__label" for="where-input">Where to</label>
         <input id="where-input" type="text" role="combobox" autocomplete="off" aria-expanded="false"
-          aria-autocomplete="list" placeholder="Varanasi, Ladakh, anywhere…" />
+          aria-autocomplete="list" placeholder="Ghats, old city, Sarnath…" />
       </div>
 
       <label class="finder__field">
@@ -73,6 +63,31 @@ function finderMarkup() {
       </button>
     </form>
     <p class="finder__nights" id="finder-nights" hidden></p>
+    <p class="finder__ask" id="finder-ask" hidden>Last step — where should your buddy send the plan?</p>
+    <form class="finder finder--contact" id="finder-contact" novalidate hidden>
+      <label class="finder__field">
+        ${ICON_CONTACT_USER}
+        <span class="finder__label">Your name</span>
+        <input type="text" id="contact-name" autocomplete="name" maxlength="120" placeholder="Full name" />
+      </label>
+
+      <label class="finder__field">
+        ${ICON_CONTACT_MAIL}
+        <span class="finder__label">Email</span>
+        <input type="email" id="contact-email" autocomplete="email" maxlength="200" placeholder="you@example.com" />
+      </label>
+
+      <label class="finder__field">
+        ${ICON_CONTACT_PHONE}
+        <span class="finder__label">Or phone</span>
+        <input type="tel" id="contact-phone" autocomplete="tel" maxlength="20" placeholder="10-digit mobile" />
+      </label>
+
+      <button class="finder__go" type="submit" id="contact-send">
+        ${ICON_CONTACT_SEND}
+        <span>Send</span>
+      </button>
+    </form>
     <p class="receipt" id="finder-receipt" role="status" hidden></p>
     <p class="receipt receipt--warn" id="finder-error" role="alert" hidden></p>`;
 }
@@ -87,6 +102,21 @@ function initFinder() {
 
   const whereWrap = document.getElementById("where-wrap");
   const whereInput = document.getElementById("where-input");
+  // Arriving from an experience page (plan.html?experience=<slug>): prefill
+  // its area and send the experience along with the request.
+  let interest = "";
+  const experienceSlug = new URLSearchParams(location.search).get("experience");
+  if (experienceSlug) {
+    fetch("experiences.json")
+      .then((r) => r.json())
+      .then((list) => {
+        const x = list.find((e) => e.slug === experienceSlug);
+        if (!x) return;
+        interest = x.name;
+        if (!whereInput.value) whereInput.value = x.area;
+      })
+      .catch(() => {});
+  }
   const arriveInput = document.getElementById("arrive-input");
   const departInput = document.getElementById("depart-input");
   const whoInput = document.getElementById("who-input");
@@ -94,6 +124,12 @@ function initFinder() {
   const nightsEl = document.getElementById("finder-nights");
   const receiptEl = document.getElementById("finder-receipt");
   const errorEl = document.getElementById("finder-error");
+  const askEl = document.getElementById("finder-ask");
+  const contactForm = document.getElementById("finder-contact");
+  const nameInput = document.getElementById("contact-name");
+  const emailInput = document.getElementById("contact-email");
+  const phoneInput = document.getElementById("contact-phone");
+  const sendBtn = document.getElementById("contact-send");
 
   const today = todayISO();
   arriveInput.min = today;
@@ -210,31 +246,77 @@ function initFinder() {
     updateNights();
   });
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const arrive = arriveInput.value;
-    const depart = departInput.value;
+  function showError(message) {
+    errorEl.textContent = message;
+    errorEl.hidden = false;
+    receiptEl.hidden = true;
+  }
 
-    if (arrive && depart && depart <= arrive) {
-      errorEl.hidden = false;
-      errorEl.textContent = "Departure has to be at least one day after arrival.";
-      receiptEl.hidden = true;
+  function datesInvalid() {
+    return arriveInput.value && departInput.value && departInput.value <= arriveInput.value;
+  }
+
+  // Step 1: the search itself. The API can't do anything with a trip request
+  // it can't reply to, so this only asks for contact details next.
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (datesInvalid()) {
+      showError("Departure has to be at least one day after arrival.");
       return;
     }
     errorEl.hidden = true;
+    receiptEl.hidden = true;
+    askEl.hidden = false;
+    contactForm.hidden = false;
+    nameInput.focus();
+  });
 
-    const where = whereInput.value.trim() || "anywhere in India";
+  // Step 2: send the search plus contact details as one plan request.
+  contactForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (datesInvalid()) {
+      showError("Departure has to be at least one day after arrival.");
+      return;
+    }
+
+    const fullName = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const phone = phoneInput.value.trim();
+    if (!fullName) return showError("Tell us your name so your buddy knows who they're meeting.");
+    if (!email && !phone) return showError("Add an email or a phone number so we can send your plan.");
+    if (email && !isValidEmail(email)) return showError("That email doesn't look complete.");
+    if (phone && !isValidPhone(phone)) return showError("Enter a 10-digit Indian mobile number.");
+    errorEl.hidden = true;
+
+    const arrive = arriveInput.value;
+    const depart = departInput.value;
+    const where = whereInput.value.trim() || "anywhere in Varanasi";
     const who = whoInput.value;
     const n = countNights(arrive, depart);
     const dates = arrive && depart ? `${formatDay(arrive)} → ${formatDay(depart)} (${n} ${n === 1 ? "night" : "nights"})` : "dates flexible";
 
+    sendBtn.disabled = true;
     try {
-      const data = await api.post("/plan-requests", { where: whereInput.value, arrive, depart, who });
-      receiptEl.textContent = `Got it — ${where}, ${dates}, ${who}. Reference ${data.reference}. We'll match you with a buddy and email a draft plan within 24 hours.`;
-    } catch {
-      receiptEl.textContent = `Got it — ${where}, ${dates}, ${who}. We'll match you with a buddy and email a draft plan within 24 hours.`;
+      const data = await api.post("/plan-requests", {
+        where,
+        arrive,
+        depart,
+        who,
+        fullName,
+        email,
+        phone: phone.replace(/[\s-]/g, ""),
+        specialRequests: interest ? `Interested in: ${interest}` : "",
+      });
+      receiptEl.textContent = `Got it — ${where}, ${dates}, ${who}. Reference ${data.reference}. We'll match you with a buddy and send a draft plan to ${email || phone} within 24 hours.`;
+      receiptEl.hidden = false;
+      askEl.hidden = true;
+      contactForm.hidden = true;
+      contactForm.reset();
+    } catch (err) {
+      showError(err.message);
+    } finally {
+      sendBtn.disabled = false;
     }
-    receiptEl.hidden = false;
   });
 }
 

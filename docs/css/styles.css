@@ -88,6 +88,20 @@ h1, h2, h3, h4 {
 
 p { margin: 0; }
 
+/* Read by screen readers and search engines, not shown. Used for section
+   headings the visual design implies but doesn't print. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -161,10 +175,11 @@ p { margin: 0; }
   box-shadow: 0 4px 16px #f2921d66;
 }
 
-.btn--ghost { color: var(--ink); }
+.btn--ghost { color: var(--ink); background: transparent; }
 .btn--ghost:hover { background: #241f2e0d; }
 
 .btn--outline {
+  background: transparent;
   border-color: currentColor;
   color: inherit;
 }
@@ -369,6 +384,19 @@ p { margin: 0; }
   text-decoration: none;
 }
 
+.drawer__links button {
+  padding: 12px 2px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: none;
+  font-family: var(--display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+
 .drawer .btn {
   width: 100%;
   max-width: 420px;
@@ -506,6 +534,13 @@ p { margin: 0; }
 
 .finder__field:hover { background: #ffffff73; }
 
+/* The inputs inside drop their own outline (it would clip against the pill),
+   so the whole field shows focus instead. :focus-within rather than
+   :focus-visible, because date inputs never report :focus-visible. */
+.finder__field:focus-within {
+  box-shadow: 0 0 0 2px var(--marigold);
+}
+
 .finder__field > svg { grid-row: 1 / 3; color: var(--marigold); }
 
 .finder__label {
@@ -616,6 +651,26 @@ p { margin: 0; }
 }
 
 .finder__go:hover { background: var(--saffron); }
+.finder__go:disabled { opacity: 0.6; cursor: wait; }
+
+.finder[hidden], .finder__ask[hidden] { display: none; }
+
+/* Second step: contact details, shown after a search. */
+.finder--contact {
+  grid-template-columns: 1.1fr 1.1fr 0.95fr auto;
+  max-width: 880px;
+  margin-top: 10px;
+  animation: fade-up 0.3s var(--ease);
+}
+
+.finder__ask {
+  margin-top: 18px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #fffcf6;
+  text-shadow: 0 1px 6px #1c0e0499;
+  animation: fade-up 0.3s var(--ease);
+}
 
 .finder__nights {
   display: inline-flex;
@@ -866,7 +921,8 @@ p { margin: 0; }
 }
 
 .panel h2 { font-size: 1.4rem; }
-.panel h3 { font-size: 1.14rem; }
+.panel h3,
+.grid--reach .panel h2 { font-size: 1.14rem; }
 .panel p { margin-top: 9px; font-size: 0.885rem; line-height: 1.65; color: var(--muted); }
 
 .panel__link {
@@ -879,6 +935,36 @@ p { margin: 0; }
 }
 
 .panel__link:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* "At a glance" facts on experience pages. */
+/* Long-form text: privacy policy, terms, refunds. */
+.prose { max-width: 70ch; font-size: 0.96rem; line-height: 1.75; color: var(--ink); }
+.prose h2 { margin: 34px 0 10px; font-size: 1.35rem; }
+.prose p, .prose ul { margin: 0 0 14px; }
+.prose ul { padding-left: 1.2em; }
+.prose li { margin-bottom: 6px; }
+.prose a { color: var(--orange-deeper); text-underline-offset: 2px; }
+.prose__meta { font-size: 0.85rem; color: var(--muted); }
+.prose__draft {
+  padding: 12px 16px;
+  border: 1px solid #b4442f33;
+  border-radius: var(--radius-sm);
+  background: #b4442f0f;
+  color: var(--warn);
+  font-weight: 600;
+}
+.prose mark { background: #fbb04040; color: inherit; padding: 0 3px; border-radius: 3px; }
+
+.facts {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 10px 18px;
+  margin: 14px 0 22px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.facts dt { font-weight: 600; color: var(--ink); }
+.facts dd { margin: 0; color: var(--muted); }
 
 .ticks {
   display: flex;
@@ -929,6 +1015,8 @@ p { margin: 0; }
   border-color: var(--line);
   box-shadow: var(--shadow-md);
 }
+
+.plan__finder .finder__ask { color: var(--ink); text-shadow: none; }
 
 .plan__finder .finder__nights {
   background: var(--orange-soft);
@@ -1453,7 +1541,7 @@ p { margin: 0; }
 
 .foot__col { display: flex; flex-direction: column; gap: 10px; }
 
-.foot__col h4 {
+.foot__col h2 {
   margin-bottom: 4px;
   font-family: inherit;
   font-size: 0.72rem;
@@ -1479,7 +1567,7 @@ p { margin: 0; }
   padding-top: 20px;
 }
 
-.foot__credits h4 {
+.foot__credits h2 {
   margin-bottom: 8px;
   font-family: inherit;
   font-size: 0.68rem;
@@ -1489,6 +1577,7 @@ p { margin: 0; }
   color: var(--muted);
 }
 
+.foot__credits .foot__credits-title { margin-top: 14px; }
 .foot__credits p { font-size: 0.74rem; line-height: 1.75; color: #8b7a6b; }
 .foot__credits a { color: #8b7a6b; text-decoration: underline; text-underline-offset: 2px; }
 .foot__credits a:hover { color: var(--orange-deep); }
@@ -1666,7 +1755,7 @@ p { margin: 0; }
 @media (max-width: 1180px) {
   .nav__inner { gap: 18px; }
   .nav__links { gap: 20px; }
-  .nav__actions .btn--ghost { display: none; }
+  .nav__actions .btn--ghost:not(.nav__login) { display: none; }
 }
 
 @media (max-width: 980px) {

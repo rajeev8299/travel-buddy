@@ -5,8 +5,10 @@ import { db } from "../../db.js";
 import { heroSlideSrc } from "../../heroSlideSrc.js";
 import { uploadHeroImage, uploadsDir } from "../../uploads.js";
 import { asyncHandler } from "../../middleware/asyncHandler.js";
+import { validateBody, validateParam, NUMERIC_ID } from "../../middleware/validate.js";
 
 const router = Router();
+router.param("id", validateParam("id", NUMERIC_ID));
 
 function isValidPos(pos) {
   if (typeof pos !== "string") return false;
@@ -68,6 +70,7 @@ router.post(
 // "/:id" so Express doesn't try to parse "reorder" as a numeric id.
 router.put(
   "/reorder",
+  validateBody({ order: { type: "ids", maxItems: 200, label: "Order" } }),
   asyncHandler(async (req, res) => {
     const order = req.body?.order;
     if (!Array.isArray(order) || order.length === 0) {
@@ -98,11 +101,19 @@ router.put(
   "/:id",
   uploadHeroImage.single("image"),
   asyncHandler(async (req, res) => {
-    const existing = db.prepare("SELECT * FROM hero_slides WHERE id = ?").get(req.params.id);
-    if (!existing) return res.status(404).json({ message: "Slide not found." });
+    // Multer has already saved any new image by now, so every early return
+    // has to remove it or it's left orphaned in uploads/.
+    const discardUpload = () => req.file && deleteUploadedFile(req.file.filename);
 
-    const rawPos = req.body?.pos !== undefined ? req.body.pos.trim() : existing.pos;
+    const existing = db.prepare("SELECT * FROM hero_slides WHERE id = ?").get(req.params.id);
+    if (!existing) {
+      discardUpload();
+      return res.status(404).json({ message: "Slide not found." });
+    }
+
+    const rawPos = typeof req.body?.pos === "string" ? req.body.pos.trim() : existing.pos;
     if (!isValidPos(rawPos)) {
+      discardUpload();
       return res.status(400).json({ message: "Invalid focal position format. Example: 'center 50%'" });
     }
     const pos = rawPos;

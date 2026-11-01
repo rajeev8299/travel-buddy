@@ -85,7 +85,7 @@ function validate(mode, v) {
 export default function AuthForm({ mode }) {
   const copy = AUTH[mode];
   const isSignup = mode === "signup";
-  const { signIn, signUp, user } = useAuth();
+  const { signIn, signUp, signOut, user } = useAuth();
   const [v, setV] = useState(isSignup ? SIGNUP_EMPTY : LOGIN_EMPTY);
   const [errors, setErrors] = useState({});
   const [serverError, setServerError] = useState("");
@@ -115,8 +115,8 @@ export default function AuthForm({ mode }) {
         </span>
         <h2>You're already signed in, {user.name}.</h2>
         <p>
-          Use the menu in the top right to switch accounts, or jump straight into
-          planning your trip.
+          Jump straight into planning your trip, or log out to use a different
+          account.
         </p>
         <div className="form__done-actions">
           <button
@@ -125,6 +125,9 @@ export default function AuthForm({ mode }) {
             onClick={() => navigate("/plan")}
           >
             Plan my trip
+          </button>
+          <button type="button" className="btn btn--outline" onClick={signOut}>
+            Log out
           </button>
         </div>
       </div>

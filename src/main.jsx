@@ -13,6 +13,7 @@ import Login from "./pages/Login.jsx";
 import Signup from "./pages/Signup.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import { AuthProvider } from "./auth/authContext.jsx";
+import { RouteTitle } from "./useRouteTitle.js";
 import AdminLogin from "./admin/AdminLogin.jsx";
 import AdminLayout from "./admin/AdminLayout.jsx";
 import Dashboard from "./admin/pages/Dashboard.jsx";
@@ -31,6 +32,7 @@ import "./index.css";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <HashRouter>
+      <RouteTitle />
       <AuthProvider>
         <Routes>
           <Route path="/admin/login" element={<AdminLogin />} />

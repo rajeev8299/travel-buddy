@@ -1,8 +1,10 @@
 import { Router } from "express";
 import { db } from "../../db.js";
 import { asyncHandler } from "../../middleware/asyncHandler.js";
+import { validateBody, validateParam, text, REFERENCE_ID } from "../../middleware/validate.js";
 
 const router = Router();
+router.param("id", validateParam("id", REFERENCE_ID));
 const STATUSES = ["pending", "approved", "rejected"];
 
 function parseListRow(row) {
@@ -53,6 +55,7 @@ router.get("/:id", (req, res) => {
 
 router.patch(
   "/:id",
+  validateBody({ status: text(20, "Status") }),
   asyncHandler(async (req, res) => {
     const { status } = req.body || {};
     if (!STATUSES.includes(status)) {

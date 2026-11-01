@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { requireAdmin } from "../../middleware/requireAdmin.js";
+import { requireAdmin } from "../../middleware/auth.js";
 import statsRoutes from "./stats.js";
 import usersRoutes from "./users.js";
 import buddyApplicationsRoutes from "./buddyApplications.js";

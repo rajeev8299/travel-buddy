@@ -1,12 +1,12 @@
 const STATIC_BUDDIES = [
-  { name: "Ananya R.", city: "Varanasi", years: 6, rating: 4.9, tongue: "Hindi, English, Bhojpuri", hue: "#8E5AA8" },
-  { name: "Tenzin D.", city: "Leh", years: 9, rating: 5.0, tongue: "Ladakhi, Hindi, English", hue: "#3A6BB0" },
-  { name: "Maria F.", city: "South Goa", years: 4, rating: 4.8, tongue: "Konkani, English, Portuguese", hue: "#D2734A" },
-  { name: "Ibalari S.", city: "Shillong", years: 5, rating: 4.9, tongue: "Khasi, English, Hindi", hue: "#2A8478" },
-  { name: "Devendra P.", city: "Jaipur", years: 7, rating: 4.9, tongue: "Hindi, Rajasthani, English", hue: "#C25E3A" },
-  { name: "Nithya S.", city: "Alleppey", years: 5, rating: 4.8, tongue: "Malayalam, Tamil, English", hue: "#2F8FA8" },
-  { name: "Karma W.", city: "Spiti", years: 8, rating: 5.0, tongue: "Bhoti, Hindi, English", hue: "#5B6BB0" },
-  { name: "Farhan A.", city: "Srinagar", years: 6, rating: 4.9, tongue: "Kashmiri, Urdu, English", hue: "#7A5AA8" },
+  { name: "Ananya R.", city: "Assi Ghat", years: 6, rating: 4.9, tongue: "Hindi, English, Bhojpuri", hue: "#8E5AA8" },
+  { name: "Vikas M.", city: "Dashashwamedh", years: 9, rating: 5.0, tongue: "Hindi, Bhojpuri, English", hue: "#3A6BB0" },
+  { name: "Shabana K.", city: "Madanpura", years: 5, rating: 4.9, tongue: "Urdu, Hindi, English", hue: "#D2734A" },
+  { name: "Tenzin L.", city: "Sarnath", years: 7, rating: 4.9, tongue: "Tibetan, Hindi, English", hue: "#2A8478" },
+  { name: "Rohit P.", city: "Godowlia", years: 4, rating: 4.8, tongue: "Hindi, Bengali, English", hue: "#C25E3A" },
+  { name: "Meera S.", city: "Shivala Ghat", years: 5, rating: 4.8, tongue: "Hindi, English, French", hue: "#2F8FA8" },
+  { name: "Ajay N.", city: "Manikarnika", years: 8, rating: 5.0, tongue: "Hindi, Bhojpuri, English", hue: "#5B6BB0" },
+  { name: "Lakshmi V.", city: "Kedar Ghat", years: 6, rating: 4.9, tongue: "Tamil, Hindi, English", hue: "#7A5AA8" },
 ];
 
 const ICON_MAPPIN_SM = `<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>`;
@@ -16,13 +16,13 @@ function buddyCardMarkup(b, i) {
   const initials = b.name.split(" ").map((w) => w[0]).join("");
   return `
     <article class="buddy" data-reveal style="--delay:${i * 70}ms">
-      <span class="buddy__avatar" style="background:${b.hue}" aria-hidden="true">${initials}</span>
-      <h3>${b.name}</h3>
-      <p class="buddy__city">${ICON_MAPPIN_SM} ${b.city}</p>
-      <p class="buddy__tongue">${b.tongue}</p>
+      <span class="buddy__avatar" style="background:${escapeHtml(b.hue)}" aria-hidden="true">${escapeHtml(initials)}</span>
+      <h3>${escapeHtml(b.name)}</h3>
+      <p class="buddy__city">${ICON_MAPPIN_SM} ${escapeHtml(b.city)}</p>
+      <p class="buddy__tongue">${escapeHtml(b.tongue)}</p>
       <p class="buddy__meta">
         <span class="buddy__rating">${ICON_STAR}${Number(b.rating).toFixed(1)}</span>
-        <span>${b.years} yrs guiding</span>
+        <span>${escapeHtml(b.years)} yrs guiding</span>
       </p>
     </article>`;
 }

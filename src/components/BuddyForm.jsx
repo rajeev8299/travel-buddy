@@ -10,8 +10,8 @@ const LANGUAGES = [
 ];
 
 const SPECIALITIES = [
-  "Heritage & history", "Food & markets", "Trekking & outdoors",
-  "Spiritual & ritual", "Photography walks", "Wildlife & nature",
+  "Heritage & history", "Food & markets", "Boats & the river",
+  "Spiritual & ritual", "Photography walks", "Yoga & wellbeing",
   "Craft & textiles", "Music & nightlife",
 ];
 
@@ -19,7 +19,7 @@ const GROUP_SIZES = ["Solo travellers", "Couples", "3–5 people", "6+ people"];
 
 const EMPTY = {
   fullName: "", dob: "", gender: "", email: "", phone: "", whatsapp: "",
-  city: "", state: "", yearsInCity: "", areas: "",
+  city: "", state: "Uttar Pradesh", yearsInCity: "", areas: "",
   languages: [], otherLanguage: "",
   guidingYears: "", specialities: [], occupation: "",
   daysPerWeek: "", groupSizes: [], noticeDays: "", vehicle: "", firstAid: false,
@@ -63,7 +63,7 @@ function validate(v) {
   if (v.whatsapp.trim() && !phone(v.whatsapp))
     e.whatsapp = "Enter a 10-digit number, or leave it blank.";
 
-  if (!v.city.trim()) e.city = "Which town would you be guiding in?";
+  if (!v.city.trim()) e.city = "Which part of Varanasi do you know best?";
   if (!v.state.trim()) e.state = "State is required.";
   if (v.yearsInCity === "") e.yearsInCity = "Roughly how long have you lived there?";
   else if (Number(v.yearsInCity) < 0) e.yearsInCity = "That can't be negative.";
@@ -219,8 +219,8 @@ export default function BuddyForm() {
         <p>
           Your reference is <strong>{done.ref}</strong>. We've noted{" "}
           <strong>{done.email}</strong> and someone from the buddy team will reply within
-          three working days. If your town is one we're actively hiring in, expect a video
-          call invite in the same email.
+          three working days. If we're actively hiring in your part of Varanasi, expect a
+          video call invite in the same email.
         </p>
         <button
           type="button"
@@ -349,14 +349,14 @@ export default function BuddyForm() {
         </legend>
 
         <div className="form__grid">
-          <Field id="city" label="Town or city *" error={errors.city}>
+          <Field id="city" label="Area of Varanasi you know best *" error={errors.city}>
             <input
               id="city"
               type="text"
               list="city-options"
               value={v.city}
               onChange={set("city")}
-              placeholder="Varanasi, Shillong…"
+              placeholder="Assi Ghat, Godowlia, Sarnath…"
               aria-invalid={!!errors.city}
             />
             <datalist id="city-options">

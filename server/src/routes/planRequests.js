@@ -1,7 +1,9 @@
 import { Router } from "express";
 import { db } from "../db.js";
-import { makeReferenceCode } from "../auth.js";
+import { insertWithReference } from "../reference.js";
+import { notifyNewEnquiry } from "../notify.js";
 import { asyncHandler } from "../middleware/asyncHandler.js";
+import { validateBody, text, EMAIL, PHONE, NAME } from "../middleware/validate.js";
 
 const router = Router();
 
@@ -16,6 +18,20 @@ function countNights(arrive, depart) {
 
 router.post(
   "/",
+  validateBody({
+    where: text(120, "Destination"),
+    arrive: { type: "date", label: "Arrival" },
+    depart: { type: "date", label: "Departure" },
+    who: text(40, "Travellers"),
+    fullName: NAME,
+    email: EMAIL,
+    phone: PHONE,
+    style: text(300, "Travel style"),
+    pace: text(40, "Pace"),
+    specialRequests: text(2000, "Special requests"),
+    notes: text(2000, "Notes"),
+    buddyName: text(120, "Buddy name"),
+  }),
   asyncHandler(async (req, res) => {
     const body = req.body || {};
     const where = (body.where || "").trim() || "Varanasi";
@@ -40,33 +56,37 @@ router.post(
     }
 
     const nights = countNights(arrive, depart);
-    const id = makeReferenceCode();
 
     const style = (body.style || "").trim();
     const pace = (body.pace || "").trim();
     const specialRequests = (body.specialRequests || body.notes || "").trim();
     const buddyName = (body.buddyName || "").trim();
 
-    db.prepare(
+    const insert = db.prepare(
       `INSERT INTO plan_requests (
         id, where_to, arrive, depart, nights, who,
         full_name, email, phone, style, pace, special_requests, buddy_name, status
       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'pending')`,
-    ).run(
-      id,
-      where,
-      arrive,
-      depart,
-      nights,
-      who,
-      fullName || null,
-      email || null,
-      phone || null,
-      style || null,
-      pace || null,
-      specialRequests || null,
-      buddyName || null,
     );
+    const id = insertWithReference((ref) =>
+      insert.run(
+        ref,
+        where,
+        arrive,
+        depart,
+        nights,
+        who,
+        fullName || null,
+        email || null,
+        phone || null,
+        style || null,
+        pace || null,
+        specialRequests || null,
+        buddyName || null,
+      ),
+    );
+
+    notifyNewEnquiry("trip request", { reference: id, where, arrive, depart, who, fullName, email, phone, specialRequests });
 
     res.status(201).json({
       reference: id,
@@ -81,30 +101,6 @@ router.post(
       buddyName,
       status: "pending",
     });
-  }),
-);
-
-router.get(
-  "/:reference",
-  asyncHandler(async (req, res) => {
-    const reference = (req.params.reference || "").trim();
-    if (!reference) return res.status(400).json({ message: "Reference is required." });
-
-    const row = db
-      .prepare(
-        `SELECT id, where_to AS whereTo, arrive, depart, nights, who,
-                full_name AS fullName, email, phone, style, pace,
-                special_requests AS specialRequests, buddy_name AS buddyName,
-                status, created_at AS createdAt
-         FROM plan_requests WHERE id = ?`,
-      )
-      .get(reference);
-
-    if (!row) {
-      return res.status(404).json({ message: "Trip request not found." });
-    }
-
-    res.json({ request: row });
   }),
 );
 

@@ -1,0 +1,9 @@
+# Crawlers only read robots.txt at the root of a host, so this takes effect
+# once the site is on its own domain (see DEPLOY.md). Until then, submit the
+# sitemap below in Google Search Console / Bing Webmaster Tools.
+User-agent: *
+Allow: /
+# The React admin panel (served at /admin/ in the Docker setup).
+Disallow: /admin/
+
+Sitemap: https://rajeev8299.github.io/travel-buddy/sitemap.xml

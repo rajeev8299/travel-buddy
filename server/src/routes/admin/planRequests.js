@@ -1,7 +1,9 @@
 import { Router } from "express";
 import { db } from "../../db.js";
+import { validateBody, validateParam, text, REFERENCE_ID } from "../../middleware/validate.js";
 
 const router = Router();
+router.param("id", validateParam("id", REFERENCE_ID));
 
 router.get("/", (req, res) => {
   const rows = db
@@ -15,7 +17,7 @@ router.get("/", (req, res) => {
   res.json({ planRequests: rows });
 });
 
-router.patch("/:id/status", (req, res) => {
+router.patch("/:id/status", validateBody({ status: text(20, "Status") }), (req, res) => {
   const { status } = req.body || {};
   if (!["pending", "confirmed", "contacted", "completed", "cancelled"].includes(status)) {
     return res.status(400).json({ message: "Invalid status value." });

@@ -1,6 +1,6 @@
 // TravelOnBuddy Service Worker
 // Cache version: bump when updating core shell assets
-const CACHE_NAME = "tob-cache-v1";
+const CACHE_NAME = "tob-cache-v2";
 
 // Static app shell resources to pre-cache on install
 const PRECACHE_ASSETS = [

@@ -55,7 +55,10 @@ export default function BuddiesAdmin() {
     }
   };
 
-  const remove = async (id) => {
+  // Deletes are permanent and hit the public site straight away, so confirm
+  // first — same as hero slides.
+  const remove = async (id, message) => {
+    if (!window.confirm(message)) return;
     try {
       await api.del(`/admin/buddies/${id}`);
       setBuddies((list) => list.filter((b) => b.id !== id));
@@ -132,7 +135,7 @@ export default function BuddiesAdmin() {
                     <button
                       type="button"
                       className="btn btn--ghost btn--sm admin-reject"
-                      onClick={() => remove(b.id)}
+                      onClick={() => remove(b.id, `Delete buddy ${b.name}? This removes them from the public site and can't be undone.`)}
                       aria-label="Delete"
                     >
                       <Trash2 size={15} strokeWidth={2.2} />

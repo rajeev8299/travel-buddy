@@ -1,8 +1,8 @@
 const STATIC_STORIES = [
   {
-    quote: "We had three days in Jaipur and no plan. Our buddy took one look at us, cancelled the fort tour and walked us through the old city instead. Best decision of the trip.",
+    quote: "We had three days and no plan. Our buddy took one look at us, skipped the crowded evening boat and walked us down to Assi at dawn instead. Best decision of the trip.",
     name: "Devika & Arun M.",
-    trip: "Jaipur, 3 days",
+    trip: "Varanasi, 3 days",
   },
   {
     quote: "I'm a solo woman traveller and I'd been nervous about Varanasi. Ananya met me at the station at 11pm and I never once felt unsafe. That is worth every rupee.",
@@ -10,14 +10,14 @@ const STATIC_STORIES = [
     trip: "Varanasi, 4 days",
   },
   {
-    quote: "Tenzin noticed my altitude headache before I did, rerouted the whole day and got me to a lower village. Then we still made it to Pangong the next morning.",
+    quote: "Vikas noticed I was wilting in the afternoon heat, swapped the temple queue for a shaded silk workshop in Madanpura, and still got us to Dashashwamedh in time for the Aarti.",
     name: "Rahul K.",
-    trip: "Leh–Ladakh, 7 days",
+    trip: "Varanasi & Sarnath, 5 days",
   },
   {
-    quote: "My parents are in their seventies. I expected to spend the week worrying. Instead our buddy found the one boat with a proper handrail and we all just enjoyed ourselves.",
+    quote: "My parents are in their seventies. I expected to spend the week worrying about the ghat steps. Instead our buddy found the gentlest way down and a boat with a proper handrail.",
     name: "Priya N.",
-    trip: "Alleppey, 5 days",
+    trip: "Varanasi, 5 days",
   },
 ];
 
@@ -36,8 +36,8 @@ function renderCarousel() {
   wrap.innerHTML = `
     ${ICON_QUOTE_BIG}
     <blockquote class="stories__quote">
-      <p>${s.quote}</p>
-      <footer><strong>${s.name}</strong><span>${s.trip}</span></footer>
+      <p>${escapeHtml(s.quote)}</p>
+      <footer><strong>${escapeHtml(s.name)}</strong><span>${escapeHtml(s.trip)}</span></footer>
     </blockquote>
     <div class="stories__nav">
       <button type="button" id="story-prev" aria-label="Previous story">${ICON_CHEVRON_LEFT}</button>
@@ -75,8 +75,8 @@ function renderAllStories() {
       (s, i) => `
       <article class="feature" data-reveal style="--delay:${i * 70}ms">
         <span class="feature__icon">${ICON_QUOTE_SM}</span>
-        <p>${s.quote}</p>
-        <p class="story__by"><strong>${s.name}</strong> · ${s.trip}</p>
+        <p>${escapeHtml(s.quote)}</p>
+        <p class="story__by"><strong>${escapeHtml(s.name)}</strong> · ${escapeHtml(s.trip)}</p>
       </article>`,
     )
     .join("");

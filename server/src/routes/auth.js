@@ -2,13 +2,19 @@ import { Router } from "express";
 import crypto from "node:crypto";
 import bcrypt from "bcryptjs";
 import { db } from "../db.js";
-import { signToken, setSessionCookie, clearSessionCookie, getUserIdFromRequest } from "../auth.js";
+import { startSession, clearSessionCookie, getSessionUser, revokeSessions } from "../auth.js";
+import { loadUser, requireAuth } from "../middleware/auth.js";
+import { validateBody, text, EMAIL, PHONE, NAME, PASSWORD } from "../middleware/validate.js";
 import { asyncHandler } from "../middleware/asyncHandler.js";
 
 const router = Router();
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const PHONE_RE = /^[6-9]\d{9}$/;
+
+// Compared against when the email is unknown, so a login for a missing
+// account takes as long as one with a wrong password.
+const DUMMY_HASH = bcrypt.hashSync(crypto.randomUUID(), 10);
 
 function toPublicUser(row) {
   if (!row) return null;
@@ -26,6 +32,15 @@ function toPublicUser(row) {
 
 router.post(
   "/signup",
+  validateBody({
+    fullName: NAME,
+    email: EMAIL,
+    password: PASSWORD,
+    phone: PHONE,
+    role: { type: "string", max: 10, enum: ["user", "client"], label: "Role" },
+    city: text(120, "City"),
+    company: text(120, "Company"),
+  }),
   asyncHandler(async (req, res) => {
     const body = req.body || {};
     const fullName = (body.fullName || "").trim();
@@ -54,13 +69,14 @@ router.post(
     ).run(id, fullName, email, passwordHash, phone, role, city || null, company || null);
 
     const row = db.prepare("SELECT * FROM users WHERE id = ?").get(id);
-    setSessionCookie(res, signToken(id));
+    startSession(res, row);
     res.status(201).json({ user: toPublicUser(row) });
   }),
 );
 
 router.post(
   "/login",
+  validateBody({ email: EMAIL, password: PASSWORD }),
   asyncHandler(async (req, res) => {
     const body = req.body || {};
     const email = (body.email || "").trim().toLowerCase();
@@ -69,87 +85,70 @@ router.post(
     if (!email || !password) return res.status(400).json({ message: "Email and password are required." });
 
     const row = db.prepare("SELECT * FROM users WHERE email = ?").get(email);
-    const ok = row ? await bcrypt.compare(password, row.password_hash) : false;
-    if (!ok) return res.status(401).json({ message: "That email and password don't match." });
+    const ok = await bcrypt.compare(password, row?.password_hash ?? DUMMY_HASH);
+    if (!row || !ok) return res.status(401).json({ message: "That email and password don't match." });
 
-    setSessionCookie(res, signToken(row.id));
+    startSession(res, row);
     res.json({ user: toPublicUser(row) });
   }),
 );
 
-router.post("/logout", (req, res) => {
+// Logging out ends the session on every device, so a copied cookie can't
+// outlive it.
+router.post("/logout", loadUser, (req, res) => {
+  if (req.user) revokeSessions(req.user.id);
   clearSessionCookie(res);
   res.json({ ok: true });
 });
 
+// Needs a signed-in session as well as the current password: the account is
+// the one in the session, never an email from the request body.
 router.post(
   "/change-password",
+  requireAuth,
+  validateBody({ currentPassword: PASSWORD, newPassword: PASSWORD }),
   asyncHandler(async (req, res) => {
     const body = req.body || {};
-    const email = (body.email || "").trim().toLowerCase();
     const currentPassword = body.currentPassword || "";
     const newPassword = body.newPassword || "";
 
-    if (!email || !currentPassword || !newPassword) {
+    if (!currentPassword || !newPassword) {
       return res.status(400).json({ message: "All fields are required." });
     }
     if (newPassword.length < 8) {
       return res.status(400).json({ message: "New password must be at least 8 characters long." });
     }
 
-    const row = db.prepare("SELECT * FROM users WHERE email = ?").get(email);
-    const ok = row ? await bcrypt.compare(currentPassword, row.password_hash) : false;
-    if (!ok) {
+    const row = req.user;
+    if (!(await bcrypt.compare(currentPassword, row.password_hash))) {
       return res.status(401).json({ message: "Current password does not match." });
     }
 
     const newHash = await bcrypt.hash(newPassword, 10);
     db.prepare("UPDATE users SET password_hash = ? WHERE id = ?").run(newHash, row.id);
+    revokeSessions(row.id);
+    clearSessionCookie(res);
 
-    res.json({ ok: true, message: "Password updated successfully. You can now log in with your new password." });
+    res.json({ ok: true, message: "Password updated. Sign in with your new password." });
   }),
 );
 
-router.post(
-  "/forgot-password",
-  asyncHandler(async (req, res) => {
-    const body = req.body || {};
-    const email = (body.email || "").trim().toLowerCase();
+// There's no email channel to send a reset link through yet, so this only
+// points people at the operator — and answers the same way whether or not
+// the address has an account, so it can't be used to find accounts.
+router.post("/forgot-password", validateBody({ email: EMAIL }), (req, res) => {
+  const email = (req.body.email || "").trim();
+  if (!email) return res.status(400).json({ message: "Email is required." });
 
-    if (!email) {
-      return res.status(400).json({ message: "Email is required." });
-    }
+  res.json({
+    ok: true,
+    message:
+      "If that address has an account, the site operator can reset its password. Contact your TravelOnBuddy administrator.",
+  });
+});
 
-    const row = db.prepare("SELECT id, email, role FROM users WHERE email = ?").get(email);
-    if (!row) {
-      return res.status(404).json({ message: "No account found with this email address." });
-    }
-
-    // In local development / offline environment:
-    // Inform the user how to reset via admin configuration or development credentials
-    const adminEmail = (process.env.ADMIN_EMAIL || "admin@example.com").toLowerCase();
-    const isConfiguredAdmin = row.email === adminEmail;
-
-    res.json({
-      ok: true,
-      email: row.email,
-      role: row.role,
-      message: isConfiguredAdmin
-        ? "Admin account verified! Your password can be directly reset in server/.env via ADMIN_PASSWORD, or contact system administration."
-        : "Account found! For security, password recovery instructions have been logged for this administrator account.",
-    });
-  }),
-);
-
-router.get(
-  "/me",
-  asyncHandler(async (req, res) => {
-    const userId = getUserIdFromRequest(req);
-    if (!userId) return res.json({ user: null });
-
-    const row = db.prepare("SELECT * FROM users WHERE id = ?").get(userId);
-    res.json({ user: toPublicUser(row) });
-  }),
-);
+router.get("/me", (req, res) => {
+  res.json({ user: toPublicUser(getSessionUser(req)) });
+});
 
 export default router;

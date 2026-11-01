@@ -1,18 +1,18 @@
 // Full-bleed rotating hero backdrop on the homepage. Fetches the live list
-// from /api/hero-slides; falls back to the 12 photos shipped in img/ if the
-// API isn't reachable (e.g. this page was opened straight off disk).
+// from /api/hero-slides; falls back to the same 12 Varanasi photos the API
+// seeds if the API isn't reachable (e.g. this page was opened off disk).
 
 const STATIC_HERO_SLIDES = [
   { src: "img/boats.jpg", pos: "center 46%" },
-  { src: "img/jaipur.jpg", pos: "center 52%" },
+  { src: "img/dev_diwali.jpg", pos: "center 50%" },
   { src: "img/market.jpg", pos: "center 55%" },
-  { src: "img/ladakh.jpg", pos: "center 50%" },
+  { src: "img/ganga_sunrise.jpg", pos: "center 48%" },
   { src: "img/mural.jpg", pos: "center 55%" },
-  { src: "img/meghalaya.jpg", pos: "center 50%" },
+  { src: "img/ghats_dawn.jpg", pos: "center 50%" },
   { src: "img/harbour.jpg", pos: "center 55%" },
-  { src: "img/alleppey.jpg", pos: "center 52%" },
+  { src: "img/kashi_vishwanath.jpg", pos: "center 52%" },
   { src: "img/monks.jpg", pos: "center 60%" },
-  { src: "img/goa.jpg", pos: "center 55%" },
+  { src: "img/banaras_ghats_steps.jpg", pos: "center 55%" },
   { src: "img/riverfront.jpg", pos: "center 48%" },
   { src: "img/stupa.jpg", pos: "center 45%" },
 ];
@@ -24,7 +24,7 @@ function renderHeroSlides(slides) {
   bg.innerHTML = slides
     .map(
       (s, i) =>
-        `<img class="hero__slide${i === 0 ? " is-on" : ""}" src="${s.src}" alt="" style="object-position:${s.pos}"
+        `<img class="hero__slide${i === 0 ? " is-on" : ""}" ${photoAttrs(s.src)} alt="" style="object-position:${escapeHtml(s.pos)}"
           fetchpriority="${i === 0 ? "high" : "low"}" loading="${i === 0 ? "eager" : "lazy"}" decoding="async" data-index="${i}">`,
     )
     .join("");

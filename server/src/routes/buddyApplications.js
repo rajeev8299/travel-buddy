@@ -1,7 +1,9 @@
 import { Router } from "express";
 import { db } from "../db.js";
-import { makeReferenceCode } from "../auth.js";
+import { insertWithReference } from "../reference.js";
+import { notifyNewEnquiry } from "../notify.js";
 import { asyncHandler } from "../middleware/asyncHandler.js";
+import { validateBody, text, EMAIL, PHONE, NAME } from "../middleware/validate.js";
 
 const router = Router();
 
@@ -44,13 +46,43 @@ function validate(v) {
 
 router.post(
   "/",
+  validateBody({
+    fullName: NAME,
+    dob: { type: "date", label: "Date of birth" },
+    gender: text(40, "Gender"),
+    email: EMAIL,
+    phone: PHONE,
+    whatsapp: PHONE,
+    city: text(120, "City"),
+    state: text(120, "State"),
+    yearsInCity: { type: "numeric", label: "Years in city" },
+    areas: text(1000, "Areas"),
+    languages: { type: "strings", max: 40, maxItems: 20, label: "Languages" },
+    otherLanguage: text(120, "Other language"),
+    guidingYears: text(40, "Guiding experience"),
+    specialities: { type: "strings", max: 60, maxItems: 20, label: "Specialities" },
+    occupation: text(120, "Occupation"),
+    daysPerWeek: text(40, "Days per week"),
+    groupSizes: { type: "strings", max: 40, maxItems: 10, label: "Group sizes" },
+    noticeDays: text(40, "Notice"),
+    vehicle: text(40, "Vehicle"),
+    firstAid: { type: "boolean", label: "First aid" },
+    idType: text(40, "ID type"),
+    idNumber: text(40, "ID number"),
+    ref1Name: NAME,
+    ref1Phone: PHONE,
+    ref2Name: NAME,
+    ref2Phone: PHONE,
+    whyJoin: text(2000, "Why you want to join"),
+    showThem: text(2000, "What you'd show them"),
+    consent: { type: "boolean", label: "Consent" },
+  }),
   asyncHandler(async (req, res) => {
     const v = req.body || {};
     const error = validate(v);
     if (error) return res.status(400).json({ message: error });
 
-    const id = makeReferenceCode();
-    db.prepare(
+    const insert = db.prepare(
       `INSERT INTO buddy_applications (
         id, full_name, dob, gender, email, phone, whatsapp,
         city, state, years_in_city, areas,
@@ -61,37 +93,48 @@ router.post(
         ref1_name, ref1_phone, ref2_name, ref2_phone,
         why_join, show_them
       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-    ).run(
-      id,
-      v.fullName.trim(),
-      v.dob,
-      v.gender || null,
-      v.email.trim().toLowerCase(),
-      v.phone.trim(),
-      v.whatsapp?.trim() || null,
-      v.city.trim(),
-      v.state.trim(),
-      Number(v.yearsInCity),
-      v.areas?.trim() || null,
-      JSON.stringify(v.languages || []),
-      v.otherLanguage?.trim() || null,
-      v.guidingYears,
-      JSON.stringify(v.specialities || []),
-      v.occupation?.trim() || null,
-      v.daysPerWeek,
-      JSON.stringify(v.groupSizes || []),
-      v.noticeDays || null,
-      v.vehicle || null,
-      v.firstAid ? 1 : 0,
-      v.idType,
-      v.idNumber.trim(),
-      v.ref1Name.trim(),
-      v.ref1Phone.trim(),
-      v.ref2Name?.trim() || null,
-      v.ref2Phone?.trim() || null,
-      v.whyJoin.trim(),
-      v.showThem.trim(),
     );
+    const id = insertWithReference((ref) =>
+      insert.run(
+        ref,
+        v.fullName.trim(),
+        v.dob,
+        v.gender || null,
+        v.email.trim().toLowerCase(),
+        v.phone.trim(),
+        v.whatsapp?.trim() || null,
+        v.city.trim(),
+        v.state.trim(),
+        Number(v.yearsInCity),
+        v.areas?.trim() || null,
+        JSON.stringify(v.languages || []),
+        v.otherLanguage?.trim() || null,
+        v.guidingYears,
+        JSON.stringify(v.specialities || []),
+        v.occupation?.trim() || null,
+        v.daysPerWeek,
+        JSON.stringify(v.groupSizes || []),
+        v.noticeDays || null,
+        v.vehicle || null,
+        v.firstAid ? 1 : 0,
+        v.idType,
+        v.idNumber.trim(),
+        v.ref1Name.trim(),
+        v.ref1Phone.trim(),
+        v.ref2Name?.trim() || null,
+        v.ref2Phone?.trim() || null,
+        v.whyJoin.trim(),
+        v.showThem.trim(),
+      ),
+    );
+
+    notifyNewEnquiry("buddy application", {
+      reference: id,
+      fullName: v.fullName.trim(),
+      email: v.email.trim().toLowerCase(),
+      phone: v.phone.trim(),
+      where: v.city.trim(),
+    });
 
     res.status(201).json({
       reference: id,

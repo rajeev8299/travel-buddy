@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "node --watch src/index.js",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "reset-password": "node scripts/reset-password.js"
   },
   "dependencies": {
     "bcryptjs": "^3.0.2",
@@ -16,6 +17,7 @@
     "express-rate-limit": "^8.7.2",
     "helmet": "^8.3.0",
     "jsonwebtoken": "^9.0.2",
-    "multer": "^2.2.0"
+    "multer": "^2.2.0",
+    "nodemailer": "^10.3.1"
   }
 }

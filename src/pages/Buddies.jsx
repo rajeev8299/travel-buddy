@@ -26,7 +26,7 @@ export default function Buddies() {
       <PageHeader
         eyebrow="Your buddies"
         title="The people you'd actually be travelling with"
-        intro="180+ buddies across 42 towns, all ID-verified and reference-checked. You meet yours on a video call before anything is booked."
+        intro="Locals from the ghats, the old city and Sarnath, all ID-verified and reference-checked. You meet yours on a video call before anything is booked."
         image={asset("img/varanasi.jpg")}
         pos="center 45%"
       />
@@ -43,14 +43,14 @@ export default function Buddies() {
 
       <section className="section section--tint">
         <div className="shell promise" data-reveal>
-          <h2>Not seeing your town?</h2>
+          <h2>Looking for a particular side of Banaras?</h2>
           <p>
-            This is a sample. We have buddies in 42 towns and cities, and we add people faster than
-            we update this page. Tell us where you're headed and we'll check.
+            This is a sample. Tell us what you want to see (the silk weavers, the morning ghats, a
+            quiet day in Sarnath) and we'll match you with the buddy who knows it best.
           </p>
           <div className="cta__actions">
             <Link className="btn btn--solid btn--lg" to="/plan">
-              Ask about a town
+              Tell us what you'd like to see
             </Link>
             <Link className="btn btn--outline btn--lg" to="/become-a-buddy">
               Become a buddy

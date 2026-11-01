@@ -3,14 +3,14 @@
 // once the app has real signups, drive these tables from actual data instead.
 
 export const BUDDIES = [
-  { name: "Ananya R.", city: "Varanasi", years: 6, rating: 4.9, tongue: "Hindi, English, Bhojpuri", hue: "#8E5AA8" },
-  { name: "Tenzin D.", city: "Leh", years: 9, rating: 5.0, tongue: "Ladakhi, Hindi, English", hue: "#3A6BB0" },
-  { name: "Maria F.", city: "South Goa", years: 4, rating: 4.8, tongue: "Konkani, English, Portuguese", hue: "#D2734A" },
-  { name: "Ibalari S.", city: "Shillong", years: 5, rating: 4.9, tongue: "Khasi, English, Hindi", hue: "#2A8478" },
-  { name: "Devendra P.", city: "Jaipur", years: 7, rating: 4.9, tongue: "Hindi, Rajasthani, English", hue: "#C25E3A" },
-  { name: "Nithya S.", city: "Alleppey", years: 5, rating: 4.8, tongue: "Malayalam, Tamil, English", hue: "#2F8FA8" },
-  { name: "Karma W.", city: "Spiti", years: 8, rating: 5.0, tongue: "Bhoti, Hindi, English", hue: "#5B6BB0" },
-  { name: "Farhan A.", city: "Srinagar", years: 6, rating: 4.9, tongue: "Kashmiri, Urdu, English", hue: "#7A5AA8" },
+  { name: "Ananya R.", city: "Assi Ghat", years: 6, rating: 4.9, tongue: "Hindi, English, Bhojpuri", hue: "#8E5AA8" },
+  { name: "Vikas M.", city: "Dashashwamedh", years: 9, rating: 5.0, tongue: "Hindi, Bhojpuri, English", hue: "#3A6BB0" },
+  { name: "Shabana K.", city: "Madanpura", years: 5, rating: 4.9, tongue: "Urdu, Hindi, English", hue: "#D2734A" },
+  { name: "Tenzin L.", city: "Sarnath", years: 7, rating: 4.9, tongue: "Tibetan, Hindi, English", hue: "#2A8478" },
+  { name: "Rohit P.", city: "Godowlia", years: 4, rating: 4.8, tongue: "Hindi, Bengali, English", hue: "#C25E3A" },
+  { name: "Meera S.", city: "Shivala Ghat", years: 5, rating: 4.8, tongue: "Hindi, English, French", hue: "#2F8FA8" },
+  { name: "Ajay N.", city: "Manikarnika", years: 8, rating: 5.0, tongue: "Hindi, Bhojpuri, English", hue: "#5B6BB0" },
+  { name: "Lakshmi V.", city: "Kedar Ghat", years: 6, rating: 4.9, tongue: "Tamil, Hindi, English", hue: "#7A5AA8" },
 ];
 
 // Authentic Banaras & Sarnath photographs
@@ -32,9 +32,9 @@ export const HERO_SLIDES = [
 export const STORIES = [
   {
     quote:
-      "We had three days in Jaipur and no plan. Our buddy took one look at us, cancelled the fort tour and walked us through the old city instead. Best decision of the trip.",
+      "We had three days and no plan. Our buddy took one look at us, skipped the crowded evening boat and walked us down to Assi at dawn instead. Best decision of the trip.",
     name: "Devika & Arun M.",
-    trip: "Jaipur, 3 days",
+    trip: "Varanasi, 3 days",
   },
   {
     quote:
@@ -44,14 +44,14 @@ export const STORIES = [
   },
   {
     quote:
-      "Tenzin noticed my altitude headache before I did, rerouted the whole day and got me to a lower village. Then we still made it to Pangong the next morning.",
+      "Vikas noticed I was wilting in the afternoon heat, swapped the temple queue for a shaded silk workshop in Madanpura, and still got us to Dashashwamedh in time for the Aarti.",
     name: "Rahul K.",
-    trip: "Leh–Ladakh, 7 days",
+    trip: "Varanasi & Sarnath, 5 days",
   },
   {
     quote:
-      "My parents are in their seventies. I expected to spend the week worrying. Instead our buddy found the one boat with a proper handrail and we all just enjoyed ourselves.",
+      "My parents are in their seventies. I expected to spend the week worrying about the ghat steps. Instead our buddy found the gentlest way down and a boat with a proper handrail.",
     name: "Priya N.",
-    trip: "Alleppey, 5 days",
+    trip: "Varanasi, 5 days",
   },
 ];

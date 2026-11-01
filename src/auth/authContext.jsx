@@ -13,6 +13,7 @@ const AuthContext = createContext(null);
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [ready, setReady] = useState(false);
+  const [sessionExpired, setSessionExpired] = useState(false);
 
   useEffect(() => {
     api
@@ -22,8 +23,20 @@ export function AuthProvider({ children }) {
       .finally(() => setReady(true));
   }, []);
 
+  useEffect(() => {
+    const onExpired = () => {
+      setUser((current) => {
+        if (current) setSessionExpired(true);
+        return null;
+      });
+    };
+    window.addEventListener("auth:expired", onExpired);
+    return () => window.removeEventListener("auth:expired", onExpired);
+  }, []);
+
   const signIn = useCallback(async ({ email, password }) => {
     const data = await api.post("/auth/login", { email, password });
+    setSessionExpired(false);
     setUser(data.user);
     return data.user;
   }, []);
@@ -44,6 +57,7 @@ export function AuthProvider({ children }) {
       user,
       isAuthed: !!user,
       ready,
+      sessionExpired,
       signIn,
       signUp,
       signOut,
@@ -51,7 +65,7 @@ export function AuthProvider({ children }) {
          which copy to use. */
       copy: AUTH,
     }),
-    [user, ready, signIn, signUp, signOut],
+    [user, ready, sessionExpired, signIn, signUp, signOut],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

@@ -177,7 +177,8 @@
   margin-bottom: 18px;
 }
 
-.bfield label {
+.bfield label,
+.bfield__label {
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--ink, #3F2617);
@@ -215,6 +216,7 @@
 }
 
 .bpill {
+  font: inherit;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -251,6 +253,10 @@
 }
 
 .buddy-pick-card {
+  width: 100%;
+  font: inherit;
+  color: inherit;
+  text-align: left;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -291,7 +297,13 @@
   flex-shrink: 0;
 }
 
-.buddy-pick-details h4 {
+.buddy-pick-details {
+  display: block;
+}
+
+.buddy-pick-name {
+  display: block;
+  font-weight: 700;
   font-size: 1rem;
   margin-bottom: 2px;
   color: var(--ink, #3F2617);

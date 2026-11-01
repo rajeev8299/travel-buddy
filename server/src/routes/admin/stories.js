@@ -1,8 +1,15 @@
 import { Router } from "express";
 import { db } from "../../db.js";
 import { asyncHandler } from "../../middleware/asyncHandler.js";
+import { validateBody, validateParam, text, NUMERIC_ID } from "../../middleware/validate.js";
 
 const router = Router();
+router.param("id", validateParam("id", NUMERIC_ID));
+const validateFields = validateBody({
+  quote: text(1000, "Quote"),
+  name: text(80, "Name"),
+  trip: text(80, "Trip"),
+});
 
 function validate(v) {
   if (!v.quote?.trim()) return "Quote is required.";
@@ -18,6 +25,7 @@ router.get("/", (req, res) => {
 
 router.post(
   "/",
+  validateFields,
   asyncHandler(async (req, res) => {
     const v = req.body || {};
     const error = validate(v);
@@ -34,6 +42,7 @@ router.post(
 
 router.put(
   "/:id",
+  validateFields,
   asyncHandler(async (req, res) => {
     const v = req.body || {};
     const error = validate(v);

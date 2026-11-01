@@ -4,25 +4,29 @@
 
 const NAV_LINKS = [
   { href: "index.html", label: "Home" },
+  { href: "experiences.html", label: "Experiences" },
   { href: "why-buddy.html", label: "Why Buddy" },
   { href: "buddies.html", label: "Your Buddies" },
   { href: "stories.html", label: "Stories" },
 ];
 
+// Photos shown on the public site, from credits.json (keep the two in sync).
 const CREDITS = [
-  { id: "boats", title: "Boats on the Ganga at Sankatha Ghat, Varanasi", creator: "Unsplash", license: "Unsplash License", source: "https://unsplash.com/photos/wloNuC7qKf8" },
-  { id: "mural", title: "Steps and mural at Bundiparkota Ghat, Varanasi", creator: "Unsplash", license: "Unsplash License", source: "https://unsplash.com/photos/35nn8_KxZCQ" },
-  { id: "market", title: "Boats at the market, Varanasi", creator: "Unsplash", license: "Unsplash License", source: "https://unsplash.com/photos/JIjCxenDxPY" },
-  { id: "harbour", title: "The Ganga filled with boats, Varanasi", creator: "Unsplash", license: "Unsplash License", source: "https://unsplash.com/photos/9mlsS7ViHkE" },
-  { id: "riverfront", title: "Ganges riverfront with buildings and boats", creator: "Unsplash", license: "Unsplash License", source: "https://unsplash.com/photos/i6mwttXNB8M" },
-  { id: "stupa", title: "Ancient brick ruins and the Dhamek Stupa, Sarnath", creator: "Unsplash", license: "Unsplash License", source: "https://unsplash.com/photos/hBR4rerbBQs" },
-  { id: "monks", title: "Two monks near the stupa at sunrise, Sarnath", creator: "Unsplash", license: "Unsplash License", source: "https://unsplash.com/photos/jeNWkvy8llE" },
+  { id: "boats", title: "Boats on the Ganga at Sankatha Ghat, Varanasi", creator: "Martijn Vonk (Unsplash)", license: "Unsplash License", source: "https://unsplash.com/photos/wloNuC7qKf8" },
+  { id: "mural", title: "Steps and mural at Bundiparkota Ghat, Varanasi", creator: "ARTO SURAJ (Unsplash)", license: "Unsplash License", source: "https://unsplash.com/photos/35nn8_KxZCQ" },
+  { id: "market", title: "Boats and waterfront market, Varanasi", creator: "Snowscat (Unsplash)", license: "Unsplash License", source: "https://unsplash.com/photos/JIjCxenDxPY" },
+  { id: "harbour", title: "The Ganga filled with wooden boats, Varanasi", creator: "Brian Scott (Unsplash)", license: "Unsplash License", source: "https://unsplash.com/photos/9mlsS7ViHkE" },
+  { id: "riverfront", title: "Ganges riverfront heritage and morning boats, Varanasi", creator: "Unsplash", license: "Unsplash License", source: "https://unsplash.com/photos/i6mwttXNB8M" },
+  { id: "stupa", title: "Ancient brick ruins and the Dhamek Stupa, Sarnath (Varanasi)", creator: "Unsplash", license: "Unsplash License", source: "https://unsplash.com/photos/hBR4rerbBQs" },
+  { id: "monks", title: "Two monks meditating near the stupa at sunrise, Sarnath (Varanasi)", creator: "Rohit Dey (Unsplash)", license: "Unsplash License", source: "https://unsplash.com/photos/jeNWkvy8llE" },
   { id: "varanasi", title: "Varanasi, clear sunny day at the embankment of the Ganges", creator: "Vyacheslav Argenberg", license: "CC BY 4.0", source: "https://commons.wikimedia.org/w/index.php?curid=106201607" },
-  { id: "jaipur", title: "City Palace interior, Jaipur", creator: "Richard Moross", license: "CC BY 2.0", source: "https://commons.wikimedia.org/w/index.php?curid=8720839" },
-  { id: "alleppey", title: "Kerala backwaters, houseboats", creator: "Vyacheslav Argenberg", license: "CC BY 4.0", source: "https://commons.wikimedia.org/w/index.php?curid=123031037" },
-  { id: "ladakh", title: "Reflection at Pangong Tso, Ladakh", creator: "kamaljith", license: "CC BY 2.0", source: "https://commons.wikimedia.org/w/index.php?curid=27393500" },
-  { id: "meghalaya", title: "A double-decker living root bridge, Meghalaya", creator: "Vinayak Hegde", license: "CC BY 2.0", source: "https://commons.wikimedia.org/w/index.php?curid=18808200" },
-  { id: "goa", title: "Palolem Beach coastline, South Goa", creator: "Meet Makadia", license: "CC0 1.0", source: "https://wordpress.org/photos/photo/695662884a/" },
+  { id: "dev_diwali", title: "Dev Deepawali grand illumination and diyas on Varanasi Ghats", creator: "Unsplash", license: "Unsplash License", source: "https://unsplash.com/photos/a-view-of-a-temple-lit-up-at-night-with-water-in-front-of-it-e05294dd1970" },
+  { id: "ghats_dawn", title: "Morning light and temple pavilions along Varanasi Ghats", creator: "Unsplash", license: "Unsplash License", source: "https://unsplash.com/photos/2d000a50f0dc" },
+  { id: "kashi_vishwanath", title: "Traditional temple architecture & golden spires in Varanasi", creator: "Unsplash", license: "Unsplash License", source: "https://unsplash.com/photos/2138af692e32" },
+  { id: "ganga_sunrise", title: "Golden sunrise and morning rowboats on the Holy Ganga", creator: "Unsplash", license: "Unsplash License", source: "https://unsplash.com/photos/30451e3955d8" },
+  { id: "banaras_silk", title: "Authentic Banarasi silk saree with pure zari brocade", creator: "Unsplash", license: "Unsplash License", source: "https://unsplash.com/photos/98e550d6193c" },
+  { id: "street_food", title: "Fresh golden heritage street sweets and kachoris, Banaras", creator: "Unsplash", license: "Unsplash License", source: "https://unsplash.com/photos/60fce055bc82" },
+  { id: "banaras_ghats_steps", title: "Ancient stone steps leading to the Ganga at Assi Ghat", creator: "Unsplash", license: "Unsplash License", source: "https://unsplash.com/photos/136574528ed5" },
 ];
 
 const ICON_MENU = `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>`;
@@ -101,23 +105,23 @@ function footerMarkup() {
         <div class="foot__brand">
           ${logoMarkup(72)}
           <p class="foot__tagline">Travel together, travel better</p>
-          <p>Local-led travel across India, since 2019.</p>
+          <p>Local-led Varanasi tours, since 2019.</p>
         </div>
 
         <nav class="foot__col" aria-label="Explore">
-          <h4>Explore</h4>
+          <h2>Explore</h2>
           ${navLinks}
         </nav>
 
         <nav class="foot__col" aria-label="Company">
-          <h4>Company</h4>
+          <h2>Company</h2>
           <a href="become-a-buddy.html">Become a buddy</a>
           <a href="why-buddy.html">Safety promise</a>
           <a href="plan.html">Contact</a>
         </nav>
 
         <div class="foot__col">
-          <h4>Reach us</h4>
+          <h2>Reach us</h2>
           <a href="mailto:hello@travelonbuddy.in">hello@travelonbuddy.in</a>
           <a href="tel:+911140001234">+91 11 4000 1234</a>
           <p class="foot__hours">Mon–Sat, 9am–8pm IST</p>
@@ -125,21 +129,27 @@ function footerMarkup() {
       </div>
 
       <div class="shell foot__credits">
-        <h4>Popular Destinations</h4>
+        <h2>Popular in Varanasi</h2>
         <p>
-          <a href="plan.html">Varanasi Ghats &amp; Ganga Aarti</a> · 
-          <a href="plan.html">Jaipur Pink City &amp; Forts</a> · 
-          <a href="plan.html">Kerala Backwaters &amp; Alleppey</a> · 
-          <a href="plan.html">Leh-Ladakh Mountain Passes</a> · 
-          <a href="plan.html">Meghalaya Living Root Bridges</a> · 
-          <a href="plan.html">South Goa Heritage &amp; Beaches</a> · 
-          <a href="plan.html">Udaipur Lakes &amp; Palaces</a> · 
-          <a href="plan.html">Rishikesh Rafting &amp; Yoga</a>
+          <a href="sunrise-boat-ride.html">Sunrise boat ride on the Ganga</a> · 
+          <a href="ganga-aarti.html">Ganga Aarti at Dashashwamedh Ghat</a> · 
+          <a href="kashi-vishwanath-visit.html">Kashi Vishwanath Temple</a> · 
+          <a href="sarnath-half-day.html">Sarnath &amp; the Dhamek Stupa</a> · 
+          <a href="silk-weavers-madanpura.html">Banarasi silk weavers' lanes</a> · 
+          <a href="old-city-food-walk.html">Old-city galli food walk</a> · 
+          <a href="plan.html">Assi Ghat mornings</a> · 
+          <a href="plan.html">Ramnagar Fort</a>
         </p>
+        <h2 class="foot__credits-title">Photo credits</h2>
+        <p>${credits}</p>
       </div>
 
       <div class="shell foot__base">
         <p>© ${year} TravelOnBuddy. All rights reserved.</p>
+        <p class="foot__legal">
+          <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> ·
+          <a href="refund-policy.html">Cancellations &amp; refunds</a>
+        </p>
         <p>Made in India 🇮🇳</p>
       </div>
     </footer>`;
@@ -182,4 +192,51 @@ function initChrome() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", initChrome);
+// Signed-in visitors get "Log out" where "Log in" was, in both the header
+// and the mobile drawer. Pages opened off disk can't reach the API, so they
+// simply keep the logged-out header.
+function initAccount() {
+  if (typeof api === "undefined") return;
+  api
+    .get("/auth/me")
+    .then((data) => {
+      const user = data?.user;
+      if (!user) return;
+
+      const headerLogin = document.querySelector(".nav__actions .nav__login");
+      if (headerLogin) {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "btn btn--ghost nav__login";
+        btn.textContent = "Log out";
+        btn.title = `Signed in as ${user.email}`;
+        btn.addEventListener("click", logOut);
+        headerLogin.replaceWith(btn);
+      }
+
+      const drawerLogin = document.querySelector('.drawer__links a[href="login.html"]');
+      if (drawerLogin) {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.textContent = `Log out (${user.name})`;
+        btn.addEventListener("click", logOut);
+        drawerLogin.replaceWith(btn);
+      }
+    })
+    .catch(() => {});
+}
+
+async function logOut() {
+  try {
+    await api.post("/auth/logout");
+  } catch {
+    // The cookie is cleared server-side; if that request failed there's
+    // nothing more the page can do, so just refresh into whatever state it is.
+  }
+  location.reload();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  initChrome();
+  initAccount();
+});

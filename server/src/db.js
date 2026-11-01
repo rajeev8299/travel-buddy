@@ -43,8 +43,6 @@ function migrateUsersTableForAdminRole() {
   `);
 }
 
-migrateUsersTableForAdminRole();
-
 function migratePlanRequestsTable() {
   const existing = db
     .prepare("SELECT sql FROM sqlite_master WHERE type = 'table' AND name = 'plan_requests'")
@@ -66,8 +64,18 @@ function migratePlanRequestsTable() {
   }
 }
 
-migratePlanRequestsTable();
+// Bumped on logout / password change; tokens carrying an older version are
+// rejected, which is how a stateless JWT session gets revoked.
+function migrateUsersTokenVersion() {
+  const cols = db.prepare("PRAGMA table_info(users)").all().map((c) => c.name);
+  if (!cols.includes("token_version")) {
+    db.exec("ALTER TABLE users ADD COLUMN token_version INTEGER NOT NULL DEFAULT 0;");
+  }
+}
 
+// Create every table in its current shape first, then upgrade databases
+// created by older versions. (Migrating before creating left a fresh
+// database's plan_requests table without its newer columns.)
 db.exec(`
   CREATE TABLE IF NOT EXISTS users (
     id TEXT PRIMARY KEY,
@@ -78,7 +86,8 @@ db.exec(`
     role TEXT NOT NULL CHECK (role IN ('user', 'client', 'admin')),
     city TEXT,
     company TEXT,
-    created_at TEXT NOT NULL DEFAULT (datetime('now'))
+    created_at TEXT NOT NULL DEFAULT (datetime('now')),
+    token_version INTEGER NOT NULL DEFAULT 0
   );
 
   CREATE TABLE IF NOT EXISTS buddies (
@@ -139,7 +148,15 @@ db.exec(`
     depart TEXT,
     nights INTEGER,
     who TEXT NOT NULL,
-    created_at TEXT NOT NULL DEFAULT (datetime('now'))
+    created_at TEXT NOT NULL DEFAULT (datetime('now')),
+    full_name TEXT,
+    email TEXT,
+    phone TEXT,
+    style TEXT,
+    pace TEXT,
+    special_requests TEXT,
+    buddy_name TEXT,
+    status TEXT DEFAULT 'pending'
   );
 
   CREATE TABLE IF NOT EXISTS hero_slides (
@@ -150,6 +167,10 @@ db.exec(`
     sort_order INTEGER NOT NULL
   );
 `);
+
+migrateUsersTableForAdminRole();
+migratePlanRequestsTable();
+migrateUsersTokenVersion();
 
 function seedIfEmpty(table, rows, insertSql) {
   const { count } = db.prepare(`SELECT COUNT(*) AS count FROM ${table}`).get();

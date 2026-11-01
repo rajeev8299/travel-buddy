@@ -147,6 +147,7 @@ p {
 
 .btn--ghost {
   color: var(--ink);
+  background: transparent;
 }
 
 .btn--ghost:hover {
@@ -154,6 +155,7 @@ p {
 }
 
 .btn--outline {
+  background: transparent;
   border-color: currentColor;
   color: inherit;
 }
@@ -383,6 +385,19 @@ p {
   text-decoration: none;
 }
 
+.drawer__links button {
+  padding: 12px 2px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: none;
+  font-family: var(--display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+
 .drawer .btn {
   width: 100%;
   max-width: 420px;
@@ -541,6 +556,13 @@ p {
 
 .finder__field:hover {
   background: rgba(234, 229, 217, 0.5);
+}
+
+/* The inputs inside drop their own outline (it would clip against the pill),
+   so the whole field shows focus instead. :focus-within rather than
+   :focus-visible, because date inputs never report :focus-visible. */
+.finder__field:focus-within {
+  box-shadow: 0 0 0 2px var(--marigold);
 }
 
 .finder__field > svg {
@@ -1839,7 +1861,7 @@ p {
   }
 
   /* The secondary action is the first thing to go; "Plan my trip" stays. */
-  .nav__actions .btn--ghost {
+  .nav__actions .btn--ghost:not(.nav__login) {
     display: none;
   }
 }

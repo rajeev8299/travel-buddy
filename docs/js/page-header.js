@@ -12,7 +12,7 @@ function initPageHeader() {
   slot.outerHTML = `
     <header class="pagehead">
       <div class="pagehead__bg" id="pagehead-bg" aria-hidden="true">
-        <img src="${image}" alt="" style="object-position:${pos || "center 45%"}" fetchpriority="high" />
+        <img ${photoAttrs(image)} alt="" style="object-position:${pos || "center 45%"}" fetchpriority="high" />
       </div>
       <div class="pagehead__scrim" aria-hidden="true"></div>
 

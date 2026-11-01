@@ -120,7 +120,7 @@ function authFormMarkup(mode) {
         <label class="check">
           <input type="checkbox" id="consent">
           <span class="check__box" aria-hidden="true">${ICON_CHECK_A}</span>
-          I agree to the <a href="why-buddy.html">terms of use</a> and the <a href="why-buddy.html">privacy promise</a>. *
+          I agree to the <a href="terms.html">terms of use</a> and the <a href="privacy.html">privacy policy</a>. *
         </label>
         ${authFieldMsg("consent")}
       </div>` : ""}
@@ -140,15 +140,18 @@ function showAlreadySignedIn(container, name) {
   container.innerHTML = `
     <div class="form__done" role="status">
       <span class="form__done-icon">${ICON_PARTY_A}</span>
-      <h2>You're already signed in, ${name}.</h2>
-      <p>Use the menu in the top right to switch accounts, or jump straight into planning your trip.</p>
+      <h2>You're already signed in, ${escapeHtml(name)}.</h2>
+      <p>Jump straight into planning your trip, or log out to use a different account.</p>
       <div class="form__done-actions">
         <a class="btn btn--solid" href="plan.html">Plan my trip</a>
+        <button type="button" class="btn btn--outline" id="auth-logout">Log out</button>
       </div>
     </div>`;
+  document.getElementById("auth-logout").addEventListener("click", logOut);
 }
 
 function clearAuthFieldError(id) {
+  setFieldInvalid(id, false);
   const wrap = document.getElementById(`${id}-field`);
   const msg = document.getElementById(`${id}-msg`);
   if (wrap) wrap.classList.remove("field--bad");
@@ -159,6 +162,7 @@ function clearAuthFieldError(id) {
 }
 
 function showAuthFieldError(id, message) {
+  setFieldInvalid(id, true);
   const wrap = document.getElementById(`${id}-field`);
   const msg = document.getElementById(`${id}-msg`);
   if (wrap) wrap.classList.add("field--bad");
@@ -211,6 +215,7 @@ function initAuthForm(mode) {
 
   function renderForm() {
     slot.innerHTML = authFormMarkup(mode);
+    linkFieldMessages(slot);
     const isSignup = mode === "signup";
     const form = document.getElementById("auth-form");
     const submitBtn = document.getElementById("auth-submit");

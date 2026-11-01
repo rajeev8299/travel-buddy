@@ -13,6 +13,17 @@ A local-buddy travel matching site. There are now **two** frontends sharing one 
 - `server/` — Express API + SQLite (`server/src/`)
 - `dist/` — built output of the React app (the admin panel), openable via double-click too
 
+## Editing the public site
+
+Experience pages, the legal pages, the sitemap and the footer photo credits are generated from
+data — edit the source, then run `node scripts/build-site.mjs`:
+
+- `docs/experiences.json` — Varanasi experiences (prices, durations, meeting points)
+- `content/legal/*.html` — privacy policy, terms, cancellation & refund policy
+- `docs/credits.json` — photo credits; add new photos to `docs/img/` and run `scripts/optimize-images.sh`
+
+See [DEPLOY.md](DEPLOY.md) for putting the site and API live on your own domain.
+
 ## Running it
 
 ### Public site (`docs/`)
@@ -66,6 +77,7 @@ Data is stored in `server/data/travel.db` (SQLite, created automatically on firs
 | POST   | `/auth/signup`          | Create an account, starts a session                  |
 | POST   | `/auth/login`           | Log in, starts a session                             |
 | POST   | `/auth/logout`          | Ends the session                                     |
+| POST   | `/auth/change-password` | Change the signed-in user's password (ends all sessions) |
 | GET    | `/auth/me`              | Current logged-in user, or `{ user: null }`          |
 | GET    | `/buddies`              | List of sample buddies                               |
 | GET    | `/stories`              | List of traveller stories                            |
@@ -74,7 +86,7 @@ Data is stored in `server/data/travel.db` (SQLite, created automatically on firs
 | POST   | `/plan-requests`        | Submit a trip-planner search / enquiry               |
 | `/admin/*`              | Admin-only (dashboard stats, CRUD on buddies/stories/hero photos, application review, users) — requires an admin session |
 
-Sessions are a JWT in an httpOnly cookie — nothing auth-related is kept in `localStorage`. The admin account is seeded automatically from `server/.env` (`ADMIN_EMAIL` / `ADMIN_PASSWORD`) on first startup.
+Sessions are a JWT in an httpOnly cookie — nothing auth-related is kept in `localStorage`. The admin account is seeded automatically from `server/.env` (`ADMIN_EMAIL` / `ADMIN_PASSWORD`) on first startup. To reset a forgotten password (admin or otherwise), run `npm run reset-password -- <email>` in `server/` (or `docker compose exec api npm run reset-password -- <email>`); editing `ADMIN_PASSWORD` afterwards has no effect.
 
 CORS accepts the Vite dev origin and `Origin: null` (what browsers send for `file://` pages), so `docs/`'s cookie-free endpoints work whether it's opened directly or served.
 

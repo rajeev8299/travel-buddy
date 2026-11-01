@@ -59,7 +59,7 @@ export default function Home() {
         <div className="shell hero__inner">
           <p className="eyebrow" data-reveal>
             <Sparkles size={14} strokeWidth={2.2} aria-hidden="true" />
-            Local-led travel across India
+            Local-led tours in Varanasi
           </p>
 
           <h1 data-reveal style={{ "--delay": "60ms" }}>

@@ -8,7 +8,7 @@ const STEPS = [
   {
     n: "01",
     title: "Tell us what you're curious about",
-    body: "Not an itinerary — a mood. Street food, quiet mornings, temples, trekking, or nothing in particular.",
+    body: "Not an itinerary — a mood. Street food, quiet mornings, temples, the river, or nothing in particular.",
   },
   {
     n: "02",

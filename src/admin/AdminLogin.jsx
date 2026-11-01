@@ -6,7 +6,7 @@ import Logo from "../components/Logo";
 import { api } from "../lib/api";
 
 export default function AdminLogin() {
-  const { user, ready, signIn, signOut } = useAuth();
+  const { user, ready, sessionExpired, signIn, signOut } = useAuth();
   const [mode, setMode] = useState("signin"); // "signin" | "change-password" | "forgot-password"
   
   // Sign in state
@@ -67,11 +67,10 @@ export default function AdminLogin() {
 
     setCpSubmitting(true);
     try {
-      const res = await api.post("/auth/change-password", {
-        email: cpEmail,
-        currentPassword,
-        newPassword,
-      });
+      // The API only changes the password of a signed-in session, so sign in
+      // with the current password first. The change itself ends that session.
+      await api.post("/auth/login", { email: cpEmail, password: currentPassword });
+      const res = await api.post("/auth/change-password", { currentPassword, newPassword });
       setCpSuccess(res.message || "Password updated successfully! You can now sign in.");
       setEmail(cpEmail);
       setPassword("");
@@ -113,6 +112,13 @@ export default function AdminLogin() {
           <Logo size={44} />
           <h1>Admin sign in</h1>
           <p className="admin-login__sub">TravelOnBuddy back office — staff only.</p>
+
+          {sessionExpired && !error && (
+            <p className="form__summary form__summary--server" role="status">
+              <AlertCircle size={15} strokeWidth={2.4} aria-hidden="true" />
+              Your session ended. Sign in again to continue.
+            </p>
+          )}
 
           <div className="field">
             <label htmlFor="admin-email">Email</label>
@@ -290,7 +296,7 @@ export default function AdminLogin() {
         <form className="admin-login__card form" onSubmit={onForgotPassword} noValidate>
           <Logo size={44} />
           <h1>Account recovery</h1>
-          <p className="admin-login__sub">Recover admin access or identify your login ID.</p>
+          <p className="admin-login__sub">Get help signing in to the admin panel.</p>
 
           <div className="field">
             <label htmlFor="fp-email">Admin Email Address</label>
@@ -315,7 +321,7 @@ export default function AdminLogin() {
             <div className="form__summary form__summary--success" style={{ background: "#EBF8F2", color: "#1A6342", border: "1px solid #B7E4CF", display: "flex", flexDirection: "column", gap: "6px" }} role="status">
               <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                 <CheckCircle2 size={16} strokeWidth={2.4} aria-hidden="true" />
-                <strong>Account Identified</strong>
+                <strong>Next step</strong>
               </div>
               <p style={{ margin: 0, fontSize: "0.85rem", lineHeight: 1.45 }}>{fpSuccess}</p>
             </div>
@@ -327,7 +333,7 @@ export default function AdminLogin() {
             ) : (
               <HelpCircle size={17} strokeWidth={2.2} aria-hidden="true" />
             )}
-            {fpSubmitting ? "Verifying…" : "Recover Admin Access"}
+            {fpSubmitting ? "Sending…" : "Get help"}
           </button>
 
           <button

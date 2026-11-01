@@ -103,9 +103,11 @@ export default function BookTrip() {
     const q = (formData.where || "").toLowerCase().trim();
     const matches = buddies.filter(
       (b) =>
+        // Every buddy is in Varanasi, so the whole city (or no choice) shows
+        // them all; a specific area narrows to the buddies based there.
         b.city.toLowerCase().includes(q) ||
         q.includes(b.city.toLowerCase()) ||
-        q === "anywhere in india" ||
+        q.includes("varanasi") ||
         q === ""
     );
     return matches.length > 0 ? matches : buddies.slice(0, 3);
@@ -355,7 +357,6 @@ export default function BookTrip() {
                     value={formData.where}
                     onChange={(e) => updateField("where", e.target.value)}
                   >
-                    <option value="Anywhere in India">Anywhere in India (Surprise Me / Multi-City)</option>
                     {CITIES.map((c) => (
                       <option key={c.name} value={c.name}>
                         {c.name}, {c.state}
@@ -424,33 +425,37 @@ export default function BookTrip() {
                 </div>
 
                 <div className="bfield">
-                  <label>Travel Styles (Select all that apply)</label>
-                  <div className="bpills-grid">
+                  <span className="bfield__label" id="styles-label">Travel Styles (Select all that apply)</span>
+                  <div className="bpills-grid" role="group" aria-labelledby="styles-label">
                     {TRAVEL_STYLES.map((style) => {
                       const selected = formData.styles.includes(style);
                       return (
-                        <div
+                        <button
+                          type="button"
                           key={style}
                           className={`bpill ${selected ? "bpill--selected" : ""}`}
+                          aria-pressed={selected}
                           onClick={() => toggleStyle(style)}
                         >
-                          {selected && <Check size={14} strokeWidth={2.4} />}
+                          {selected && <Check size={14} strokeWidth={2.4} aria-hidden="true" />}
                           <span>{style}</span>
-                        </div>
+                        </button>
                       );
                     })}
                   </div>
                 </div>
 
                 <div className="bfield" style={{ marginTop: "24px" }}>
-                  <label>Preferred Daily Pace</label>
-                  <div className="bform-grid-3">
+                  <span className="bfield__label" id="pace-label">Preferred Daily Pace</span>
+                  <div className="bform-grid-3" role="group" aria-labelledby="pace-label">
                     {TRAVEL_PACES.map((p) => {
                       const selected = formData.pace === p.id;
                       return (
-                        <div
+                        <button
+                          type="button"
                           key={p.id}
                           className={`bpill ${selected ? "bpill--selected" : ""}`}
+                          aria-pressed={selected}
                           style={{
                             borderRadius: "14px",
                             flexDirection: "column",
@@ -463,7 +468,7 @@ export default function BookTrip() {
                           <span style={{ fontSize: "0.74rem", opacity: selected ? 0.95 : 0.7 }}>
                             {p.desc}
                           </span>
-                        </div>
+                        </button>
                       );
                     })}
                   </div>
@@ -501,56 +506,60 @@ export default function BookTrip() {
                   </p>
                 </div>
 
-                <div className="buddies-picker">
-                  <div
+                <div className="buddies-picker" role="group" aria-label="Choose a buddy">
+                  <button
+                    type="button"
+                    aria-pressed={formData.selectedBuddy === null}
                     className={`buddy-pick-card ${
                       formData.selectedBuddy === null ? "buddy-pick-card--active" : ""
                     }`}
                     onClick={() => updateField("selectedBuddy", null)}
                   >
-                    <div className="buddy-pick-info">
-                      <div className="buddy-avatar-mark" style={{ background: "var(--orange)" }}>
-                        <Sparkles size={20} />
-                      </div>
-                      <div className="buddy-pick-details">
-                        <h4>Best Match (Recommended)</h4>
-                        <div className="buddy-pick-meta">
+                    <span className="buddy-pick-info">
+                      <span className="buddy-avatar-mark" style={{ background: "var(--orange)" }}>
+                        <Sparkles size={20} aria-hidden="true" />
+                      </span>
+                      <span className="buddy-pick-details">
+                        <span className="buddy-pick-name">Best Match (Recommended)</span>
+                        <span className="buddy-pick-meta">
                           <span>Our local desk selects the best verified buddy for your dates</span>
-                        </div>
-                      </div>
-                    </div>
+                        </span>
+                      </span>
+                    </span>
                     {formData.selectedBuddy === null && (
-                      <CheckCircle2 size={20} color="var(--orange)" />
+                      <CheckCircle2 size={20} color="var(--orange)" aria-hidden="true" />
                     )}
-                  </div>
+                  </button>
 
                   {cityBuddies.map((b) => {
                     const isSelected = formData.selectedBuddy?.name === b.name;
                     return (
-                      <div
+                      <button
+                        type="button"
                         key={b.name}
+                        aria-pressed={isSelected}
                         className={`buddy-pick-card ${isSelected ? "buddy-pick-card--active" : ""}`}
                         onClick={() => updateField("selectedBuddy", b)}
                       >
-                        <div className="buddy-pick-info">
-                          <div className="buddy-avatar-mark" style={{ background: b.hue }}>
+                        <span className="buddy-pick-info">
+                          <span className="buddy-avatar-mark" style={{ background: b.hue }} aria-hidden="true">
                             {b.name[0]}
-                          </div>
-                          <div className="buddy-pick-details">
-                            <h4>{b.name}</h4>
-                            <div className="buddy-pick-meta">
+                          </span>
+                          <span className="buddy-pick-details">
+                            <span className="buddy-pick-name">{b.name}</span>
+                            <span className="buddy-pick-meta">
                               <span>
-                                <MapPin size={12} /> {b.city}
+                                <MapPin size={12} aria-hidden="true" /> {b.city}
                               </span>
                               <span>
-                                <Star size={12} fill="currentColor" /> {b.rating.toFixed(1)}
+                                <Star size={12} fill="currentColor" aria-hidden="true" /> {b.rating.toFixed(1)}
                               </span>
                               <span>{b.years} yrs guiding</span>
-                            </div>
-                          </div>
-                        </div>
-                        {isSelected && <CheckCircle2 size={20} color="var(--orange)" />}
-                      </div>
+                            </span>
+                          </span>
+                        </span>
+                        {isSelected && <CheckCircle2 size={20} color="var(--orange)" aria-hidden="true" />}
+                      </button>
                     );
                   })}
                 </div>

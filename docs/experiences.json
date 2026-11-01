@@ -1,0 +1,152 @@
+[
+  {
+    "slug": "sunrise-boat-ride",
+    "name": "Sunrise boat ride on the Ganga",
+    "short": "Row along the ghats as Varanasi wakes up, with a local who grew up on the river.",
+    "intro": "The city is at its most itself in the first hour of light: bathers, prayers, yoga on the steps and the smoke of the cremation ghats. Your buddy rows you through it and tells you what you're seeing.",
+    "image": "img/ganga_sunrise.jpg",
+    "imageAlt": "The sun rising over the Ganga at Varanasi",
+    "area": "Assi Ghat",
+    "duration": "About 2 hours",
+    "starts": "Before sunrise — around 5–6 am depending on the season",
+    "meetingPoint": "Assi Ghat",
+    "bestFor": "First mornings in Varanasi, photographers, early risers",
+    "price": null,
+    "highlights": [
+      "Row north from Assi along the ghats as the city wakes",
+      "Morning rituals, bathers and yoga on the steps, explained as you pass",
+      "Manikarnika and Harishchandra cremation ghats, seen respectfully from the water",
+      "Chai on the ghat afterwards, where your buddy's day usually starts too"
+    ],
+    "goodToKnow": [
+      "Boats don't run when the Ganga is in flood (usually in the monsoon). We'll swap in a ghat walk and tell you in advance.",
+      "No photos at the cremation ghats — your buddy will tell you where it's fine.",
+      "Winter mornings on the river are cold; bring a shawl or jacket."
+    ]
+  },
+  {
+    "slug": "ganga-aarti",
+    "name": "Evening Ganga Aarti at Dashashwamedh",
+    "short": "The nightly river ceremony of lamps, bells and chants — from the steps or from a boat.",
+    "intro": "Every evening priests at Dashashwamedh offer fire to the Ganga in a ceremony thousands come to watch. Your buddy gets you a good place, explains what each part means and gets you out of the crowd afterwards.",
+    "image": "img/dev_diwali.jpg",
+    "imageAlt": "Lamps glowing along the ghats of Varanasi at dusk",
+    "area": "Dashashwamedh Ghat",
+    "duration": "About 2 hours",
+    "starts": "From around sunset",
+    "meetingPoint": "Godowlia crossing, a short walk from Dashashwamedh Ghat",
+    "bestFor": "Every first-time visitor; families",
+    "price": null,
+    "highlights": [
+      "A good spot on the steps — or watch from a boat on the river",
+      "What the lamps, conch shells and chants mean, explained as it happens",
+      "Floating your own diya on the Ganga, if you'd like to",
+      "A quieter way back through the gallis when it ends"
+    ],
+    "goodToKnow": [
+      "Crowds are very heavy on festival days — arrive early and keep valuables close.",
+      "When the river is high the Aarti moves up the steps; boat viewing may not be possible.",
+      "Dev Deepawali, Ganga Dussehra and big festivals fill up fast. Book well ahead."
+    ]
+  },
+  {
+    "slug": "old-city-food-walk",
+    "name": "Old-city galli food walk",
+    "short": "Kachori, lassi, chaat and paan in the lanes of the old city, with someone who knows which stall is best today.",
+    "intro": "Banaras eats in its gallis. Your buddy takes you to the stalls their family actually uses — breakfast kachori, lassi in a clay cup, chaat, sweets and a proper Banarasi paan to finish.",
+    "image": "img/street_food.jpg",
+    "imageAlt": "Street food being prepared in a Varanasi lane",
+    "area": "Godowlia & Chowk",
+    "duration": "About 3 hours",
+    "starts": "Mornings or evenings",
+    "meetingPoint": "Godowlia crossing",
+    "bestFor": "Food lovers; anyone who wants the old city beyond the temples",
+    "price": null,
+    "highlights": [
+      "Kachori-sabzi and jalebi the way locals have breakfast",
+      "Lassi in a kulhad, chaat, and seasonal sweets (malaiyo in winter)",
+      "The lanes between Godowlia and Chowk, and the stories behind them",
+      "Finish with Banarasi paan — sweet or not, your call"
+    ],
+    "goodToKnow": [
+      "Tell us about allergies and dietary needs when you enquire; much of the old city is vegetarian.",
+      "Come hungry and wear shoes you don't mind getting dusty.",
+      "Your buddy chooses busy, trusted stalls and will steer you away from anything risky."
+    ]
+  },
+  {
+    "slug": "kashi-vishwanath-visit",
+    "name": "Kashi Vishwanath temple visit",
+    "short": "Visit the city's most important temple without the confusion — queues, rules and the corridor explained.",
+    "intro": "Kashi Vishwanath is the heart of Varanasi and can be bewildering the first time. Your buddy handles the practicalities and shows you the corridor down to the river and the lanes around it.",
+    "image": "img/kashi_vishwanath.jpg",
+    "imageAlt": "The Kashi Vishwanath temple area in Varanasi",
+    "area": "Kashi Vishwanath",
+    "duration": "About 2–3 hours",
+    "starts": "Early morning or late evening, when queues are shorter",
+    "meetingPoint": "Near the temple corridor — shared when you book",
+    "bestFor": "Pilgrims and curious visitors alike",
+    "price": null,
+    "highlights": [
+      "How darshan queues work, and the paid Sugam Darshan option",
+      "The Kashi Vishwanath corridor from the temple down to the Ganga",
+      "The surrounding gallis and smaller shrines most visitors miss",
+      "Plenty of time — nobody hurries you through"
+    ],
+    "goodToKnow": [
+      "Phones, bags and leather items can't go inside; your buddy will show you the lockers.",
+      "Dress modestly, with shoulders and knees covered.",
+      "Mondays and festival days are the busiest — we'll suggest the best time for your dates."
+    ]
+  },
+  {
+    "slug": "sarnath-half-day",
+    "name": "Sarnath half-day trip",
+    "short": "Where the Buddha gave his first teaching — stupas, the museum and the quiet monasteries, 10 km from Varanasi.",
+    "intro": "A short drive out of the city, Sarnath is calm, green and full of history. Your buddy takes you round the Dhamek Stupa, the deer park, the museum and the monasteries built by Buddhist countries from across Asia.",
+    "image": "img/stupa.jpg",
+    "imageAlt": "The Dhamek Stupa and ancient brick ruins at Sarnath",
+    "area": "Sarnath",
+    "duration": "About 4 hours, including travel",
+    "starts": "Morning or afternoon",
+    "meetingPoint": "Pickup from your hotel in Varanasi",
+    "bestFor": "History lovers; a calm break from the city",
+    "price": null,
+    "highlights": [
+      "The Dhamek Stupa and the ruins of ancient monasteries",
+      "The Sarnath Museum and the Lion Capital of Ashoka",
+      "Tibetan, Thai and Japanese temples nearby",
+      "Time to sit quietly in the deer park"
+    ],
+    "goodToKnow": [
+      "The museum keeps its own weekly closing day; we'll plan your visit around it.",
+      "Comfortable shoes help — the site is spread out.",
+      "Combine it with an evening Aarti for a full first day."
+    ]
+  },
+  {
+    "slug": "silk-weavers-madanpura",
+    "name": "Banarasi silk weavers of Madanpura",
+    "short": "Meet the families who weave Banarasi silk on handlooms, and see how a sari is made.",
+    "intro": "The clack of handlooms still fills the lanes of Madanpura. Your buddy introduces you to weaving families, shows you how zari patterns are set up and woven, and explains what makes a real Banarasi sari.",
+    "image": "img/banaras_silk.jpg",
+    "imageAlt": "Banarasi silk with gold zari work",
+    "area": "Madanpura",
+    "duration": "About 2–3 hours",
+    "starts": "Late morning or afternoon",
+    "meetingPoint": "Madanpura — shared when you book",
+    "bestFor": "Textile and craft lovers; anyone shopping for silk",
+    "price": null,
+    "highlights": [
+      "Handloom workshops where weavers explain their craft",
+      "How zari (metal thread) patterns are designed and woven",
+      "How to tell handloom from powerloom silk",
+      "Buy direct if you want to — no commission, no pressure"
+    ],
+    "goodToKnow": [
+      "Ask before taking photos inside homes and workshops.",
+      "Workshop hours vary; your buddy confirms the day before.",
+      "Our buddies take no shopping commissions — that's a promise."
+    ]
+  }
+]

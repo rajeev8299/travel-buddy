@@ -12,7 +12,7 @@ const ASKS = [
 ];
 
 const GIVES = [
-  "₹2,800–₹4,500 a day depending on the town and group size, paid weekly.",
+  "₹2,800–₹4,500 a day depending on the season and group size, paid weekly.",
   "Public liability cover for every day you're out with travellers.",
   "You choose your own dates. No minimum, no exclusivity.",
   "A 24-hour support line for you, not just for the travellers.",
@@ -25,7 +25,7 @@ export default function BecomeBuddy() {
     <div ref={pageRef}>
       <PageHeader
         eyebrow="Become a buddy"
-        title="If you know your town properly, we'd like to meet you"
+        title="If you know Banaras properly, we'd like to meet you"
         intro="We're not looking for tour guides. We're looking for people who can show someone their own city the way they'd show a friend."
         image={asset("img/ghats_dawn.jpg")}
         pos="center 55%"

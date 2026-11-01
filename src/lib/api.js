@@ -21,6 +21,12 @@ async function request(path, { method = "GET", body } = {}) {
   }
 
   const data = await res.json().catch(() => null);
+  // A 401 from anything but the auth endpoints means the session expired or
+  // was revoked (logout elsewhere, password change). Tell the auth context so
+  // protected screens send the user back to sign in instead of erroring.
+  if (res.status === 401 && !path.startsWith("/auth/")) {
+    window.dispatchEvent(new Event("auth:expired"));
+  }
   if (!res.ok) {
     throw new Error(data?.message || "Something went wrong. Please try again.");
   }

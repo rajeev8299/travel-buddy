@@ -1,7 +1,14 @@
 const BF_CITIES = [
-  "Varanasi", "Jaipur", "Udaipur", "Jaisalmer", "Pushkar", "Agra", "Rishikesh", "Amritsar",
-  "Leh–Ladakh", "Spiti Valley", "Darjeeling", "Shillong", "Cherrapunji", "Kaziranga", "Alleppey",
-  "Munnar", "Kochi", "Hampi", "Coorg", "Mysore", "Pondicherry", "South Goa", "Khajuraho", "Andaman Islands",
+  "Varanasi",
+  "Dashashwamedh Ghat",
+  "Assi Ghat",
+  "Manikarnika Ghat",
+  "Kashi Vishwanath",
+  "Godowlia & Chowk",
+  "Madanpura",
+  "Sarnath",
+  "Ramnagar Fort",
+  "BHU & Lanka",
 ];
 
 const LANGUAGES = [
@@ -11,8 +18,8 @@ const LANGUAGES = [
 ];
 
 const SPECIALITIES = [
-  "Heritage & history", "Food & markets", "Trekking & outdoors",
-  "Spiritual & ritual", "Photography walks", "Wildlife & nature",
+  "Heritage & history", "Food & markets", "Boats & the river",
+  "Spiritual & ritual", "Photography walks", "Yoga & wellbeing",
   "Craft & textiles", "Music & nightlife",
 ];
 
@@ -73,8 +80,8 @@ function formMarkup() {
       <fieldset class="form__group">
         <legend class="form__legend"><span>02</span> Where you'd guide</legend>
         <div class="form__grid">
-          ${field({ id: "city", label: "Town or city *", inputHTML: `<input id="city" type="text" list="city-options" placeholder="Varanasi, Shillong…"><datalist id="city-options">${BF_CITIES.map((c) => `<option value="${c}">`).join("")}</datalist>` })}
-          ${field({ id: "state", label: "State *", inputHTML: `<input id="state" type="text">` })}
+          ${field({ id: "city", label: "Area of Varanasi you know best *", inputHTML: `<input id="city" type="text" list="city-options" placeholder="Assi Ghat, Godowlia, Sarnath…"><datalist id="city-options">${BF_CITIES.map((c) => `<option value="${c}">`).join("")}</datalist>` })}
+          ${field({ id: "state", label: "State *", inputHTML: `<input id="state" type="text" value="Uttar Pradesh">` })}
           ${field({ id: "yearsInCity", label: "Years lived there *", hint: "Visiting often doesn't count — we mean lived.", inputHTML: `<input id="yearsInCity" type="number" min="0" max="90">` })}
           ${field({ id: "vehicle", label: "Do you have a vehicle?", inputHTML: `<select id="vehicle"><option value="">No</option><option>Two-wheeler</option><option>Car</option><option>Both</option></select>` })}
           ${field({ id: "areas", label: "Which parts do you know best?", full: true, hint: "Neighbourhoods, ghats, trails, markets — whatever you'd actually take someone to.", inputHTML: `<textarea id="areas" rows="3"></textarea>` })}
@@ -200,7 +207,7 @@ function validateBuddyForm(v) {
 
   if (v.whatsapp.trim() && !phoneOK(v.whatsapp)) e.whatsapp = "Enter a 10-digit number, or leave it blank.";
 
-  if (!v.city.trim()) e.city = "Which town would you be guiding in?";
+  if (!v.city.trim()) e.city = "Which part of Varanasi do you know best?";
   if (!v.state.trim()) e.state = "State is required.";
   if (v.yearsInCity === "") e.yearsInCity = "Roughly how long have you lived there?";
   else if (Number(v.yearsInCity) < 0) e.yearsInCity = "That can't be negative.";
@@ -227,6 +234,7 @@ function validateBuddyForm(v) {
 }
 
 function clearFieldError(id) {
+  setFieldInvalid(id, false);
   const wrap = document.getElementById(`${id}-field`) || document.getElementById(`${id}-fieldset`);
   const msg = document.getElementById(`${id}-msg`);
   if (wrap) wrap.classList.remove("field--bad");
@@ -237,6 +245,7 @@ function clearFieldError(id) {
 }
 
 function showFieldError(id, message) {
+  setFieldInvalid(id, true);
   const wrap = document.getElementById(`${id}-field`) || document.getElementById(`${id}-fieldset`);
   const msg = document.getElementById(`${id}-msg`);
   if (wrap) wrap.classList.add("field--bad");
@@ -254,8 +263,8 @@ function showDone(done) {
       <h2>Thanks, ${done.name} — that's in.</h2>
       <p>
         Your reference is <strong>${done.ref}</strong>. We've noted <strong>${done.email}</strong> and
-        someone from the buddy team will reply within three working days. If your town is one we're
-        actively hiring in, expect a video call invite in the same email.
+        someone from the buddy team will reply within three working days. If we're actively hiring
+        in your part of Varanasi, expect a video call invite in the same email.
       </p>
       <button type="button" class="btn btn--outline" id="bf-again">Submit another application</button>
     </div>`;
@@ -266,6 +275,7 @@ function showDone(done) {
 function initBuddyForm() {
   const slot = document.getElementById("buddy-form-slot");
   slot.innerHTML = formMarkup();
+  linkFieldMessages(slot);
 
   const form = document.getElementById("buddy-form");
   const submitBtn = document.getElementById("bf-submit");

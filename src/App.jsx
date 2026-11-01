@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import Logo from "./components/Logo";
 import { BRAND, TAGLINE, NAV } from "./data";
 import { usePWAInstall } from "./hooks/usePWAInstall";
+import { useAuth } from "./auth/authContext";
 import { PWAInstallPrompt } from "./components/PWAInstallPrompt";
 import "./App.css";
 
@@ -18,6 +19,7 @@ export default function App() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { pathname } = useLocation();
+  const { user, signOut } = useAuth();
 
   useScrollToTop(pathname);
 
@@ -80,9 +82,20 @@ export default function App() {
             <Link className="btn btn--ghost" to="/become-a-buddy">
               Become a buddy
             </Link>
-            <Link className="btn btn--ghost nav__login" to="/login">
-              Log in
-            </Link>
+            {user ? (
+              <button
+                type="button"
+                className="btn btn--ghost nav__login"
+                title={`Signed in as ${user.email}`}
+                onClick={signOut}
+              >
+                Log out
+              </button>
+            ) : (
+              <Link className="btn btn--ghost nav__login" to="/login">
+                Log in
+              </Link>
+            )}
             <Link className="btn btn--solid" to="/plan">
               Plan my trip
             </Link>
@@ -117,9 +130,21 @@ export default function App() {
             <NavLink to="/become-a-buddy" onClick={closeMenu}>
               Become a buddy
             </NavLink>
-            <NavLink to="/login" onClick={closeMenu}>
-              Log in / Sign up
-            </NavLink>
+            {user ? (
+              <button
+                type="button"
+                onClick={() => {
+                  closeMenu();
+                  signOut();
+                }}
+              >
+                Log out ({user.name})
+              </button>
+            ) : (
+              <NavLink to="/login" onClick={closeMenu}>
+                Log in / Sign up
+              </NavLink>
+            )}
           </nav>
           <Link className="btn btn--solid btn--wide" to="/plan" onClick={closeMenu}>
             Plan my trip
@@ -136,7 +161,7 @@ export default function App() {
           <div className="foot__brand">
             <Logo size={72} />
             <p className="foot__tagline">{TAGLINE}</p>
-            <p>Local-led travel across India, since 2019.</p>
+            <p>Local-led Varanasi tours, since 2019.</p>
           </div>
 
           <nav className="foot__col" aria-label="Explore">
@@ -182,16 +207,16 @@ export default function App() {
         </div>
 
         <div className="shell foot__credits">
-          <h4>Popular Destinations</h4>
+          <h4>Popular in Varanasi</h4>
           <p>
-            <span><Link to="/plan">Varanasi Ghats &amp; Ganga Aarti</Link></span> ·{" "}
-            <span><Link to="/plan">Jaipur Pink City &amp; Forts</Link></span> ·{" "}
-            <span><Link to="/plan">Kerala Backwaters &amp; Alleppey</Link></span> ·{" "}
-            <span><Link to="/plan">Leh-Ladakh Mountain Passes</Link></span> ·{" "}
-            <span><Link to="/plan">Meghalaya Living Root Bridges</Link></span> ·{" "}
-            <span><Link to="/plan">South Goa Heritage &amp; Beaches</Link></span> ·{" "}
-            <span><Link to="/plan">Udaipur Lakes &amp; Palaces</Link></span> ·{" "}
-            <span><Link to="/plan">Rishikesh River Rafting &amp; Yoga</Link></span>
+            <span><Link to="/plan">Sunrise boat ride on the Ganga</Link></span> ·{" "}
+            <span><Link to="/plan">Ganga Aarti at Dashashwamedh Ghat</Link></span> ·{" "}
+            <span><Link to="/plan">Kashi Vishwanath Temple</Link></span> ·{" "}
+            <span><Link to="/plan">Sarnath &amp; the Dhamek Stupa</Link></span> ·{" "}
+            <span><Link to="/plan">Banarasi silk weavers&apos; lanes</Link></span> ·{" "}
+            <span><Link to="/plan">Old-city galli food walk</Link></span> ·{" "}
+            <span><Link to="/plan">Assi Ghat mornings</Link></span> ·{" "}
+            <span><Link to="/plan">Ramnagar Fort</Link></span>
           </p>
         </div>
 

@@ -99,7 +99,7 @@ const WhereField = memo(function WhereField({ value, onChange }) {
         aria-autocomplete="list"
         aria-activedescendant={open && active >= 0 ? `where-opt-${active}` : undefined}
         value={value}
-        placeholder="Varanasi, Ladakh, anywhere…"
+        placeholder="Ghats, old city, Sarnath…"
         onChange={(e) => {
           onChange(e.target.value);
           setOpen(true);

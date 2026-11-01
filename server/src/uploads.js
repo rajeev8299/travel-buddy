@@ -28,7 +28,8 @@ export const uploadHeroImage = multer({
   limits: { fileSize: 8 * 1024 * 1024 },
   fileFilter: (req, file, cb) => {
     if (!ALLOWED[file.mimetype]) {
-      cb(new Error("Only JPEG, PNG or WEBP images are allowed."));
+      // `expose` marks the message as safe to show the caller (see app.js).
+      cb(Object.assign(new Error("Only JPEG, PNG or WEBP images are allowed."), { status: 400, expose: true }));
       return;
     }
     cb(null, true);

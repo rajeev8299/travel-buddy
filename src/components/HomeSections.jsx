@@ -77,12 +77,12 @@ export const AboutSection = memo(function AboutSection() {
         <div className="about-grid">
           <div className="about-content" data-reveal>
             <p className="eyebrow eyebrow--dark">Who we are</p>
-            <h2>Travel with locals who make cities feel like home</h2>
+            <h2>See Varanasi with locals who call it home</h2>
             <p className="lead">
-              Founded in 2019, TravelOnBuddy connects travellers with authentic, verified locals across 42 Indian towns and cities.
+              Founded in 2019, TravelOnBuddy connects travellers with verified locals who grew up on the ghats and in the gallis of Varanasi.
             </p>
             <p>
-              We believe authentic travel happens when you leave the scripted bus tours behind. Whether you want to explore ancient temple alleys in Varanasi, find tucked-away bakeries in Goa, or hike remote trails in Meghalaya, our buddies craft each hour around your pace, preferences, and comfort.
+              We believe authentic travel happens when you leave the scripted bus tours behind. Whether you want the temple alleys of the old city, a silent sunrise on the river, or a slow day among the stupas of Sarnath, our buddies craft each hour around your pace, preferences, and comfort.
             </p>
 
             <div className="about-pillars">

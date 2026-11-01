@@ -1,8 +1,18 @@
 import { Router } from "express";
 import { db } from "../../db.js";
 import { asyncHandler } from "../../middleware/asyncHandler.js";
+import { validateBody, validateParam, text, NUMERIC_ID } from "../../middleware/validate.js";
 
 const router = Router();
+router.param("id", validateParam("id", NUMERIC_ID));
+const validateFields = validateBody({
+  name: text(80, "Name"),
+  city: text(80, "City"),
+  years: { type: "numeric", label: "Years" },
+  rating: { type: "numeric", label: "Rating" },
+  tongue: text(200, "Languages"),
+  hue: text(7, "Hue"),
+});
 
 function validate(v) {
   if (!v.name?.trim()) return "Name is required.";
@@ -22,6 +32,7 @@ router.get("/", (req, res) => {
 
 router.post(
   "/",
+  validateFields,
   asyncHandler(async (req, res) => {
     const v = req.body || {};
     const error = validate(v);
@@ -38,6 +49,7 @@ router.post(
 
 router.put(
   "/:id",
+  validateFields,
   asyncHandler(async (req, res) => {
     const v = req.body || {};
     const error = validate(v);
