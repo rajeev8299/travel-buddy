@@ -3,7 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { db } from "../../db.js";
 import { heroSlideSrc } from "../../heroSlideSrc.js";
-import { uploadHeroImage, uploadsDir } from "../../uploads.js";
+import { uploadHeroImage, uploadsDir, isRealImage } from "../../uploads.js";
 import { asyncHandler } from "../../middleware/asyncHandler.js";
 import { validateBody, validateParam, NUMERIC_ID } from "../../middleware/validate.js";
 
@@ -49,6 +49,10 @@ router.post(
   uploadHeroImage.single("image"),
   asyncHandler(async (req, res) => {
     if (!req.file) return res.status(400).json({ message: "An image file is required." });
+    if (!isRealImage(req.file.path)) {
+      deleteUploadedFile(`hero/${req.file.filename}`);
+      return res.status(400).json({ message: "That file isn't a JPEG, PNG or WEBP image." });
+    }
     const rawPos = (req.body?.pos || "center 50%").trim();
     if (!isValidPos(rawPos)) {
       if (req.file) deleteUploadedFile(`hero/${req.file.filename}`);
@@ -104,6 +108,10 @@ router.put(
     // Multer has already saved any new image by now, so every early return
     // has to remove it or it's left orphaned in uploads/.
     const discardUpload = () => req.file && deleteUploadedFile(req.file.filename);
+    if (req.file && !isRealImage(req.file.path)) {
+      discardUpload();
+      return res.status(400).json({ message: "That file isn't a JPEG, PNG or WEBP image." });
+    }
 
     const existing = db.prepare("SELECT * FROM hero_slides WHERE id = ?").get(req.params.id);
     if (!existing) {

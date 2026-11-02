@@ -11,8 +11,11 @@ import {
   TrendingUp,
   Image,
   ShieldCheck,
+  Inbox,
+  BellRing,
 } from "lucide-react";
 import { api } from "../../lib/api";
+import NeedsAction from "./NeedsAction";
 
 const TILES = [
   { key: "users", label: "Registered Users", icon: Users, to: "/admin/users", color: "#6366f1" },
@@ -23,6 +26,7 @@ const TILES = [
 
 export default function Dashboard() {
   const [stats, setStats] = useState(null);
+  const [ops, setOps] = useState(null);
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -30,21 +34,55 @@ export default function Dashboard() {
       .get("/admin/stats")
       .then(setStats)
       .catch((err) => setError(err.message));
+    // Today's operations: new leads waiting, reply speed, live alerts.
+    Promise.all([api.get("/admin/leads/stats"), api.get("/admin/alerts")])
+      .then(([leads, alerts]) => {
+        const now = new Date();
+        setOps({
+          newLeads: leads.byStatus.find((r) => r.status === "new")?.n ?? 0,
+          medianResponse: leads.firstResponse?.medianMinutes,
+          liveAlerts: alerts.alerts.filter((a) => new Date(a.startsAt) <= now && new Date(a.endsAt) > now).length,
+        });
+      })
+      .catch(() => {});
   }, []);
 
   return (
     <div>
       <div className="admin-page-header">
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <Sparkles size={22} color="var(--orange)" />
-          <h1>Executive Operations Dashboard</h1>
+          <Sparkles size={22} color="var(--orange)" aria-hidden="true" />
+          <h1>Dashboard</h1>
         </div>
-        <p className="admin-hint">
-          Real-time metrics, live traveller submissions, local buddy verification pipeline, and platform content management.
-        </p>
+        <p className="admin-hint">What needs doing now first, then the numbers.</p>
       </div>
 
       {error && <div className="admin-toast admin-toast--error">{error}</div>}
+
+      <NeedsAction />
+
+      {ops && (
+        <section aria-labelledby="ops-title" style={{ marginBottom: 24 }}>
+          <h2 id="ops-title" style={{ fontSize: "1.05rem", marginBottom: 10 }}>Today&apos;s operations</h2>
+          <div className="admin-tiles admin-tiles--tight">
+            <Link to="/admin/leads" className="admin-tile admin-tile--interactive" style={{ borderColor: ops.newLeads ? "#fde68a" : undefined }}>
+              <Inbox size={20} color="var(--orange-deeper)" aria-hidden="true" />
+              <strong>{ops.newLeads}</strong>
+              <span>New leads awaiting a reply</span>
+            </Link>
+            <Link to="/admin/leads" className="admin-tile admin-tile--interactive">
+              <TrendingUp size={20} color="var(--orange-deeper)" aria-hidden="true" />
+              <strong>{ops.medianResponse != null ? `${ops.medianResponse} min` : "—"}</strong>
+              <span>Median first reply, 30 days (target 10 min)</span>
+            </Link>
+            <Link to="/admin/alerts" className="admin-tile admin-tile--interactive">
+              <BellRing size={20} color="var(--orange-deeper)" aria-hidden="true" />
+              <strong>{ops.liveAlerts}</strong>
+              <span>Live travel alerts</span>
+            </Link>
+          </div>
+        </section>
+      )}
 
       {stats && (
         <>

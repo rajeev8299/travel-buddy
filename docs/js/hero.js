@@ -1,5 +1,5 @@
 // Full-bleed rotating hero backdrop on the homepage. Fetches the live list
-// from /api/hero-slides; falls back to the same 12 Varanasi photos the API
+// from /api/hero-slides; falls back to the same 10 Varanasi photos the API
 // seeds if the API isn't reachable (e.g. this page was opened off disk).
 
 const STATIC_HERO_SLIDES = [
@@ -8,11 +8,9 @@ const STATIC_HERO_SLIDES = [
   { src: "img/market.jpg", pos: "center 55%" },
   { src: "img/ganga_sunrise.jpg", pos: "center 48%" },
   { src: "img/mural.jpg", pos: "center 55%" },
-  { src: "img/ghats_dawn.jpg", pos: "center 50%" },
   { src: "img/harbour.jpg", pos: "center 55%" },
   { src: "img/kashi_vishwanath.jpg", pos: "center 52%" },
   { src: "img/monks.jpg", pos: "center 60%" },
-  { src: "img/banaras_ghats_steps.jpg", pos: "center 55%" },
   { src: "img/riverfront.jpg", pos: "center 48%" },
   { src: "img/stupa.jpg", pos: "center 45%" },
 ];

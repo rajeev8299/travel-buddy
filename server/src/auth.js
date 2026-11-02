@@ -12,7 +12,8 @@ if (JWT_SECRET.length < 32 || JWT_SECRET.startsWith("change-me")) {
 
 const COOKIE_NAME = "tob_session";
 // Admin sessions reach every applicant's ID details, so they expire sooner.
-const SESSION_HOURS = { admin: 12, default: 7 * 24 };
+// Staff who can see unpublished drafts get the same short sessions as admins.
+const SESSION_HOURS = { admin: 12, editor: 12, author: 12, default: 7 * 24 };
 
 function sessionHours(role) {
   return SESSION_HOURS[role] ?? SESSION_HOURS.default;

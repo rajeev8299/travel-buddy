@@ -20,11 +20,9 @@ export const HERO_SLIDES = [
   { path: "img/market.jpg", pos: "center 55%" },
   { path: "img/ganga_sunrise.jpg", pos: "center 48%" },
   { path: "img/mural.jpg", pos: "center 55%" },
-  { path: "img/ghats_dawn.jpg", pos: "center 50%" },
   { path: "img/harbour.jpg", pos: "center 55%" },
   { path: "img/kashi_vishwanath.jpg", pos: "center 52%" },
   { path: "img/monks.jpg", pos: "center 60%" },
-  { path: "img/banaras_ghats_steps.jpg", pos: "center 55%" },
   { path: "img/riverfront.jpg", pos: "center 48%" },
   { path: "img/stupa.jpg", pos: "center 45%" },
 ];

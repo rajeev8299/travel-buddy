@@ -75,7 +75,7 @@ function validate(v) {
   if (!v.daysPerWeek) e.daysPerWeek = "How many days a week suits you?";
 
   if (!v.idType) e.idType = "Pick an ID type.";
-  if (!v.idNumber.trim()) e.idNumber = "ID number is required for verification.";
+  if (!/^[A-Za-z0-9]{4}$/.test(v.idNumber.trim())) e.idNumber = "Enter just the last 4 characters of the ID number.";
 
   if (!v.ref1Name.trim()) e.ref1Name = "One reference is the minimum.";
   if (!v.ref1Phone.trim()) e.ref1Phone = "We need a number we can call.";
@@ -524,15 +524,16 @@ export default function BuddyForm() {
           <span>05</span> Verification
         </legend>
         <p className="form__note">
-          Every buddy is ID-checked and reference-checked before their first trip. We only
-          use these to verify you — they're never shown to travellers.
+          We only ask for the last 4 characters of your ID number now. If we shortlist you, we&apos;ll
+          send a private link to upload your documents — they&apos;re checked by our team and then
+          deleted, and never shown to travellers.
         </p>
 
         <div className="form__grid">
           <Field id="idType" label="ID document *" error={errors.idType}>
             <select id="idType" value={v.idType} onChange={set("idType")} aria-invalid={!!errors.idType}>
               <option value="">Choose…</option>
-              <option>Aadhaar</option>
+              <option value="Aadhaar">Aadhaar (masked copy)</option>
               <option>Passport</option>
               <option>Driving licence</option>
               <option>Voter ID</option>
@@ -540,13 +541,15 @@ export default function BuddyForm() {
             </select>
           </Field>
 
-          <Field id="idNumber" label="ID number *" error={errors.idNumber}>
+          <Field id="idNumber" label="Last 4 characters of the ID number *" error={errors.idNumber}>
             <input
               id="idNumber"
               type="text"
               value={v.idNumber}
               onChange={set("idNumber")}
               autoComplete="off"
+              maxLength={4}
+              inputMode="text"
               aria-invalid={!!errors.idNumber}
             />
           </Field>

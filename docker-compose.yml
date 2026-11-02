@@ -5,9 +5,27 @@ services:
       - "4000:4000"
     environment:
       PORT: 4000
-      # Public site and admin panel are both served from the web container.
-      CLIENT_ORIGIN: http://localhost:8080
-      PUBLIC_API_URL: http://localhost:4000
+      # Set NODE_ENV=production in .env for a live deploy: secure sign-in
+      # cookies and no `Origin: null` (see DEPLOY.md). Local default stays dev.
+      NODE_ENV: ${NODE_ENV:-development}
+      # Browser origins allowed to call the API: the static prototype (web
+      # container) and the Next.js site (site container). Override in .env.
+      CLIENT_ORIGIN: ${CLIENT_ORIGIN:-http://localhost:8080,http://localhost:3100}
+      PUBLIC_API_URL: ${PUBLIC_API_URL:-http://localhost:4000}
+      # Proxy hops in front of the API (e.g. 1 behind a load balancer), so rate
+      # limits see each visitor's IP rather than the proxy's.
+      TRUST_PROXY: ${TRUST_PROXY:-}
+      # Where blog preview links point (the Next.js site).
+      SITE_URL: ${SITE_URL:-http://localhost:3100}
+      # Lets the API tell the site to refresh blog pages straight away (optional;
+      # set REVALIDATE_SECRET in .env to a long random value, same for both services).
+      SITE_INTERNAL_URL: http://site:3000
+      REVALIDATE_SECRET: ${REVALIDATE_SECRET:-}
+      LEAD_LOST_REASONS: ${LEAD_LOST_REASONS:-}
+      # Encrypts buddy verification documents (64 hex characters: openssl rand -hex 32).
+      # Without it, document uploads are refused rather than stored unencrypted.
+      BUDDY_DOCS_KEY: ${BUDDY_DOCS_KEY:-}
+      BLOG_VERIFICATION_MAX_AGE_DAYS: ${BLOG_VERIFICATION_MAX_AGE_DAYS:-}
       JWT_SECRET: ${JWT_SECRET:?set JWT_SECRET in .env}
       ADMIN_EMAIL: ${ADMIN_EMAIL:-admin@example.com}
       ADMIN_PASSWORD: ${ADMIN_PASSWORD:?set ADMIN_PASSWORD in .env}
@@ -28,8 +46,33 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.web
+      args:
+        VITE_SITE_URL: ${SITE_URL:-http://localhost:3100}
+    environment:
+      # Where nginx redirects anything outside /admin/ (the old static site is retired).
+      SITE_URL: ${SITE_URL:-http://localhost:3100}
     ports:
       - "8080:80"
+    depends_on:
+      - api
+    restart: unless-stopped
+
+
+  # Varanasi Trip Companion — the Next.js site (web/).
+  site:
+    build:
+      context: ./web
+      args:
+        NEXT_PUBLIC_SITE_URL: ${SITE_URL:-http://localhost:3100}
+        NEXT_PUBLIC_API_URL: ${PUBLIC_API_BASE:-http://localhost:4000/api}
+        NEXT_PUBLIC_WHATSAPP_NUMBER: ${WHATSAPP_SUPPORT_NUMBER:-}
+    environment:
+      # Server-side fetches (blog pages) reach the API over the compose network;
+      # browsers keep using NEXT_PUBLIC_API_URL.
+      INTERNAL_API_URL: http://api:4000/api
+      REVALIDATE_SECRET: ${REVALIDATE_SECRET:-}
+    ports:
+      - "3100:3000"
     depends_on:
       - api
     restart: unless-stopped

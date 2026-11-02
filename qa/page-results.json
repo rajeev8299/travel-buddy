@@ -1,0 +1,2146 @@
+{
+  "base": "http://localhost:3200",
+  "results": [
+    {
+      "path": "/about",
+      "status": 200,
+      "title": "About Varanasi Trip Companion | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/about",
+      "errors": false,
+      "bytes": 48624
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "title": "Varanasi Travel Guide &amp; Trip Planner",
+      "h1": 1,
+      "canonical": "http://localhost:3200",
+      "errors": false,
+      "bytes": 160009
+    },
+    {
+      "path": "/about/complaints",
+      "status": 200,
+      "title": "Raise a complaint | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/about/complaints",
+      "errors": false,
+      "bytes": 47493
+    },
+    {
+      "path": "/about/contact",
+      "status": 200,
+      "title": "Contact us | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/about/contact",
+      "errors": false,
+      "bytes": 45834
+    },
+    {
+      "path": "/about/how-we-verify",
+      "status": 200,
+      "title": "How we verify | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/about/how-we-verify",
+      "errors": false,
+      "bytes": 49633
+    },
+    {
+      "path": "/about/partner-with-us",
+      "status": 200,
+      "title": "Partner with us | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/about/partner-with-us",
+      "errors": false,
+      "bytes": 49383
+    },
+    {
+      "path": "/about/photo-credits",
+      "status": 200,
+      "title": "Photo credits | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/about/photo-credits",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 52897
+    },
+    {
+      "path": "/about/service-standards",
+      "status": 200,
+      "title": "Our service standards | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/about/service-standards",
+      "errors": false,
+      "bytes": 50229
+    },
+    {
+      "path": "/blog/feed.xml",
+      "status": 200,
+      "title": "Varanasi Trip Companion — Blog",
+      "h1": 0,
+      "errors": false,
+      "bytes": 1048
+    },
+    {
+      "path": "/cancellation-policy",
+      "status": 200,
+      "title": "Cancellation &amp; Refund Policy | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/cancellation-policy",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 41815
+    },
+    {
+      "path": "/enquiry",
+      "status": 200,
+      "title": "Send an enquiry | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/enquiry",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 46818
+    },
+    {
+      "path": "/enquiry/thank-you",
+      "status": 200,
+      "title": "Enquiry received | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/enquiry/thank-you",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 38436
+    },
+    {
+      "path": "/experiences",
+      "status": 200,
+      "title": "Local Experiences in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/experiences",
+      "errors": false,
+      "bytes": 60480
+    },
+    {
+      "path": "/experiences/evening-aarti-from-a-boat",
+      "status": 200,
+      "title": "Evening Ganga Aarti from a boat — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/experiences/evening-aarti-from-a-boat",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 54065
+    },
+    {
+      "path": "/experiences/kashi-vishwanath-with-local-guide",
+      "status": 200,
+      "title": "Kashi Vishwanath visit with a local guide — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/experiences/kashi-vishwanath-with-local-guide",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 52426
+    },
+    {
+      "path": "/experiences/madanpura-weavers-visit",
+      "status": 200,
+      "title": "Madanpura silk weavers visit — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/experiences/madanpura-weavers-visit",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 53184
+    },
+    {
+      "path": "/experiences/morning-ghat-heritage-walk",
+      "status": 200,
+      "title": "Morning ghat heritage walk — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/experiences/morning-ghat-heritage-walk",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 53205
+    },
+    {
+      "path": "/experiences/old-city-food-walk",
+      "status": 200,
+      "title": "Old-city food walk — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/experiences/old-city-food-walk",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 53486
+    },
+    {
+      "path": "/experiences/sarnath-half-day-with-transport",
+      "status": 200,
+      "title": "Sarnath half-day with transport — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/experiences/sarnath-half-day-with-transport",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 53601
+    },
+    {
+      "path": "/experiences/sunrise-rowing-boat-assi",
+      "status": 200,
+      "title": "Sunrise rowing boat from Assi — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/experiences/sunrise-rowing-boat-assi",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 53020
+    },
+    {
+      "path": "/explore",
+      "status": 200,
+      "title": "Explore Varanasi: History, Faith &amp; Culture | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/explore",
+      "errors": false,
+      "bytes": 80208
+    },
+    {
+      "path": "/explore/architecture-and-lanes",
+      "status": 200,
+      "title": "Architecture and the narrow lanes | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/explore/architecture-and-lanes",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 55656
+    },
+    {
+      "path": "/explore/banaras-hindu-university",
+      "status": 200,
+      "title": "Banaras Hindu University | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/explore/banaras-hindu-university",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 56054
+    },
+    {
+      "path": "/explore/banarasi-silk",
+      "status": 200,
+      "title": "Banarasi silk and weaving traditions | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/explore/banarasi-silk",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 67567
+    },
+    {
+      "path": "/explore/crafts",
+      "status": 200,
+      "title": "Local craftsmanship | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/explore/crafts",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 55182
+    },
+    {
+      "path": "/explore/buddhism-and-jainism",
+      "status": 200,
+      "title": "Varanasi in Buddhism and Jainism | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/explore/buddhism-and-jainism",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 65722
+    },
+    {
+      "path": "/explore/everyday-life",
+      "status": 200,
+      "title": "Everyday life in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/explore/everyday-life",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 53856
+    },
+    {
+      "path": "/explore/food-culture",
+      "status": 200,
+      "title": "Traditional food culture | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/explore/food-culture",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 56406
+    },
+    {
+      "path": "/explore/hindu-traditions",
+      "status": 200,
+      "title": "Varanasi in Hindu traditions | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/explore/hindu-traditions",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 56486
+    },
+    {
+      "path": "/explore/history",
+      "status": 200,
+      "title": "History of Varanasi through the ages | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/explore/history",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 68866
+    },
+    {
+      "path": "/explore/history-of-the-ghats",
+      "status": 200,
+      "title": "History and importance of the ghats | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/explore/history-of-the-ghats",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 70927
+    },
+    {
+      "path": "/explore/introduction",
+      "status": 200,
+      "title": "Introduction to Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/explore/introduction",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 67365
+    },
+    {
+      "path": "/explore/kashi-banaras-varanasi",
+      "status": 200,
+      "title": "Kashi, Banaras, Varanasi: the city&#x27;s names | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/explore/kashi-banaras-varanasi",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 70185
+    },
+    {
+      "path": "/explore/learning-and-heritage",
+      "status": 200,
+      "title": "Cultural and educational heritage | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/explore/learning-and-heritage",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 55801
+    },
+    {
+      "path": "/explore/modern-varanasi",
+      "status": 200,
+      "title": "Modern Varanasi and tourism | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/explore/modern-varanasi",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 55178
+    },
+    {
+      "path": "/explore/music-arts-literature",
+      "status": 200,
+      "title": "Music, classical arts and literature | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/explore/music-arts-literature",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 56873
+    },
+    {
+      "path": "/explore/spiritual-significance",
+      "status": 200,
+      "title": "Religious and spiritual significance | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/explore/spiritual-significance",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 67694
+    },
+    {
+      "path": "/explore/the-ganga",
+      "status": 200,
+      "title": "The Ganga and the riverfront | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/explore/the-ganga",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 68578
+    },
+    {
+      "path": "/festivals",
+      "status": 200,
+      "title": "Festivals in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/festivals",
+      "errors": false,
+      "bytes": 62204
+    },
+    {
+      "path": "/festivals/buddha-purnima-sarnath",
+      "status": 200,
+      "title": "Buddhist observances in Sarnath in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/festivals/buddha-purnima-sarnath",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 53934
+    },
+    {
+      "path": "/festivals/dev-deepawali",
+      "status": 200,
+      "title": "Dev Deepawali in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/festivals/dev-deepawali",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 57662
+    },
+    {
+      "path": "/festivals/ganga-mahotsav",
+      "status": 200,
+      "title": "Ganga Mahotsav in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/festivals/ganga-mahotsav",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 53318
+    },
+    {
+      "path": "/festivals/holi",
+      "status": 200,
+      "title": "Holi in Varanasi in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/festivals/holi",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 55265
+    },
+    {
+      "path": "/festivals/kartik-purnima",
+      "status": 200,
+      "title": "Kartik Purnima in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/festivals/kartik-purnima",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 54976
+    },
+    {
+      "path": "/festivals/mahashivratri",
+      "status": 200,
+      "title": "Mahashivratri in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/festivals/mahashivratri",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 53482
+    },
+    {
+      "path": "/festivals/nag-nathaiya",
+      "status": 200,
+      "title": "Nag Nathaiya in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/festivals/nag-nathaiya",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 51545
+    },
+    {
+      "path": "/festivals/ramnagar-ramlila",
+      "status": 200,
+      "title": "Ramnagar Ramlila in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/festivals/ramnagar-ramlila",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 54803
+    },
+    {
+      "path": "/festivals/sawan",
+      "status": 200,
+      "title": "Sawan (Shravan) month in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/festivals/sawan",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 54591
+    },
+    {
+      "path": "/food",
+      "status": 200,
+      "title": "Varanasi Food Guide: What to Eat | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/food",
+      "errors": false,
+      "bytes": 57127
+    },
+    {
+      "path": "/food/baati-chokha",
+      "status": 200,
+      "title": "Baati chokha — Varanasi food guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/food/baati-chokha",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 50840
+    },
+    {
+      "path": "/food/banarasi-paan",
+      "status": 200,
+      "title": "Banarasi paan — Varanasi food guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/food/banarasi-paan",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 51495
+    },
+    {
+      "path": "/food/chooda-matar",
+      "status": 200,
+      "title": "Chooda matar — Varanasi food guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/food/chooda-matar",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 50422
+    },
+    {
+      "path": "/food/food-areas",
+      "status": 200,
+      "title": "Where to eat in Varanasi — Varanasi food guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/food/food-areas",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 54275
+    },
+    {
+      "path": "/food/lassi-and-thandai",
+      "status": 200,
+      "title": "Lassi and thandai — Varanasi food guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/food/lassi-and-thandai",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 55535
+    },
+    {
+      "path": "/food/kachori-sabzi",
+      "status": 200,
+      "title": "Kachori-sabzi &amp; jalebi — Varanasi food guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/food/kachori-sabzi",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 54953
+    },
+    {
+      "path": "/food/malaiyo",
+      "status": 200,
+      "title": "Malaiyo — Varanasi food guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/food/malaiyo",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 50881
+    },
+    {
+      "path": "/food/sweets",
+      "status": 200,
+      "title": "Rabri and traditional sweets — Varanasi food guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/food/sweets",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 51120
+    },
+    {
+      "path": "/food/tamatar-chaat",
+      "status": 200,
+      "title": "Tamatar chaat — Varanasi food guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/food/tamatar-chaat",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 51092
+    },
+    {
+      "path": "/food/vegetarian-meals",
+      "status": 200,
+      "title": "Local vegetarian meals — Varanasi food guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/food/vegetarian-meals",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 53045
+    },
+    {
+      "path": "/manifest.webmanifest",
+      "status": 200,
+      "h1": 0,
+      "errors": false,
+      "bytes": 463
+    },
+    {
+      "path": "/food-and-shopping",
+      "status": 200,
+      "title": "Food &amp; Shopping in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/food-and-shopping",
+      "errors": false,
+      "bytes": 72669
+    },
+    {
+      "path": "/markets",
+      "status": 200,
+      "title": "Markets in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/markets",
+      "errors": false,
+      "bytes": 46598
+    },
+    {
+      "path": "/markets/godowlia",
+      "status": 200,
+      "title": "Godowlia market, Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/markets/godowlia",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 49327
+    },
+    {
+      "path": "/markets/chowk",
+      "status": 200,
+      "title": "Chowk market, Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/markets/chowk",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 48544
+    },
+    {
+      "path": "/markets/lahurabir",
+      "status": 200,
+      "title": "Lahurabir market, Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/markets/lahurabir",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 48311
+    },
+    {
+      "path": "/markets/madanpura",
+      "status": 200,
+      "title": "Madanpura market, Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/markets/madanpura",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 49031
+    },
+    {
+      "path": "/markets/vishwanath-gali",
+      "status": 200,
+      "title": "Vishwanath Gali market, Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/markets/vishwanath-gali",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 49321
+    },
+    {
+      "path": "/places",
+      "status": 200,
+      "title": "Places to Visit in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places",
+      "errors": false,
+      "bytes": 96836
+    },
+    {
+      "path": "/markets/thatheri-bazaar",
+      "status": 200,
+      "title": "Thatheri Bazaar market, Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/markets/thatheri-bazaar",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 48537
+    },
+    {
+      "path": "/places/ghats",
+      "status": 200,
+      "title": "Ghats in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/ghats",
+      "errors": false,
+      "bytes": 62381
+    },
+    {
+      "path": "/places/ghats/ahilyabai",
+      "status": 200,
+      "title": "Ahilyabai Ghat, Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/ghats/ahilyabai",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 51271
+    },
+    {
+      "path": "/places/ghats/chet-singh",
+      "status": 200,
+      "title": "Chet Singh Ghat, Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/ghats/chet-singh",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 52747
+    },
+    {
+      "path": "/places/ghats/assi",
+      "status": 200,
+      "title": "Assi Ghat Varanasi: Mornings, Aarti &amp; Tips | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/ghats/assi",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 81565
+    },
+    {
+      "path": "/places/ghats/dashashwamedh",
+      "status": 200,
+      "title": "Dashashwamedh Ghat &amp; Ganga Aarti Guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/ghats/dashashwamedh",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 87510
+    },
+    {
+      "path": "/places/ghats/harishchandra",
+      "status": 200,
+      "title": "Harishchandra Ghat: A Respectful Visit Guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/ghats/harishchandra",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 65540
+    },
+    {
+      "path": "/places/ghats/kedar",
+      "status": 200,
+      "title": "Kedar Ghat, Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/ghats/kedar",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 54303
+    },
+    {
+      "path": "/places/ghats/manikarnika",
+      "status": 200,
+      "title": "Manikarnika Ghat: A Respectful Visit Guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/ghats/manikarnika",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 83662
+    },
+    {
+      "path": "/places/ghats/panchganga",
+      "status": 200,
+      "title": "Panchganga Ghat, Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/ghats/panchganga",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 55919
+    },
+    {
+      "path": "/places/ghats/namo",
+      "status": 200,
+      "title": "Namo Ghat, Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/ghats/namo",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 53787
+    },
+    {
+      "path": "/places/ghats/raj",
+      "status": 200,
+      "title": "Raj Ghat, Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/ghats/raj",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 54173
+    },
+    {
+      "path": "/places/ghats/scindia",
+      "status": 200,
+      "title": "Scindia Ghat, Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/ghats/scindia",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 53915
+    },
+    {
+      "path": "/places/ghats/tulsi",
+      "status": 200,
+      "title": "Tulsi Ghat, Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/ghats/tulsi",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 51043
+    },
+    {
+      "path": "/places/heritage",
+      "status": 200,
+      "title": "Heritage &amp; culture in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/heritage",
+      "errors": false,
+      "bytes": 62595
+    },
+    {
+      "path": "/places/heritage/alamgir-mosque",
+      "status": 200,
+      "title": "Alamgir Mosque, Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/heritage/alamgir-mosque",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 52451
+    },
+    {
+      "path": "/places/heritage/bharat-kala-bhavan",
+      "status": 200,
+      "title": "Bharat Kala Bhavan, Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/heritage/bharat-kala-bhavan",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 52369
+    },
+    {
+      "path": "/places/heritage/bharat-mata-temple",
+      "status": 200,
+      "title": "Bharat Mata Temple, Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/heritage/bharat-mata-temple",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 52312
+    },
+    {
+      "path": "/places/heritage/dhamek-stupa",
+      "status": 200,
+      "title": "Dhamek Stupa, Sarnath: History &amp; Visit Tips | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/heritage/dhamek-stupa",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 68341
+    },
+    {
+      "path": "/places/heritage/chaukhandi-stupa",
+      "status": 200,
+      "title": "Chaukhandi Stupa, Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/heritage/chaukhandi-stupa",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 58293
+    },
+    {
+      "path": "/places/heritage/jantar-mantar",
+      "status": 200,
+      "title": "Jantar Mantar at Man Mahal, Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/heritage/jantar-mantar",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 53811
+    },
+    {
+      "path": "/places/heritage/mulagandha-kuti-vihara",
+      "status": 200,
+      "title": "Mulagandha Kuti Vihara, Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/heritage/mulagandha-kuti-vihara",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 56786
+    },
+    {
+      "path": "/places/heritage/ramnagar-fort",
+      "status": 200,
+      "title": "Ramnagar Fort Varanasi: History &amp; Museum | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/heritage/ramnagar-fort",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 80901
+    },
+    {
+      "path": "/places/heritage/sarnath",
+      "status": 200,
+      "title": "Sarnath from Varanasi: Stupas, Museum &amp; Tips | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/heritage/sarnath",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 93665
+    },
+    {
+      "path": "/places/heritage/sarnath-museum",
+      "status": 200,
+      "title": "Sarnath Museum &amp; the Ashoka Lion Capital | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/heritage/sarnath-museum",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 66021
+    },
+    {
+      "path": "/places/nearby",
+      "status": 200,
+      "title": "Nearby destinations in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/nearby",
+      "errors": false,
+      "bytes": 53443
+    },
+    {
+      "path": "/places/nearby/ayodhya",
+      "status": 200,
+      "title": "Ayodhya, Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/nearby/ayodhya",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 48119
+    },
+    {
+      "path": "/places/nearby/chunar-fort",
+      "status": 200,
+      "title": "Chunar Fort, Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/nearby/chunar-fort",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 52265
+    },
+    {
+      "path": "/places/nearby/bodh-gaya",
+      "status": 200,
+      "title": "Bodh Gaya, Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/nearby/bodh-gaya",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 52358
+    },
+    {
+      "path": "/places/nearby/gaya",
+      "status": 200,
+      "title": "Gaya, Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/nearby/gaya",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 49853
+    },
+    {
+      "path": "/places/nearby/prayagraj",
+      "status": 200,
+      "title": "Prayagraj, Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/nearby/prayagraj",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 49973
+    },
+    {
+      "path": "/places/nearby/vindhyachal",
+      "status": 200,
+      "title": "Vindhyachal, Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/nearby/vindhyachal",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 51695
+    },
+    {
+      "path": "/places/nearby/sarnath",
+      "status": 200,
+      "title": "Sarnath from Varanasi: Stupas, Museum &amp; Tips | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/heritage/sarnath",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 93665
+    },
+    {
+      "path": "/places/temples",
+      "status": 200,
+      "title": "Temples in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/temples",
+      "errors": false,
+      "bytes": 55460
+    },
+    {
+      "path": "/places/temples/annapurna",
+      "status": 200,
+      "title": "Annapurna Temple, Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/temples/annapurna",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 56397
+    },
+    {
+      "path": "/places/temples/durga-kund",
+      "status": 200,
+      "title": "Durga Kund Temple Varanasi: Visitor Guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/temples/durga-kund",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 64654
+    },
+    {
+      "path": "/places/temples/kaal-bhairav",
+      "status": 200,
+      "title": "Kaal Bhairav Temple Varanasi: Visitor Guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/temples/kaal-bhairav",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 65462
+    },
+    {
+      "path": "/places/temples/mrityunjay-mahadev",
+      "status": 200,
+      "title": "Mrityunjay Mahadev Temple, Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/temples/mrityunjay-mahadev",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 58611
+    },
+    {
+      "path": "/places/temples/kashi-vishwanath",
+      "status": 200,
+      "title": "Kashi Vishwanath Temple Visitor Guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/temples/kashi-vishwanath",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 99820
+    },
+    {
+      "path": "/places/temples/new-vishwanath-bhu",
+      "status": 200,
+      "title": "New Vishwanath Temple, BHU: Visitor Guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/temples/new-vishwanath-bhu",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 66390
+    },
+    {
+      "path": "/places/temples/sankat-mochan",
+      "status": 200,
+      "title": "Sankat Mochan Hanuman Temple, Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/temples/sankat-mochan",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 67068
+    },
+    {
+      "path": "/plan",
+      "status": 200,
+      "title": "Plan Your Varanasi Trip | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/plan",
+      "errors": false,
+      "bytes": 66650
+    },
+    {
+      "path": "/places/temples/tulsi-manas",
+      "status": 200,
+      "title": "Tulsi Manas Temple, Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/places/temples/tulsi-manas",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 55581
+    },
+    {
+      "path": "/plan/itineraries",
+      "status": 200,
+      "title": "Varanasi Itineraries: 1, 2 and 3 Days | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/plan/itineraries",
+      "errors": false,
+      "bytes": 64578
+    },
+    {
+      "path": "/plan/itineraries/families",
+      "status": 200,
+      "title": "Varanasi for Families | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/plan/itineraries/families",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 57175
+    },
+    {
+      "path": "/plan/itineraries/food-and-markets",
+      "status": 200,
+      "title": "Food and Market Exploration | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/plan/itineraries/food-and-markets",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 54464
+    },
+    {
+      "path": "/plan/itineraries/heritage",
+      "status": 200,
+      "title": "Cultural and Heritage Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/plan/itineraries/heritage",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 60575
+    },
+    {
+      "path": "/plan/itineraries/one-day",
+      "status": 200,
+      "title": "Varanasi in One Day | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/plan/itineraries/one-day",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 56563
+    },
+    {
+      "path": "/plan/itineraries/senior-friendly",
+      "status": 200,
+      "title": "Senior-Friendly Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/plan/itineraries/senior-friendly",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 59379
+    },
+    {
+      "path": "/plan/itineraries/solo",
+      "status": 200,
+      "title": "Solo Traveller&#x27;s Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/plan/itineraries/solo",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 58625
+    },
+    {
+      "path": "/plan/itineraries/spiritual",
+      "status": 200,
+      "title": "Spiritual Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/plan/itineraries/spiritual",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 60794
+    },
+    {
+      "path": "/plan/itineraries/three-days",
+      "status": 200,
+      "title": "Varanasi in Three Days | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/plan/itineraries/three-days",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 61096
+    },
+    {
+      "path": "/plan/itineraries/two-days",
+      "status": 200,
+      "title": "Varanasi in Two Days | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/plan/itineraries/two-days",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 58540
+    },
+    {
+      "path": "/plan/my-trips",
+      "status": 200,
+      "title": "My saved trips | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/plan/my-trips",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 38002
+    },
+    {
+      "path": "/plan/trip-planner",
+      "status": 200,
+      "title": "Varanasi Trip Planner | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/plan/trip-planner",
+      "errors": false,
+      "bytes": 65620
+    },
+    {
+      "path": "/plan/trip",
+      "status": 200,
+      "title": "A shared Varanasi plan | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/plan/trip",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 38941
+    },
+    {
+      "path": "/plan/itineraries/with-sarnath",
+      "status": 200,
+      "title": "Varanasi with Sarnath | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/plan/itineraries/with-sarnath",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 58011
+    },
+    {
+      "path": "/robots.txt",
+      "status": 200,
+      "h1": 0,
+      "errors": false,
+      "bytes": 212
+    },
+    {
+      "path": "/search",
+      "status": 200,
+      "title": "Search Varanasi Trip Companion | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/search",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 106012
+    },
+    {
+      "path": "/privacy",
+      "status": 200,
+      "title": "Privacy Policy | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/privacy",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 44390
+    },
+    {
+      "path": "/services",
+      "status": 200,
+      "title": "Travel Services in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/services",
+      "errors": false,
+      "bytes": 55584
+    },
+    {
+      "path": "/services/assistance",
+      "status": 200,
+      "title": "Travel assistance in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/services/assistance",
+      "errors": false,
+      "bytes": 48767
+    },
+    {
+      "path": "/services/assistance/accessibility",
+      "status": 200,
+      "title": "Accessibility assistance — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/services/assistance/accessibility",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 50233
+    },
+    {
+      "path": "/services/assistance/custom-itinerary",
+      "status": 200,
+      "title": "Custom itinerary planning — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/services/assistance/custom-itinerary",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 50310
+    },
+    {
+      "path": "/services/assistance/families",
+      "status": 200,
+      "title": "Family travel assistance — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/services/assistance/families",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 49697
+    },
+    {
+      "path": "/services/assistance/group-pilgrimage",
+      "status": 200,
+      "title": "Group pilgrimage coordination — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/services/assistance/group-pilgrimage",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 50096
+    },
+    {
+      "path": "/services/assistance/senior-friendly",
+      "status": 200,
+      "title": "Senior-friendly trip planning — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/services/assistance/senior-friendly",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 50205
+    },
+    {
+      "path": "/services/guides",
+      "status": 200,
+      "title": "Guides &amp; tours in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/services/guides",
+      "errors": false,
+      "bytes": 48641
+    },
+    {
+      "path": "/services/guides/heritage-guides",
+      "status": 200,
+      "title": "Heritage guides — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/services/guides/heritage-guides",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 50018
+    },
+    {
+      "path": "/services/guides/sarnath-guides",
+      "status": 200,
+      "title": "Sarnath guides — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/services/guides/sarnath-guides",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 50006
+    },
+    {
+      "path": "/services/guides/private-group-tours",
+      "status": 200,
+      "title": "Private group tours — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/services/guides/private-group-tours",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 49994
+    },
+    {
+      "path": "/services/guides/temple-tours",
+      "status": 200,
+      "title": "Temple tours — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/services/guides/temple-tours",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 50232
+    },
+    {
+      "path": "/services/guides/walking-tours",
+      "status": 200,
+      "title": "Cultural walking tours — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/services/guides/walking-tours",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 49880
+    },
+    {
+      "path": "/services/river/boat-rides",
+      "status": 200,
+      "title": "Boat ride enquiries — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/services/river/boat-rides",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 50027
+    },
+    {
+      "path": "/services/river",
+      "status": 200,
+      "title": "River experiences in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/services/river",
+      "errors": false,
+      "bytes": 45566
+    },
+    {
+      "path": "/services/river/group-boats",
+      "status": 200,
+      "title": "Group (shared) boats — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/services/river/group-boats",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 49383
+    },
+    {
+      "path": "/services/river/private-boats",
+      "status": 200,
+      "title": "Private boats — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/services/river/private-boats",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 49579
+    },
+    {
+      "path": "/services/stays/guesthouses",
+      "status": 200,
+      "title": "Guesthouses — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/services/stays/guesthouses",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 48959
+    },
+    {
+      "path": "/services/stays/family-stays",
+      "status": 200,
+      "title": "Family stays — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/services/stays/family-stays",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 49425
+    },
+    {
+      "path": "/services/stays",
+      "status": 200,
+      "title": "Accommodation referrals in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/services/stays",
+      "errors": false,
+      "bytes": 46851
+    },
+    {
+      "path": "/services/stays/homestays",
+      "status": 200,
+      "title": "Homestays — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/services/stays/homestays",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 49017
+    },
+    {
+      "path": "/services/stays/hotels",
+      "status": 200,
+      "title": "Hotels — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/services/stays/hotels",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 49373
+    },
+    {
+      "path": "/services/transport",
+      "status": 200,
+      "title": "Local transport in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/services/transport",
+      "errors": false,
+      "bytes": 48554
+    },
+    {
+      "path": "/services/transport/airport-transfer",
+      "status": 200,
+      "title": "Airport transfer — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/services/transport/airport-transfer",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 50741
+    },
+    {
+      "path": "/services/transport/car-hire",
+      "status": 200,
+      "title": "Car hire with driver — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/services/transport/car-hire",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 50227
+    },
+    {
+      "path": "/services/transport/outstation",
+      "status": 200,
+      "title": "Outstation travel — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/services/transport/outstation",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 49990
+    },
+    {
+      "path": "/services/transport/railway-transfer",
+      "status": 200,
+      "title": "Railway station transfer — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/services/transport/railway-transfer",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 50599
+    },
+    {
+      "path": "/services/transport/sightseeing",
+      "status": 200,
+      "title": "City sightseeing transport — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/services/transport/sightseeing",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 50063
+    },
+    {
+      "path": "/shopping/etiquette-and-authenticity",
+      "status": 200,
+      "title": "Shopping etiquette, bargaining and authenticity — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/shopping/etiquette-and-authenticity",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 53435
+    },
+    {
+      "path": "/shopping/brocade-and-handloom",
+      "status": 200,
+      "title": "Brocade, handloom and textiles — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/shopping/brocade-and-handloom",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 48974
+    },
+    {
+      "path": "/shopping",
+      "status": 200,
+      "title": "Shopping in Varanasi: Banarasi Silk &amp; Crafts | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/shopping",
+      "errors": false,
+      "bytes": 56068
+    },
+    {
+      "path": "/shopping/banarasi-silk-sarees",
+      "status": 200,
+      "title": "Buying a Banarasi silk saree — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/shopping/banarasi-silk-sarees",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 56670
+    },
+    {
+      "path": "/shopping/handicrafts",
+      "status": 200,
+      "title": "Handicrafts, wooden toys and souvenirs — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/shopping/handicrafts",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 49997
+    },
+    {
+      "path": "/shopping/jewellery",
+      "status": 200,
+      "title": "Traditional jewellery — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/shopping/jewellery",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 48515
+    },
+    {
+      "path": "/shopping/musical-instruments",
+      "status": 200,
+      "title": "Traditional musical instruments — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/shopping/musical-instruments",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 46875
+    },
+    {
+      "path": "/shopping/religious-goods",
+      "status": 200,
+      "title": "Religious goods — Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/shopping/religious-goods",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 48661
+    },
+    {
+      "path": "/sitemap.xml",
+      "status": 200,
+      "h1": 0,
+      "errors": false,
+      "bytes": 3254
+    },
+    {
+      "path": "/terms",
+      "status": 200,
+      "title": "Terms of Use | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/terms",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 42726
+    },
+    {
+      "path": "/things-to-do",
+      "status": 200,
+      "title": "Things to Do in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/things-to-do",
+      "errors": false,
+      "bytes": 70640
+    },
+    {
+      "path": "/things-to-do/classical-music",
+      "status": 200,
+      "title": "Classical music experiences in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/things-to-do/classical-music",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 54177
+    },
+    {
+      "path": "/things-to-do/festival-experiences",
+      "status": 200,
+      "title": "Festival experiences in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/things-to-do/festival-experiences",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 60430
+    },
+    {
+      "path": "/things-to-do/food-walks",
+      "status": 200,
+      "title": "Traditional food walks in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/things-to-do/food-walks",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 59650
+    },
+    {
+      "path": "/things-to-do/ganga-aarti",
+      "status": 200,
+      "title": "Watching the Ganga Aarti in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/things-to-do/ganga-aarti",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 64178
+    },
+    {
+      "path": "/things-to-do/handicraft-workshops",
+      "status": 200,
+      "title": "Handicraft workshops in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/things-to-do/handicraft-workshops",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 53169
+    },
+    {
+      "path": "/things-to-do/heritage-walks",
+      "status": 200,
+      "title": "Heritage walking tours in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/things-to-do/heritage-walks",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 62224
+    },
+    {
+      "path": "/things-to-do/market-exploration",
+      "status": 200,
+      "title": "Local market exploration in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/things-to-do/market-exploration",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 58315
+    },
+    {
+      "path": "/things-to-do/morning-ghat-walk",
+      "status": 200,
+      "title": "Morning walk along the ghats in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/things-to-do/morning-ghat-walk",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 66108
+    },
+    {
+      "path": "/things-to-do/photography-walks",
+      "status": 200,
+      "title": "Photography walks with cultural guidelines in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/things-to-do/photography-walks",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 64242
+    },
+    {
+      "path": "/things-to-do/silk-weaving-visits",
+      "status": 200,
+      "title": "Banarasi silk weaving visits in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/things-to-do/silk-weaving-visits",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 57350
+    },
+    {
+      "path": "/things-to-do/sarnath-buddhist-tour",
+      "status": 200,
+      "title": "Sarnath heritage &amp; Buddhist tours in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/things-to-do/sarnath-buddhist-tour",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 68845
+    },
+    {
+      "path": "/things-to-do/sunrise-boat-ride",
+      "status": 200,
+      "title": "Sunrise boat ride in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/things-to-do/sunrise-boat-ride",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 79194
+    },
+    {
+      "path": "/things-to-do/sunset-boat-ride",
+      "status": 200,
+      "title": "Sunset boat ride in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/things-to-do/sunset-boat-ride",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 64619
+    },
+    {
+      "path": "/things-to-do/temple-circuits",
+      "status": 200,
+      "title": "Temple pilgrimage circuits in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/things-to-do/temple-circuits",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 68504
+    },
+    {
+      "path": "/things-to-do/yoga-and-meditation",
+      "status": 200,
+      "title": "Yoga and meditation in Varanasi | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/things-to-do/yoga-and-meditation",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 56745
+    },
+    {
+      "path": "/travel-guide",
+      "status": 200,
+      "title": "Varanasi Travel Guide: Essentials, Safety &amp; Getting Around | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/travel-guide",
+      "errors": false,
+      "bytes": 57004
+    },
+    {
+      "path": "/travel-guide/accessibility",
+      "status": 200,
+      "title": "Accessibility — Varanasi travel guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/travel-guide/accessibility",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 54764
+    },
+    {
+      "path": "/travel-guide/airport",
+      "status": 200,
+      "title": "Airport information — Varanasi travel guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/travel-guide/airport",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 55470
+    },
+    {
+      "path": "/travel-guide/best-time-to-visit",
+      "status": 200,
+      "title": "Best time to visit Varanasi — Varanasi travel guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/travel-guide/best-time-to-visit",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 57705
+    },
+    {
+      "path": "/travel-guide/connectivity",
+      "status": 200,
+      "title": "Mobile connectivity &amp; SIMs — Varanasi travel guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/travel-guide/connectivity",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 53666
+    },
+    {
+      "path": "/travel-guide/emergency",
+      "status": 200,
+      "title": "Emergency contacts &amp; hospitals — Varanasi travel guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/travel-guide/emergency",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 66217
+    },
+    {
+      "path": "/travel-guide/families-and-seniors",
+      "status": 200,
+      "title": "Family &amp; senior-friendly travel — Varanasi travel guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/travel-guide/families-and-seniors",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 56810
+    },
+    {
+      "path": "/travel-guide/faq",
+      "status": 200,
+      "title": "Frequently asked questions — Varanasi travel guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/travel-guide/faq",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 71874
+    },
+    {
+      "path": "/travel-guide/food-and-water-safety",
+      "status": 200,
+      "title": "Drinking water &amp; food safety — Varanasi travel guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/travel-guide/food-and-water-safety",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 56086
+    },
+    {
+      "path": "/travel-guide/getting-around",
+      "status": 200,
+      "title": "Getting around Varanasi — Varanasi travel guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/travel-guide/getting-around",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 57497
+    },
+    {
+      "path": "/travel-guide/how-to-reach",
+      "status": 200,
+      "title": "How to reach Varanasi — Varanasi travel guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/travel-guide/how-to-reach",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 55996
+    },
+    {
+      "path": "/travel-guide/last-mile-walking",
+      "status": 200,
+      "title": "Last-mile walking: where vehicles stop — Varanasi travel guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/travel-guide/last-mile-walking",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 57350
+    },
+    {
+      "path": "/travel-guide/money-and-upi",
+      "status": 200,
+      "title": "Cash, UPI and payments — Varanasi travel guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/travel-guide/money-and-upi",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 53977
+    },
+    {
+      "path": "/travel-guide/railway-stations",
+      "status": 200,
+      "title": "Railway stations — Varanasi travel guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/travel-guide/railway-stations",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 55553
+    },
+    {
+      "path": "/travel-guide/responsible-travel",
+      "status": 200,
+      "title": "Responsible &amp; respectful travel — Varanasi travel guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/travel-guide/responsible-travel",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 58012
+    },
+    {
+      "path": "/travel-guide/scams-and-touts",
+      "status": 200,
+      "title": "Common scams and how to avoid them — Varanasi travel guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/travel-guide/scams-and-touts",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 56724
+    },
+    {
+      "path": "/travel-guide/today",
+      "status": 200,
+      "title": "Today in Varanasi: Live Alerts | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/travel-guide/today",
+      "errors": false,
+      "bytes": 39014
+    },
+    {
+      "path": "/travel-guide/solo-and-women-safety",
+      "status": 200,
+      "title": "Solo-travel &amp; women&#x27;s safety — Varanasi travel guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/travel-guide/solo-and-women-safety",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 56021
+    },
+    {
+      "path": "/travel-guide/weather-and-monsoon",
+      "status": 200,
+      "title": "Weather &amp; monsoon — Varanasi travel guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/travel-guide/weather-and-monsoon",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 55471
+    },
+    {
+      "path": "/travel-guide/temple-access-rules",
+      "status": 200,
+      "title": "Current temple &amp; festival access rules — Varanasi travel guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/travel-guide/temple-access-rules",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 62391
+    },
+    {
+      "path": "/travel-guide/what-to-pack",
+      "status": 200,
+      "title": "What to pack — Varanasi travel guide | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/travel-guide/what-to-pack",
+      "robots": "noindex, follow",
+      "errors": false,
+      "bytes": 55140
+    },
+    {
+      "path": "/blog",
+      "status": 200,
+      "title": "Varanasi Travel Blog: Tips, Guides &amp; Stories | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/blog",
+      "errors": false,
+      "bytes": 45172
+    },
+    {
+      "path": "/blog/qa-varanasi-riverside-planning-guide",
+      "status": 200,
+      "title": "QA Varanasi riverside planning guide | Varanasi Trip Companion",
+      "h1": 4,
+      "canonical": "http://localhost:3200/blog/qa-varanasi-riverside-planning-guide",
+      "errors": false,
+      "bytes": 55815
+    },
+    {
+      "path": "/blog/author/qa-travel-author",
+      "status": 200,
+      "title": "QA Travel Author — Varanasi Travel Blog | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/blog/author/qa-travel-author",
+      "errors": false,
+      "bytes": 43009
+    },
+    {
+      "path": "/blog/category/plan-your-trip",
+      "status": 200,
+      "title": "Plan your trip — Varanasi Travel Blog | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/blog/category/plan-your-trip",
+      "errors": false,
+      "bytes": 43790
+    },
+    {
+      "path": "/blog/tag/qa-test",
+      "status": 200,
+      "title": "Articles tagged “qa-test” — Varanasi Travel Blog | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/blog/tag/qa-test",
+      "errors": false,
+      "bytes": 42395
+    },
+    {
+      "path": "/blog/preview",
+      "status": 200,
+      "title": "Article preview | Varanasi Trip Companion",
+      "h1": 1,
+      "robots": "noindex, nofollow",
+      "errors": false,
+      "bytes": 36121
+    },
+    {
+      "path": "/blog/qa-browser-rich-article-draft",
+      "status": 200,
+      "title": "QA Browser rich article draft | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/blog/qa-browser-rich-article-draft",
+      "errors": false,
+      "bytes": 60268
+    },
+    {
+      "path": "/blog/qa-admin-authored-article",
+      "status": 200,
+      "title": "QA Varanasi riverside planning guide | Varanasi Trip Companion",
+      "h1": 4,
+      "canonical": "http://localhost:3200/blog/qa-admin-authored-article",
+      "errors": false,
+      "bytes": 61509
+    },
+    {
+      "path": "/admin",
+      "status": 404,
+      "title": "Varanasi Trip Companion — Plan Your Varanasi Trip",
+      "h1": 1,
+      "robots": "noindex",
+      "errors": false,
+      "bytes": 34933
+    },
+    {
+      "path": "/admin/login",
+      "status": 404,
+      "title": "Varanasi Trip Companion — Plan Your Varanasi Trip",
+      "h1": 1,
+      "robots": "noindex",
+      "errors": false,
+      "bytes": 34943
+    },
+    {
+      "path": "/author",
+      "status": 404,
+      "title": "Varanasi Trip Companion — Plan Your Varanasi Trip",
+      "h1": 1,
+      "robots": "noindex",
+      "errors": false,
+      "bytes": 34934
+    },
+    {
+      "path": "/contact",
+      "status": 404,
+      "title": "Varanasi Trip Companion — Plan Your Varanasi Trip",
+      "h1": 1,
+      "robots": "noindex",
+      "errors": false,
+      "bytes": 34935
+    },
+    {
+      "path": "/booking",
+      "status": 404,
+      "title": "Varanasi Trip Companion — Plan Your Varanasi Trip",
+      "h1": 1,
+      "robots": "noindex",
+      "errors": false,
+      "bytes": 34935
+    },
+    {
+      "path": "/not-a-real-page",
+      "status": 404,
+      "title": "Varanasi Trip Companion — Plan Your Varanasi Trip",
+      "h1": 1,
+      "robots": "noindex",
+      "errors": false,
+      "bytes": 34943
+    },
+    {
+      "path": "/index.html",
+      "status": 404,
+      "title": "Varanasi Trip Companion — Plan Your Varanasi Trip",
+      "h1": 1,
+      "robots": "noindex",
+      "errors": false,
+      "bytes": 34938
+    },
+    {
+      "path": "/places/temples/not-a-place",
+      "status": 404,
+      "title": "Varanasi Trip Companion — Plan Your Varanasi Trip",
+      "h1": 1,
+      "robots": "noindex",
+      "errors": false,
+      "bytes": 35031
+    },
+    {
+      "path": "/blog/author/admin",
+      "status": 200,
+      "title": "Admin — Varanasi Travel Blog | Varanasi Trip Companion",
+      "h1": 1,
+      "canonical": "http://localhost:3200/blog/author/admin",
+      "errors": false,
+      "bytes": 42839
+    }
+  ]
+}

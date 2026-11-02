@@ -1,4 +1,5 @@
-# Build the React admin panel, then serve it next to the static public site.
+# Build the React admin panel and serve it with nginx. The old static site
+# (docs/) is retired; nginx sends everything outside /admin/ to the Next.js site.
 FROM node:24-alpine AS build
 WORKDIR /app
 COPY package*.json ./
@@ -6,10 +7,13 @@ RUN npm install
 COPY index.html vite.config.js tsconfig.json ./
 COPY public ./public
 COPY src ./src
+# Public site address, for the admin's links to live pages (e.g. Today in Varanasi).
+ARG VITE_SITE_URL=http://localhost:3100
+ENV VITE_SITE_URL=$VITE_SITE_URL
 RUN npm run build
 
 FROM nginx:1.27-alpine
-COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
-COPY docs /usr/share/nginx/html
+# Rendered to conf.d/default.conf at start, with ${SITE_URL} filled in.
+COPY docker/nginx.conf /etc/nginx/templates/default.conf.template
 COPY --from=build /app/dist /usr/share/nginx/html/admin
 EXPOSE 80

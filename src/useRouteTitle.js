@@ -24,12 +24,17 @@ const TITLES = {
   "/admin/buddies": "Buddies · Admin",
   "/admin/stories": "Stories · Admin",
   "/admin/users": "Users · Admin",
+  "/admin/leads": "Leads · Admin",
+  "/admin/alerts": "Travel Alerts · Admin",
+  "/admin/blog": "Blog · Admin",
+  "/admin/blog/profile": "My Profile · Admin",
 };
 
 export function RouteTitle() {
   const { pathname } = useLocation();
   useEffect(() => {
-    const title = TITLES[pathname] ?? "Page Not Found";
+    // Article editor addresses carry ids (/admin/blog/3/7).
+    const title = TITLES[pathname] ?? (pathname.startsWith("/admin/blog/") ? "Edit Article · Admin" : "Page Not Found");
     document.title = pathname === "/" ? title : `${title} — ${SITE}`;
   }, [pathname]);
   return null;

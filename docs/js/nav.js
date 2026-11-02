@@ -20,13 +20,11 @@ const CREDITS = [
   { id: "stupa", title: "Ancient brick ruins and the Dhamek Stupa, Sarnath (Varanasi)", creator: "Unsplash", license: "Unsplash License", source: "https://unsplash.com/photos/hBR4rerbBQs" },
   { id: "monks", title: "Two monks meditating near the stupa at sunrise, Sarnath (Varanasi)", creator: "Rohit Dey (Unsplash)", license: "Unsplash License", source: "https://unsplash.com/photos/jeNWkvy8llE" },
   { id: "varanasi", title: "Varanasi, clear sunny day at the embankment of the Ganges", creator: "Vyacheslav Argenberg", license: "CC BY 4.0", source: "https://commons.wikimedia.org/w/index.php?curid=106201607" },
-  { id: "dev_diwali", title: "Dev Deepawali grand illumination and diyas on Varanasi Ghats", creator: "Unsplash", license: "Unsplash License", source: "https://unsplash.com/photos/a-view-of-a-temple-lit-up-at-night-with-water-in-front-of-it-e05294dd1970" },
-  { id: "ghats_dawn", title: "Morning light and temple pavilions along Varanasi Ghats", creator: "Unsplash", license: "Unsplash License", source: "https://unsplash.com/photos/2d000a50f0dc" },
-  { id: "kashi_vishwanath", title: "Traditional temple architecture & golden spires in Varanasi", creator: "Unsplash", license: "Unsplash License", source: "https://unsplash.com/photos/2138af692e32" },
-  { id: "ganga_sunrise", title: "Golden sunrise and morning rowboats on the Holy Ganga", creator: "Unsplash", license: "Unsplash License", source: "https://unsplash.com/photos/30451e3955d8" },
-  { id: "banaras_silk", title: "Authentic Banarasi silk saree with pure zari brocade", creator: "Unsplash", license: "Unsplash License", source: "https://unsplash.com/photos/98e550d6193c" },
-  { id: "street_food", title: "Fresh golden heritage street sweets and kachoris, Banaras", creator: "Unsplash", license: "Unsplash License", source: "https://unsplash.com/photos/60fce055bc82" },
-  { id: "banaras_ghats_steps", title: "Ancient stone steps leading to the Ganga at Assi Ghat", creator: "Unsplash", license: "Unsplash License", source: "https://unsplash.com/photos/136574528ed5" },
+  { id: "dev_diwali", title: "Ghats lit up with strings of lights at night, Varanasi", creator: "Not yet confirmed", license: "Not yet confirmed", source: "" },
+  { id: "kashi_vishwanath", title: "Priests performing the Ganga Aarti at night, Varanasi", creator: "Not yet confirmed", license: "Not yet confirmed", source: "" },
+  { id: "ganga_sunrise", title: "Bathers and wooden boats on the Ganga, Varanasi", creator: "Not yet confirmed", license: "Not yet confirmed", source: "" },
+  { id: "banaras_silk", title: "Purple silk saree with a gold zari border", creator: "Not yet confirmed", license: "Not yet confirmed", source: "" },
+  { id: "street_food", title: "Kachori with fried green chillies", creator: "Not yet confirmed", license: "Not yet confirmed", source: "" },
 ];
 
 const ICON_MENU = `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>`;
@@ -96,7 +94,7 @@ function footerMarkup() {
   const navLinks = NAV_LINKS.map((l) => `<a href="${l.href}">${l.label}</a>`).join("");
   const credits = CREDITS.map(
     (c, i) =>
-      `${i > 0 ? " · " : ""}<a href="${c.source}" target="_blank" rel="noreferrer noopener">${c.title}</a> by ${c.creator} (${c.license})`,
+      `${i > 0 ? " · " : ""}${c.source ? `<a href="${c.source}" target="_blank" rel="noreferrer noopener">${c.title}</a>` : c.title} by ${c.creator} (${c.license})`,
   ).join("");
 
   return `

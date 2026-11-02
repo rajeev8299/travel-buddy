@@ -1,0 +1,49 @@
+{
+  "results": [
+    {
+      "name": "Submit buddy application",
+      "status": "PASS",
+      "http": 201
+    },
+    {
+      "name": "Read buddy application detail",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Approve buddy application",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Filter approved applications",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Reject buddy application",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Legacy trip request submission",
+      "status": "PASS",
+      "http": 201
+    },
+    {
+      "name": "Legacy trip request status update",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Legacy trip request listed",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Invalid application status rejected",
+      "status": "PASS",
+      "http": 400
+    }
+  ]
+}

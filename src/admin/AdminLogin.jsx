@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import { LogIn, KeyRound, HelpCircle, AlertCircle, CheckCircle2, Loader2, ArrowLeft } from "lucide-react";
 import { useAuth } from "../auth/authContext";
+import { isStaff } from "./roles";
 import Logo from "../components/Logo";
 import { api } from "../lib/api";
 
@@ -30,8 +31,8 @@ export default function AdminLogin() {
   const [fpSuccess, setFpSuccess] = useState("");
   const [fpSubmitting, setFpSubmitting] = useState(false);
 
-  if (ready && user?.role === "admin") {
-    return <Navigate to="/admin" replace />;
+  if (ready && isStaff(user?.role)) {
+    return <Navigate to={user.role === "admin" ? "/admin" : "/admin/blog"} replace />;
   }
 
   const onSubmit = async (e) => {
@@ -40,9 +41,9 @@ export default function AdminLogin() {
     setSubmitting(true);
     try {
       const signedIn = await signIn({ email, password });
-      if (signedIn.role !== "admin") {
+      if (!isStaff(signedIn.role)) {
         signOut();
-        throw new Error("That account doesn't have admin access.");
+        throw new Error("That account doesn't have access to the admin panel.");
       }
     } catch (err) {
       setError(err.message);

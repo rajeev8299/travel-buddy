@@ -22,6 +22,11 @@ function ageFrom(dob) {
 
 // Mirrors the client-side checks in src/components/BuddyForm.jsx — never
 // trust the browser alone for something that ends up in the DB.
+// Only the last 4 characters of an ID number are ever stored — enough to match
+// the document later, useless if leaked. A full number sent by an old form is
+// cut down here before it reaches the database. Never a full Aadhaar number.
+const idLast4 = (s) => String(s || "").replace(/[^A-Za-z0-9]/g, "").slice(-4).toUpperCase();
+
 function validate(v) {
   const phone = (s) => PHONE_RE.test((s || "").replace(/[\s-]/g, ""));
   if (!v.fullName?.trim()) return "We need a name to call you by.";
@@ -36,7 +41,7 @@ function validate(v) {
     return "Pick at least one language.";
   if (!v.guidingYears) return "Years of guiding experience is required.";
   if (!v.daysPerWeek) return "Days a week you're free is required.";
-  if (!v.idType || !v.idNumber?.trim()) return "ID document and number are required.";
+  if (!v.idType || idLast4(v.idNumber).length !== 4) return "Choose your ID document and enter the last 4 characters of its number.";
   if (!v.ref1Name?.trim() || !phone(v.ref1Phone)) return "A reachable first reference is required.";
   if ((v.whyJoin || "").trim().length < 30) return "Tell us a bit more about why you want to join.";
   if ((v.showThem || "").trim().length < 30) return "Tell us a bit more about what you'd show them.";
@@ -118,7 +123,7 @@ router.post(
         v.vehicle || null,
         v.firstAid ? 1 : 0,
         v.idType,
-        v.idNumber.trim(),
+        idLast4(v.idNumber),
         v.ref1Name.trim(),
         v.ref1Phone.trim(),
         v.ref2Name?.trim() || null,

@@ -1,0 +1,191 @@
+{
+  "adminScreens": [
+    {
+      "route": "leads",
+      "headings": [
+        "\t\t\t18 heading Leads, Value: 1",
+        "\t\t\t\t324 heading Response times, Value: 2, ID: report-title",
+        "\t\t\t\t358 heading Partner response rate, Value: 2"
+      ],
+      "errors": []
+    },
+    {
+      "route": "alerts",
+      "headings": [
+        "\t\t\t18 heading Travel alerts, Value: 1",
+        "\t\t\t\t24 heading Post an alert, Value: 2, ID: new-alert",
+        "\t\t\t55 heading Live now (0), Value: 2"
+      ],
+      "errors": []
+    },
+    {
+      "route": "blog",
+      "headings": [
+        "\t\t\t18 heading Blog, Value: 1"
+      ],
+      "errors": []
+    },
+    {
+      "route": "hero",
+      "headings": [
+        "\t\t\t18 heading Homepage Hero Gallery & Media Manager, Value: 1"
+      ],
+      "errors": []
+    },
+    {
+      "route": "applications",
+      "headings": [
+        "\t\t\t18 heading Buddy Applications, Value: 1"
+      ],
+      "errors": []
+    },
+    {
+      "route": "plan-requests",
+      "headings": [
+        "\t\t\t18 heading Custom Trip Bookings & Plan Requests, Value: 1"
+      ],
+      "errors": []
+    },
+    {
+      "route": "buddies",
+      "headings": [
+        "\t\t\t18 heading Buddies, Value: 1"
+      ],
+      "errors": []
+    },
+    {
+      "route": "stories",
+      "headings": [
+        "\t\t\t18 heading Stories, Value: 1"
+      ],
+      "errors": []
+    },
+    {
+      "route": "users",
+      "headings": [
+        "\t\t\t18 heading Users, Value: 1"
+      ],
+      "errors": []
+    },
+    {
+      "route": "blog/profile",
+      "headings": [
+        "\t\t\t19 heading My author profile, Value: 1"
+      ],
+      "errors": []
+    }
+  ],
+  "mobileAdmin": [
+    {
+      "path": "leads",
+      "mainWidth": 390,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "path": "blog",
+      "mainWidth": 390,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "path": "users",
+      "mainWidth": 390,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "path": "blog/3/4",
+      "mainWidth": 390,
+      "scrollWidth": 390,
+      "width": 390
+    }
+  ],
+  "publicChecks": [
+    {
+      "name": "Empty contact validation",
+      "status": "PASS"
+    },
+    {
+      "name": "Contact submission and receipt; persisted in admin",
+      "status": "PASS"
+    },
+    {
+      "name": "Experience CTA context and submission receipt",
+      "status": "PASS"
+    },
+    {
+      "name": "Senior-friendly low-walking planner generation",
+      "status": "PASS"
+    },
+    {
+      "name": "Planner reorder, remove, add, save and shared viewing",
+      "status": "PASS"
+    },
+    {
+      "name": "Saved trips persist across navigation; deletion",
+      "status": "PASS"
+    },
+    {
+      "name": "Universal search results and no-results state",
+      "status": "PASS"
+    },
+    {
+      "name": "Place category filter and zero matches",
+      "status": "PASS"
+    },
+    {
+      "name": "390px mobile navigation open/Escape; no horizontal overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "Published article with author, sources and verified date",
+      "status": "PASS"
+    },
+    {
+      "name": "Travel alerts empty state",
+      "status": "PASS"
+    },
+    {
+      "name": "Malformed shared itinerary rejected gracefully",
+      "status": "FAIL",
+      "repro": "/plan/trip?d=eyJkYXlzIjpbe31dfQ",
+      "actual": "Runtime TypeError in PlanView: d.items undefined"
+    }
+  ],
+  "authorChecks": [
+    {
+      "name": "Author login lands on blog-only navigation",
+      "status": "PASS"
+    },
+    {
+      "name": "Author redirected away from user administration",
+      "status": "PASS"
+    },
+    {
+      "name": "Create, edit, save draft with summary/category/Markdown/sources",
+      "status": "PASS"
+    },
+    {
+      "name": "Visual/Markdown conversion retains content",
+      "status": "PASS"
+    },
+    {
+      "name": "Submit for review locks author fields",
+      "status": "PASS"
+    },
+    {
+      "name": "Admin review, fact verification and separate-admin approval",
+      "status": "PASS"
+    },
+    {
+      "name": "Admin contributor self-approval blocked with explanatory UI",
+      "status": "PASS"
+    },
+    {
+      "name": "Final browser publication confirmation",
+      "status": "BLOCKED",
+      "note": "Chrome automation stalled at native confirm. Publication was completed and verified through API and then checked on public page."
+    }
+  ]
+}

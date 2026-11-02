@@ -1,14 +1,16 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Check, X, Eye, Loader2 } from "lucide-react";
 import { api } from "../../lib/api";
+import BuddyVerificationPanel from "./BuddyVerificationPanel";
 
-const FILTERS = ["all", "pending", "approved", "rejected"];
+const FILTERS = ["all", "pending", "docs_requested", "under_review", "approved", "rejected"];
+const LABEL = { all: "All", pending: "New", docs_requested: "Documents requested", under_review: "Ready to check", approved: "Approved", rejected: "Rejected" };
 
 function StatusBadge({ status }) {
-  return <span className={`admin-badge admin-badge--${status}`}>{status}</span>;
+  return <span className={`admin-badge admin-badge--${status}`}>{LABEL[status] ?? status}</span>;
 }
 
-function DetailModal({ id, onClose }) {
+function DetailModal({ id, onClose, onStatusChanged }) {
   const [detail, setDetail] = useState(null);
   const [error, setError] = useState("");
 
@@ -124,7 +126,7 @@ function DetailModal({ id, onClose }) {
               <dd>{detail.firstAid ? "Yes" : "No"}</dd>
               <dt>ID</dt>
               <dd>
-                {detail.id_type} — {detail.id_number}
+                {detail.id_type} — ending {detail.id_number}
               </dd>
               <dt>Reference 1</dt>
               <dd>
@@ -137,6 +139,7 @@ function DetailModal({ id, onClose }) {
               <dt>What they'd show a visitor</dt>
               <dd>{detail.show_them}</dd>
             </dl>
+            <BuddyVerificationPanel application={detail} onStatusChanged={onStatusChanged} />
           </>
         )}
       </div>
@@ -188,7 +191,7 @@ export default function Applications() {
             className={f === filter ? "is-active" : ""}
             onClick={() => setFilter(f)}
           >
-            {f}
+            {LABEL[f]}
           </button>
         ))}
       </div>
@@ -264,7 +267,13 @@ export default function Applications() {
         </div>
       )}
 
-      {viewingId && <DetailModal id={viewingId} onClose={() => setViewingId(null)} />}
+      {viewingId && (
+        <DetailModal
+          id={viewingId}
+          onClose={() => setViewingId(null)}
+          onStatusChanged={(id, status) => setApplications((list) => list.map((a) => (a.id === id ? { ...a, status } : a)))}
+        />
+      )}
     </div>
   );
 }

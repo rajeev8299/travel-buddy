@@ -11,6 +11,10 @@
 // Fields without a rule are dropped, so handlers only ever see known keys.
 
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+const isRealDate = (v) => {
+  const d = new Date(`${v}T00:00:00Z`);
+  return !Number.isNaN(d.getTime()) && d.toISOString().slice(0, 10) === v;
+};
 
 function check(value, rule) {
   switch (rule.type) {
@@ -26,9 +30,9 @@ function check(value, rule) {
     case "boolean":
       return typeof value === "boolean" ? null : "must be true or false";
     case "date":
-      return typeof value === "string" && DATE_RE.test(value) && !Number.isNaN(Date.parse(value))
-        ? null
-        : "must be a date (YYYY-MM-DD)";
+      // Round-trip through a real calendar: Date.parse("2026-02-30") quietly
+      // rolls over to 2 March, so a regex plus Date.parse isn't enough.
+      return typeof value === "string" && DATE_RE.test(value) && isRealDate(value) ? null : "must be a real date (YYYY-MM-DD)";
     case "strings":
       if (!Array.isArray(value)) return "must be a list";
       if (value.length > (rule.maxItems ?? 20)) return `can have at most ${rule.maxItems ?? 20} items`;
@@ -76,7 +80,8 @@ export function validateParam(name, pattern) {
 }
 
 export const NUMERIC_ID = /^[1-9]\d{0,9}$/;
-export const REFERENCE_ID = /^TOB-\d{4}-[A-Z0-9]{5,8}$/;
+export const REFERENCE_ID = /^(TOB|VTC)-\d{4}-[A-Z0-9]{5,8}$/;
+export const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 // Shared field shapes, so the same field gets the same limits everywhere.
 export const text = (max, label) => ({ type: "string", max, label });

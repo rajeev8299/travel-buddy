@@ -1,0 +1,51 @@
+.planner { display: grid; gap: 36px; }
+.form { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(18px, 3vw, 28px); }
+.result h2 { outline: none; }
+.plan { display: grid; gap: 22px; }
+.day { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; }
+.dayHead { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 16px; margin-bottom: 12px; }
+.dayHead h3 { font-size: 1.3rem; }
+.dayHead h3 span { font-family: var(--font-body); font-weight: 500; font-size: 1rem; color: var(--muted); }
+.dayHead p { color: var(--muted); font-size: 0.88rem; }
+.items { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.item {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 4px 14px;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  background: var(--cream);
+  border-left: 4px solid var(--saffron);
+}
+.break { border-left-color: var(--sandstone); background: #fbf6ee; }
+.when { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--saffron-text); padding-top: 2px; }
+.break .when { color: var(--muted); }
+.what { display: flex; flex-direction: column; gap: 3px; }
+.what a { color: var(--ink); }
+.meta { font-size: 0.85rem; color: var(--muted); }
+.note { font-size: 0.85rem; color: var(--ink); background: var(--saffron-soft); border-radius: 6px; padding: 4px 8px; align-self: flex-start; }
+.controls { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }
+.controls button, .controls select {
+  min-width: 40px;
+  min-height: 36px;
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+}
+.controls button:disabled { opacity: 0.4; cursor: default; }
+.add { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-top: 14px; font-size: 0.9rem; }
+.add label { font-weight: 600; }
+.add select { min-height: 40px; padding: 6px 10px; border: 1px solid #c9b291; border-radius: var(--radius-sm); background: #fff; max-width: 100%; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.message { margin-top: 12px; color: var(--ok); font-weight: 600; word-break: break-all; }
+
+@media (min-width: 640px) {
+  .item { grid-template-columns: 120px minmax(0, 1fr) auto; }
+  .controls { grid-column: auto; align-self: start; }
+}
+
+@media print {
+  .form, .actions, .controls, .add, :global(.cta-panel), :global(.notice) { display: none !important; }
+}

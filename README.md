@@ -2,7 +2,7 @@
 
 A local-buddy travel matching site. There are now **two** frontends sharing one backend:
 
-- `docs/` — the public marketing site (Home, Why Buddy, Buddies, Stories, Become a Buddy, Plan, Login, Signup) as **plain HTML/CSS/JS** — no build step, no bundler. Open any page directly by double-clicking it. Named `docs/` (not `site/`) so GitHub Pages can serve it straight from this branch — see [GitHub Pages](#github-pages) below.
+- `docs/` — **retired** (the public site is now `web/`; kept for reference only, not deployed). Was: the public marketing site (Home, Why Buddy, Buddies, Stories, Become a Buddy, Plan, Login, Signup) as **plain HTML/CSS/JS** — no build step, no bundler. Open any page directly by double-clicking it. Named `docs/` (not `site/`) so GitHub Pages can serve it straight from this branch — see [GitHub Pages](#github-pages) below.
 - `src/` — the **admin panel** (React + Vite), for managing hero photos, buddy applications, plan requests, buddies, stories and users.
 - `server/` — the Express API + SQLite database both frontends talk to.
 
@@ -12,6 +12,13 @@ A local-buddy travel matching site. There are now **two** frontends sharing one 
 - `src/` — React admin panel (`src/admin/`) built with Vite
 - `server/` — Express API + SQLite (`server/src/`)
 - `dist/` — built output of the React app (the admin panel), openable via double-click too
+
+## Varanasi Trip Companion (Next.js) — `web/`
+
+The new public site, built from [Requirements.md](Requirements.md) and the specification in
+[`product/`](product/). It covers about 200 statically generated pages, a trip planner,
+tracked enquiries and live alerts. See [web/README.md](web/README.md). Run it with
+`docker compose up -d --build api site` → http://localhost:3100.
 
 ## Editing the public site
 

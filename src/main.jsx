@@ -23,6 +23,11 @@ import PlanRequests from "./admin/pages/PlanRequests.jsx";
 import BuddiesAdmin from "./admin/pages/BuddiesAdmin.jsx";
 import StoriesAdmin from "./admin/pages/StoriesAdmin.jsx";
 import AdminUsers from "./admin/pages/Users.jsx";
+import Leads from "./admin/pages/Leads.jsx";
+import Alerts from "./admin/pages/Alerts.jsx";
+import BlogList from "./admin/blog/BlogList.jsx";
+import BlogEditor from "./admin/blog/BlogEditor.jsx";
+import AuthorProfile from "./admin/blog/AuthorProfile.jsx";
 // Loaded here (not just inside App.jsx) so .btn/.form/.field styles exist
 // even when the very first page rendered is an /admin/* route, which never
 // mounts <App/>.
@@ -44,6 +49,11 @@ createRoot(document.getElementById("root")).render(
             <Route path="buddies" element={<BuddiesAdmin />} />
             <Route path="stories" element={<StoriesAdmin />} />
             <Route path="users" element={<AdminUsers />} />
+            <Route path="leads" element={<Leads />} />
+            <Route path="alerts" element={<Alerts />} />
+            <Route path="blog" element={<BlogList />} />
+            <Route path="blog/profile" element={<AuthorProfile />} />
+            <Route path="blog/:postId/:revisionId" element={<BlogEditor />} />
           </Route>
 
           <Route element={<App />}>

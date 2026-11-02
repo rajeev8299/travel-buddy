@@ -1,0 +1,665 @@
+{
+  "base": "http://localhost:4100/api",
+  "results": [
+    {
+      "name": "Health endpoint",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Anonymous admin denied",
+      "status": "PASS",
+      "http": 401
+    },
+    {
+      "name": "Anonymous editorial denied",
+      "status": "PASS",
+      "http": 401
+    },
+    {
+      "name": "Bad login rejected",
+      "status": "PASS",
+      "http": 401
+    },
+    {
+      "name": "Admin login",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Admin session",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "author signup",
+      "status": "PASS",
+      "http": 201
+    },
+    {
+      "name": "Assign author role",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "other signup",
+      "status": "PASS",
+      "http": 201
+    },
+    {
+      "name": "Assign other role",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "editor signup",
+      "status": "PASS",
+      "http": 201
+    },
+    {
+      "name": "Assign editor role",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "second signup",
+      "status": "PASS",
+      "http": 201
+    },
+    {
+      "name": "Assign second role",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "customer signup",
+      "status": "PASS",
+      "http": 201
+    },
+    {
+      "name": "Signup cannot elevate role",
+      "status": "PASS",
+      "http": 400
+    },
+    {
+      "name": "author cannot view admin users",
+      "status": "PASS",
+      "http": 403
+    },
+    {
+      "name": "editor cannot view admin users",
+      "status": "PASS",
+      "http": 403
+    },
+    {
+      "name": "customer cannot view admin users",
+      "status": "PASS",
+      "http": 403
+    },
+    {
+      "name": "Customer cannot enter editorial",
+      "status": "PASS",
+      "http": 403
+    },
+    {
+      "name": "Disallowed CORS origin",
+      "status": "PASS",
+      "http": 403
+    },
+    {
+      "name": "Admin read stats",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Admin read users",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Admin read leads",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Admin read leads/meta",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Admin read leads/stats",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Admin read alerts",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Admin read plan-requests",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Admin read buddy-applications",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Admin read buddies",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Admin read stories",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Admin read hero-slides",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Contact requires name",
+      "status": "PASS",
+      "http": 400
+    },
+    {
+      "name": "Contact requires consent",
+      "status": "PASS",
+      "http": 400
+    },
+    {
+      "name": "Invalid email rejected",
+      "status": "PASS",
+      "http": 400
+    },
+    {
+      "name": "Reversed dates rejected",
+      "status": "PASS",
+      "http": 400
+    },
+    {
+      "name": "Persist general enquiry",
+      "status": "PASS",
+      "http": 201
+    },
+    {
+      "name": "Persist trip enquiry",
+      "status": "PASS",
+      "http": 201
+    },
+    {
+      "name": "Persist service enquiry",
+      "status": "PASS",
+      "http": 201
+    },
+    {
+      "name": "Persist experience enquiry",
+      "status": "PASS",
+      "http": 201
+    },
+    {
+      "name": "Persist partner enquiry",
+      "status": "PASS",
+      "http": 201
+    },
+    {
+      "name": "Persist complaint enquiry",
+      "status": "PASS",
+      "http": 201
+    },
+    {
+      "name": "Enquiries visible in admin",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Partner assignment requires name",
+      "status": "PASS",
+      "http": 400
+    },
+    {
+      "name": "Complete requires financial details",
+      "status": "PASS",
+      "http": 400
+    },
+    {
+      "name": "Record contact",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Assign partner",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Record partner acceptance",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Confirm booking",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Reject excess commission",
+      "status": "PASS",
+      "http": 400
+    },
+    {
+      "name": "Complete booking",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Booking history",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Reject reopening completed booking without explicit workflow",
+      "status": "FAIL",
+      "http": 200,
+      "response": {
+        "lead": {
+          "reference": "TOB-2026-SSW8454E",
+          "type": "general",
+          "service": "transport",
+          "item": "airport-transfer",
+          "experience": "sunrise-rowing-boat-assi",
+          "context": null,
+          "fullName": "QA Visitor",
+          "email": "lead-general@qa.invalid",
+          "phone": null,
+          "travellers": null,
+          "arrive": null,
+          "depart": null,
+          "message": "Isolated QA enquiry",
+          "planText": null,
+          "sourcePage": null,
+          "sourceChannel": null,
+          "status": "new",
+          "partnerNote": null,
+          "createdAt": "2026-11-01 13:29:31",
+          "firstResponseAt": "2026-11-01 13:29:31",
+          "confirmedAt": "2026-11-01 13:29:31",
+          "bookingValue": 1000,
+          "commission": 100,
+          "lostReason": null,
+          "partnerName": "QA Supplier",
+          "partnerAskedAt": "2026-11-01 13:29:31",
+          "partnerRespondedAt": "2026-11-01 13:29:31",
+          "partnerResponse": "accepted",
+          "updatedAt": "2026-11-01 13:29:31",
+          "s1DueAt": "2026-11-01T13:39:31.000Z",
+          "s1Minutes": 0,
+          "s1Breach": false,
+          "s2DueAt": null,
+          "s2Minutes": null,
+          "s2Breach": false
+        }
+      }
+    },
+    {
+      "name": "Impossible calendar date rejected",
+      "status": "FAIL",
+      "http": 201,
+      "response": {
+        "reference": "TOB-2026-YJPV3AC6",
+        "type": "trip"
+      }
+    },
+    {
+      "name": "Negative travellers rejected",
+      "status": "FAIL",
+      "http": 201,
+      "response": {
+        "reference": "TOB-2026-W49M486G",
+        "type": "trip"
+      }
+    },
+    {
+      "name": "Duplicate submit idempotency",
+      "status": "FAIL",
+      "http": 201,
+      "detail": "Two identical immediate submissions"
+    },
+    {
+      "name": "Create travel alert",
+      "status": "PASS",
+      "http": 201
+    },
+    {
+      "name": "Active alert is public",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Delete alert",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Deleted alert removed publicly",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Create buddy",
+      "status": "PASS",
+      "http": 201
+    },
+    {
+      "name": "Update buddy",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Delete buddy",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Create story",
+      "status": "PASS",
+      "http": 201
+    },
+    {
+      "name": "Update story",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Delete story",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Editorial categories",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Author creates draft",
+      "status": "PASS",
+      "http": 201
+    },
+    {
+      "name": "Draft excluded publicly",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Other author cannot view draft",
+      "status": "PASS",
+      "http": 404
+    },
+    {
+      "name": "Other author cannot edit draft",
+      "status": "PASS",
+      "http": 404
+    },
+    {
+      "name": "Incomplete draft cannot submit",
+      "status": "PASS",
+      "http": 400
+    },
+    {
+      "name": "Author saves formatted draft",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Create private preview",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Preview signed access",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Preview invalid token blocked",
+      "status": "PASS",
+      "http": 403
+    },
+    {
+      "name": "Workflow submit",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Workflow start_review",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Workflow send_to_fact_check",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Workflow verify",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Author cannot approve",
+      "status": "PASS",
+      "http": 409
+    },
+    {
+      "name": "Editor cannot publish",
+      "status": "PASS",
+      "http": 409
+    },
+    {
+      "name": "Admin approves reviewed revision",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Approved revision locked",
+      "status": "PASS",
+      "http": 409
+    },
+    {
+      "name": "Admin publishes",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Published post publicly readable",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Blog filter by tag",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Blog search",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Published slug cannot change",
+      "status": "PASS",
+      "http": 409
+    },
+    {
+      "name": "New draft of live article",
+      "status": "PASS",
+      "http": 201
+    },
+    {
+      "name": "Live revision preserved while updating",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Duplicate open revision blocked",
+      "status": "PASS",
+      "http": 409
+    },
+    {
+      "name": "Reviewer requests changes",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Request changes needs reason",
+      "status": "PASS",
+      "http": 400
+    },
+    {
+      "name": "Reviewer requests changes with reason",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Author edits requested changes",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Archive published post",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Archived article hidden",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Unarchive published post",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Unarchived article visible",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Author profile update",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Public author profile",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Admin creates own draft",
+      "status": "PASS",
+      "http": 201
+    },
+    {
+      "name": "Admin fills own draft",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Own admin submit",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Own admin start_review",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Own admin send_to_fact_check",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Own admin verify",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Admin self approval denied",
+      "status": "PASS",
+      "http": 403
+    },
+    {
+      "name": "Second admin approves",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Schedule approved post",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Unschedule post",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Reject malformed blog field without 500",
+      "status": "FAIL",
+      "http": 500,
+      "response": {
+        "message": "Something went wrong on our end."
+      }
+    },
+    {
+      "name": "Fake image rejected",
+      "status": "PASS",
+      "http": 400
+    },
+    {
+      "name": "Real blog image upload",
+      "status": "PASS",
+      "http": 201
+    },
+    {
+      "name": "Unknown analytics event rejected",
+      "status": "PASS",
+      "http": 400
+    },
+    {
+      "name": "Analytics valid event",
+      "status": "PASS",
+      "http": 204
+    },
+    {
+      "name": "Logout invalidates session",
+      "status": "PASS",
+      "http": 200
+    },
+    {
+      "name": "Logged out customer session empty",
+      "status": "PASS",
+      "http": 200
+    }
+  ],
+  "fixtures": {
+    "pid": 1,
+    "rid": 1,
+    "slug": "qa-varanasi-riverside-planning-guide",
+    "previewUrl": "http://localhost:3200/blog/preview?token=1.1793541571332.FefYDAJvpUnReKD9dY2qVoL92iLj7EyV7o2fwtQRBOw",
+    "leadReferences": [
+      "TOB-2026-SSW8454E",
+      "TOB-2026-3HQRMA73",
+      "TOB-2026-BV5NUGUU",
+      "TOB-2026-FZHN97QJ",
+      "TOB-2026-2GYS5X5R",
+      "TOB-2026-M8ZTYDGM"
+    ]
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "results": [
+    {
+      "name": "Contact browser submission persisted",
+      "status": "PASS",
+      "ok": true
+    },
+    {
+      "name": "Confirm fresh request requires supplier and customer acceptance",
+      "status": "FAIL",
+      "ok": false,
+      "http": 200
+    },
+    {
+      "name": "Declined supplier cannot be confirmed",
+      "status": "FAIL",
+      "ok": false,
+      "http": 200
+    },
+    {
+      "name": "Staff demotion takes effect immediately",
+      "status": "PASS",
+      "ok": true,
+      "http": 403
+    },
+    {
+      "name": "Cannot change own role",
+      "status": "PASS",
+      "ok": true,
+      "http": 409
+    },
+    {
+      "name": "Password reset response does not disclose account existence",
+      "status": "PASS",
+      "ok": true
+    },
+    {
+      "name": "Password change revokes previous sessions",
+      "status": "PASS",
+      "ok": true
+    },
+    {
+      "name": "Restore revision creates draft",
+      "status": "PASS",
+      "ok": true
+    },
+    {
+      "name": "Publish requires approved revision",
+      "status": "PASS",
+      "ok": true
+    },
+    {
+      "name": "Image upload is protected from visitors",
+      "status": "PASS",
+      "ok": true
+    },
+    {
+      "name": "Hero upload rejects a fake image signature",
+      "status": "FAIL",
+      "ok": false,
+      "http": 201
+    },
+    {
+      "name": "Hero upload/update/reorder/delete",
+      "status": "PASS",
+      "ok": true,
+      "statuses": [
+        201,
+        200,
+        200,
+        200
+      ]
+    },
+    {
+      "name": "Per-contact enquiry limit",
+      "status": "PASS",
+      "ok": true,
+      "statuses": [
+        201,
+        201,
+        201,
+        201,
+        201,
+        429
+      ]
+    },
+    {
+      "name": "Analytics drops personal property fields",
+      "status": "FAIL",
+      "ok": false,
+      "http": 204,
+      "stored": "{\"email\":\"synthetic@qa.invalid\",\"phone\":\"9876543210\",\"name\":\"Synthetic QA\"}"
+    },
+    {
+      "name": "Scheduled publishing executes when due",
+      "status": "PASS",
+      "ok": true
+    },
+    {
+      "name": "Scheduled publishing blocks stale verification",
+      "status": "PASS",
+      "ok": true,
+      "state": "fact_check"
+    },
+    {
+      "name": "Fresh article publication via API",
+      "status": "PASS",
+      "ok": true,
+      "http": 200
+    }
+  ]
+}
