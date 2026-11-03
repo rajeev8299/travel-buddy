@@ -1,10 +1,6 @@
 import { useState, useRef, useEffect, memo } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
-  Compass,
-  Search,
-  Bell,
-  ChevronDown,
   Sparkles,
   MapPin,
   Calendar,
@@ -31,64 +27,14 @@ import {
   Users,
   Award,
   Sun,
-  ShieldCheck,
-  ShoppingBag,
-  HelpCircle,
   Clock,
   Compass as CompassIcon,
-  Menu,
 } from "lucide-react";
 import { asset } from "../data";
 import { api } from "../lib/api";
-import { useAuth } from "../auth/authContext";
-import Logo from "./Logo";
 import "./KashiThemeFullWidth.css";
 
-export const KashiThemeFullWidth = memo(function KashiThemeFullWidth({ openManualGuide }) {
-  const navigate = useNavigate();
-  const { user, signOut } = useAuth();
-
-  // Navigation states
-  const [destDropdownOpen, setDestDropdownOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const destDropdownRef = useRef(null);
-
-  // Close dropdown on outside click or Escape
-  useEffect(() => {
-    function handleKeyDown(e) {
-      if (e.key === "Escape") {
-        setDestDropdownOpen(false);
-        setSearchOpen(false);
-        setMobileMenuOpen(false);
-      }
-    }
-    function handleClickOutside(e) {
-      if (destDropdownRef.current && !destDropdownRef.current.contains(e.target)) {
-        setDestDropdownOpen(false);
-      }
-    }
-    document.addEventListener("keydown", handleKeyDown);
-    document.addEventListener("pointerdown", handleClickOutside);
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-      document.removeEventListener("pointerdown", handleClickOutside);
-    };
-  }, []);
-
-  // Prevent background scroll when mobile menu is open
-  useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [mobileMenuOpen]);
-
+export const KashiThemeFullWidth = memo(function KashiThemeFullWidth() {
   // Plan trip duration selector
   const [tripDuration, setTripDuration] = useState("1 Day Trip");
 
@@ -268,246 +214,8 @@ export const KashiThemeFullWidth = memo(function KashiThemeFullWidth({ openManua
   return (
     <div className="kashi-theme-page">
       {/* =========================================================================
-          1. FULL-WIDTH DARK KASHI NAVY NAVBAR (Header / Alignment Fixed)
-          ========================================================================= */}
-      <header className="kashi-nav">
-        <div className="kashi-nav__row">
-          {/* Left Brand with Trishul & Lord Shiva inspired emblem */}
-          <Link to="/" className="kashi-nav__brand">
-            <span className="kashi-nav__logo-seal">
-              <span className="kashi-seal-icon">ॐ</span>
-            </span>
-            <div className="kashi-nav__brand-titles">
-              <span className="kashi-nav__brand-main">TravelOnBuddy</span>
-              <span className="kashi-nav__brand-sub">Kashi Heritage Tours</span>
-            </div>
-          </Link>
-
-          {/* Center Full-width distributed Nav items */}
-          <nav className="kashi-nav__links" aria-label="Main Navigation">
-            <Link to="/" className="kashi-nav__link is-active">
-              Home
-            </Link>
-
-            <div
-              className="kashi-nav__dropdown"
-              ref={destDropdownRef}
-            >
-              <button
-                type="button"
-                className="kashi-nav__link kashi-nav__dropdown-btn"
-                onClick={() => setDestDropdownOpen(!destDropdownOpen)}
-                aria-expanded={destDropdownOpen}
-                aria-haspopup="true"
-              >
-                Destinations <ChevronDown size={14} className={destDropdownOpen ? "rotate-caret" : ""} />
-              </button>
-
-              {destDropdownOpen && (
-                <div className="kashi-dropdown-menu" role="menu">
-                  <a href="#famous-places" role="menuitem" onClick={() => setDestDropdownOpen(false)}>
-                    <Landmark size={15} /> Famous Places
-                  </a>
-                  <a href="#spiritual-places" role="menuitem" onClick={() => setDestDropdownOpen(false)}>
-                    <Building2 size={15} /> Spiritual Experiences
-                  </a>
-                  <a href="#historical-places" role="menuitem" onClick={() => setDestDropdownOpen(false)}>
-                    <Compass size={15} /> Historical Places
-                  </a>
-                  <a href="#hidden-gems" role="menuitem" onClick={() => setDestDropdownOpen(false)}>
-                    <Eye size={15} /> Hidden Gems
-                  </a>
-                </div>
-              )}
-            </div>
-
-            <Link to="/food-explorer" className="kashi-nav__link">
-              Food Explorer
-            </Link>
-            <a href="#experiences" className="kashi-nav__link">
-              Experiences
-            </a>
-            <a href="#spiritual-heritage" className="kashi-nav__link">
-              Spiritual Kashi
-            </a>
-            <a href="#local-markets" className="kashi-nav__link">
-              Handlooms &amp; Silk
-            </a>
-            <Link to="/plan" className="kashi-nav__link">
-              Plan My Trip
-            </Link>
-            <a href="#frames-gallery" className="kashi-nav__link">
-              Gallery
-            </a>
-          </nav>
-
-          {/* Right Action Icons & Auth */}
-          <div className="kashi-nav__actions">
-            <button
-              type="button"
-              className="kashi-nav__search-toggle"
-              onClick={() => setSearchOpen(!searchOpen)}
-              title="Search Kashi"
-              aria-label="Search"
-            >
-              <Search size={18} />
-            </button>
-
-            <button
-              type="button"
-              className="kashi-nav__bell-btn"
-              title="Notifications"
-              aria-label="Notifications"
-            >
-              <Bell size={18} />
-              <span className="kashi-bell-dot" />
-            </button>
-
-            {user ? (
-              <button
-                type="button"
-                className="kashi-nav__login-btn"
-                title={`Signed in as ${user.email}`}
-                onClick={signOut}
-              >
-                Log out
-              </button>
-            ) : (
-              <Link to="/login" className="kashi-nav__login-btn">
-                Login
-              </Link>
-            )}
-
-            <Link to="/signup" className="kashi-nav__signup-btn">
-              Sign Up
-            </Link>
-
-            {/* Mobile hamburger menu toggle button */}
-            <button
-              type="button"
-              className="kashi-nav__burger-btn"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-expanded={mobileMenuOpen}
-              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-            >
-              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Navigation Drawer */}
-        {mobileMenuOpen && (
-          <div className="kashi-mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
-            <nav className="kashi-mobile-drawer__links">
-              <Link to="/" onClick={() => setMobileMenuOpen(false)} className="mobile-link">
-                Home
-              </Link>
-              <a href="#famous-places" onClick={() => setMobileMenuOpen(false)} className="mobile-link">
-                Famous Places
-              </a>
-              <a href="#spiritual-places" onClick={() => setMobileMenuOpen(false)} className="mobile-link">
-                Spiritual Experiences
-              </a>
-              <Link to="/food-explorer" onClick={() => setMobileMenuOpen(false)} className="mobile-link">
-                Food Explorer
-              </Link>
-              <a href="#experiences" onClick={() => setMobileMenuOpen(false)} className="mobile-link">
-                Experiences
-              </a>
-              <a href="#spiritual-heritage" onClick={() => setMobileMenuOpen(false)} className="mobile-link">
-                Spiritual Kashi
-              </a>
-              <a href="#local-markets" onClick={() => setMobileMenuOpen(false)} className="mobile-link">
-                Handlooms &amp; Silk
-              </a>
-              <Link to="/plan" onClick={() => setMobileMenuOpen(false)} className="mobile-link">
-                Plan My Trip
-              </Link>
-              <a href="#frames-gallery" onClick={() => setMobileMenuOpen(false)} className="mobile-link">
-                Gallery
-              </a>
-              <Link to="/buddies" onClick={() => setMobileMenuOpen(false)} className="mobile-link">
-                Your Buddies
-              </Link>
-              <Link to="/why-buddy" onClick={() => setMobileMenuOpen(false)} className="mobile-link">
-                Why Buddy (Safety)
-              </Link>
-              <Link to="/become-a-buddy" onClick={() => setMobileMenuOpen(false)} className="mobile-link">
-                Become a Buddy
-              </Link>
-            </nav>
-
-            <div className="kashi-mobile-drawer__actions">
-              {user ? (
-                <button
-                  type="button"
-                  className="kashi-nav__login-btn"
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    signOut();
-                  }}
-                  style={{ width: "100%", textAlign: "center" }}
-                >
-                  Log out ({user.name || user.email})
-                </button>
-              ) : (
-                <div style={{ display: "flex", gap: "0.8rem", width: "100%" }}>
-                  <Link
-                    to="/login"
-                    className="kashi-nav__login-btn"
-                    onClick={() => setMobileMenuOpen(false)}
-                    style={{ flex: 1, textAlign: "center" }}
-                  >
-                    Login
-                  </Link>
-                  <Link
-                    to="/signup"
-                    className="kashi-nav__signup-btn"
-                    onClick={() => setMobileMenuOpen(false)}
-                    style={{ flex: 1, textAlign: "center" }}
-                  >
-                    Sign Up
-                  </Link>
-                </div>
-              )}
-              <Link
-                to="/plan"
-                className="btn-kashi-saffron"
-                onClick={() => setMobileMenuOpen(false)}
-                style={{ width: "100%", justifyContent: "center", marginTop: "0.5rem" }}
-              >
-                Plan My Trip
-              </Link>
-            </div>
-          </div>
-        )}
-
-        {/* Full-width Search Bar */}
-        {searchOpen && (
-          <div className="kashi-search-drawer">
-            <div className="kashi-search-drawer__inner">
-              <Search size={18} color="var(--kashi-gold)" />
-              <input
-                type="text"
-                placeholder="Search sacred ghats, temple darshans, street chaat, banarasi silk..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                autoFocus
-              />
-              <button
-                type="button"
-                style={{ background: "none", border: "none", color: "#FFF", cursor: "pointer" }}
-                onClick={() => setSearchOpen(false)}
-              >
-                <X size={18} />
-              </button>
-            </div>
-          </div>
-        )}
-      </header>
-
-      {/* =========================================================================
-          2. FULL-WIDTH HERO SECTION (Lord Shiva & Kashi Sacred Presence)
+          HERO SECTION (Lord Shiva & Kashi Sacred Presence)
+          Note: The single unified KashiHeader is rendered by App.jsx!
           ========================================================================= */}
       <section className="kashi-hero" aria-label="Discover the Soul of Banaras">
         <div className="kashi-hero__backdrop">
@@ -540,7 +248,7 @@ export const KashiThemeFullWidth = memo(function KashiThemeFullWidth({ openManua
             </p>
 
             <div className="kashi-hero__ctas">
-              <a href="#explore-banaras" className="btn-kashi-saffron">
+              <a href="/#explore-banaras" className="btn-kashi-saffron">
                 Explore Banaras <ArrowRight size={17} />
               </a>
               <Link to="/plan" className="btn-kashi-ivory">
@@ -1322,7 +1030,7 @@ export const KashiThemeFullWidth = memo(function KashiThemeFullWidth({ openManua
               <h3>Banaras in Frames</h3>
             </div>
             <a
-              href="#frames-gallery"
+              href="/#frames-gallery"
               onClick={(e) => {
                 e.preventDefault();
                 setLightboxIndex(0);
@@ -1380,13 +1088,15 @@ export const KashiThemeFullWidth = memo(function KashiThemeFullWidth({ openManua
                   onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
                 >
                   <span>{faq.q}</span>
-                  <ChevronDown
-                    size={18}
+                  <span
                     style={{
                       transform: openFaq === idx ? "rotate(180deg)" : "none",
                       transition: "transform 0.2s ease",
+                      display: "inline-block",
                     }}
-                  />
+                  >
+                    ▼
+                  </span>
                 </button>
                 {openFaq === idx && <div className="kashi-faq-answer">{faq.a}</div>}
               </div>
@@ -1420,7 +1130,7 @@ export const KashiThemeFullWidth = memo(function KashiThemeFullWidth({ openManua
       </section>
 
       {/* =========================================================================
-          8. FULL-WIDTH DARK NAVY STATISTICS STRIP
+          FULL-WIDTH DARK NAVY STATISTICS STRIP
           ========================================================================= */}
       <section className="kashi-stats-strip" aria-label="Banaras Platform Statistics">
         <div className="kashi-full-container">
@@ -1467,131 +1177,6 @@ export const KashiThemeFullWidth = memo(function KashiThemeFullWidth({ openManua
           </div>
         </div>
       </section>
-
-      {/* =========================================================================
-          FULL-WIDTH DARK KASHI FOOTER (Preserved as the ONLY website footer)
-          ========================================================================= */}
-      <footer className="kashi-footer">
-        <div className="kashi-footer__top">
-          {/* COLUMN 1 — BRAND */}
-          <div className="kashi-footer__brand-col">
-            <Link to="/" style={{ display: "inline-flex", alignItems: "center", gap: "0.6rem", textDecoration: "none", color: "#FFF" }}>
-              <span className="kashi-nav__logo-seal" style={{ width: "38px", height: "38px" }}>
-                <span style={{ fontSize: "0.95rem" }}>ॐ</span>
-              </span>
-              <strong style={{ fontSize: "1.3rem", fontFamily: "var(--kashi-font-serif)" }}>TravelOnBuddy</strong>
-            </Link>
-            <p>
-              Discover the timeless spirit of Kashi with authentic local experiences, trusted travel
-              guidance and unforgettable journeys.
-            </p>
-            <span style={{ color: "var(--kashi-gold)", fontSize: "0.85rem", fontWeight: "600" }}>
-              Har Har Mahadev · काशी विश्वनाथ
-            </span>
-          </div>
-
-          {/* COLUMN 2 — DESTINATIONS */}
-          <div className="kashi-footer__col">
-            <h4>Destinations</h4>
-            <a href="#famous-places">Famous Ghats</a>
-            <a href="#spiritual-places">Kashi Vishwanath</a>
-            <a href="#historical-places">Sarnath Stupa</a>
-            <a href="#hidden-gems">Old City Gallis</a>
-            <a href="#famous-places">Assi Ghat</a>
-          </div>
-
-          {/* COLUMN 3 — EXPERIENCES */}
-          <div className="kashi-footer__col">
-            <h4>Experiences</h4>
-            <a href="#experiences">Ganga Maha Aarti</a>
-            <a href="#experiences">Dawn Rowing Boats</a>
-            <a href="#experiences">Dev Deepawali</a>
-            <a href="#local-markets">Silk Weaver Studios</a>
-            <Link to="/food-explorer">Banarasi Food Trail</Link>
-          </div>
-
-          {/* COLUMN 4 — PLAN & HELP */}
-          <div className="kashi-footer__col">
-            <h4>Plan &amp; Help</h4>
-            <Link to="/plan">Itinerary Planner</Link>
-            <Link to="/buddies">Find a Buddy</Link>
-            <a href="#kashi-faqs">Visitor FAQs</a>
-            <Link to="/why-buddy">Safety &amp; ID Verification</Link>
-            <Link to="/become-a-buddy">Become a Buddy</Link>
-            {openManualGuide && (
-              <button
-                type="button"
-                onClick={openManualGuide}
-                style={{
-                  background: "none",
-                  border: "none",
-                  padding: 0,
-                  color: "rgba(255, 255, 255, 0.8)",
-                  font: "inherit",
-                  fontSize: "0.88rem",
-                  textAlign: "left",
-                  cursor: "pointer",
-                  marginTop: "0.4rem",
-                  display: "block",
-                  transition: "color 0.15s ease",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--kashi-gold)")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255, 255, 255, 0.8)")}
-              >
-                Install App 📲
-              </button>
-            )}
-          </div>
-
-          {/* COLUMN 5 — CONNECT WITH KASHI */}
-          <div className="kashi-footer__col kashi-footer__contact">
-            <h4>Connect with Kashi</h4>
-            <p>
-              Email:{" "}
-              <a href="mailto:hello@travelonbuddy.in" style={{ display: "inline", color: "inherit" }}>
-                hello@travelonbuddy.in
-              </a>
-            </p>
-            <p>
-              Helpline:{" "}
-              <a href="tel:+911140001234" style={{ display: "inline", color: "inherit" }}>
-                +91 11 4000 1234
-              </a>
-            </p>
-            <p>Mon–Sat, 9:00 AM – 8:00 PM IST</p>
-            <div style={{ marginTop: "1rem" }}>
-              <Link to="/plan" className="btn-kashi-saffron" style={{ padding: "0.55rem 1.15rem", fontSize: "0.86rem", display: "inline-flex" }}>
-                Get in Touch
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Popular in Varanasi SEO links */}
-        <div className="kashi-footer__popular-links">
-          <h4>Popular in Varanasi</h4>
-          <p>
-            <span><Link to="/plan">Sunrise boat ride on the Ganga</Link></span> ·{" "}
-            <span><Link to="/plan">Ganga Aarti at Dashashwamedh Ghat</Link></span> ·{" "}
-            <span><Link to="/plan">Kashi Vishwanath Temple</Link></span> ·{" "}
-            <span><Link to="/plan">Sarnath &amp; the Dhamek Stupa</Link></span> ·{" "}
-            <span><Link to="/plan">Banarasi silk weavers&apos; lanes</Link></span> ·{" "}
-            <span><Link to="/plan">Old-city galli food walk</Link></span> ·{" "}
-            <span><Link to="/plan">Assi Ghat mornings</Link></span> ·{" "}
-            <span><Link to="/plan">Ramnagar Fort</Link></span>
-          </p>
-        </div>
-
-        {/* BOTTOM FOOTER BAR (Single Copyright across entire page) */}
-        <div className="kashi-footer__bottom">
-          <p>© 2026 TravelOnBuddy. All rights reserved.</p>
-          <div style={{ display: "flex", gap: "1.5rem" }}>
-            <Link to="/why-buddy" style={{ color: "inherit", textDecoration: "none" }}>Privacy Policy</Link>
-            <Link to="/why-buddy" style={{ color: "inherit", textDecoration: "none" }}>Terms of Service</Link>
-            <Link to="/why-buddy" style={{ color: "inherit", textDecoration: "none" }}>Safety Guarantee</Link>
-          </div>
-        </div>
-      </footer>
 
       {/* =========================================================================
           LIGHTBOX MODAL FOR BANARAS IN FRAMES

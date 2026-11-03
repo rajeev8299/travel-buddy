@@ -1,6 +1,5 @@
 import { memo } from "react";
 import { Link } from "react-router-dom";
-import { useAuth } from "../auth/authContext";
 import "./KashiThemeFullWidth.css";
 
 export const KashiFooter = memo(function KashiFooter({ openManualGuide }) {
@@ -151,3 +150,4 @@ export const KashiFooter = memo(function KashiFooter({ openManualGuide }) {
 });
 
 export default KashiFooter;
+
