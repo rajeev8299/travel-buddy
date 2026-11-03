@@ -23,6 +23,8 @@ export default function App() {
 
   useScrollToTop(pathname);
 
+  const isHome = pathname === "/" || pathname === "";
+
   /* sticky header state */
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -61,59 +63,62 @@ export default function App() {
 
   return (
     <div className="page">
-      <header className={`nav ${scrolled ? "nav--solid" : ""}`}>
-        <div className="shell nav__inner">
-          <Logo />
+      {/* If we are on Home, BanarasHomePremium renders its own full-width Dark Navy Navbar matching the reference screenshot */}
+      {!isHome && (
+        <header className={`nav ${scrolled ? "nav--solid" : ""}`}>
+          <div className="shell nav__inner">
+            <Logo />
 
-          <nav className="nav__links" aria-label="Primary">
-            {NAV.map((item) => (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                end={item.end}
-                className={({ isActive }) => (isActive ? "is-active" : undefined)}
-              >
-                {item.label}
-              </NavLink>
-            ))}
-          </nav>
+            <nav className="nav__links" aria-label="Primary">
+              {NAV.map((item) => (
+                <NavLink
+                  key={item.to}
+                  to={item.to}
+                  end={item.end}
+                  className={({ isActive }) => (isActive ? "is-active" : undefined)}
+                >
+                  {item.label}
+                </NavLink>
+              ))}
+            </nav>
 
-          <div className="nav__actions">
-            <Link className="btn btn--ghost" to="/become-a-buddy">
-              Become a buddy
-            </Link>
-            {user ? (
-              <button
-                type="button"
-                className="btn btn--ghost nav__login"
-                title={`Signed in as ${user.email}`}
-                onClick={signOut}
-              >
-                Log out
-              </button>
-            ) : (
-              <Link className="btn btn--ghost nav__login" to="/login">
-                Log in
+            <div className="nav__actions">
+              <Link className="btn btn--ghost" to="/become-a-buddy">
+                Become a buddy
               </Link>
-            )}
-            <Link className="btn btn--solid" to="/plan">
-              Plan my trip
-            </Link>
+              {user ? (
+                <button
+                  type="button"
+                  className="btn btn--ghost nav__login"
+                  title={`Signed in as ${user.email}`}
+                  onClick={signOut}
+                >
+                  Log out
+                </button>
+              ) : (
+                <Link className="btn btn--ghost nav__login" to="/login">
+                  Log in
+                </Link>
+              )}
+              <Link className="btn btn--solid" to="/plan">
+                Plan my trip
+              </Link>
+            </div>
+
+            <button
+              className="nav__burger"
+              type="button"
+              onClick={() => setMenuOpen((o) => !o)}
+              aria-expanded={menuOpen}
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+            >
+              {menuOpen ? <X size={18} /> : <Menu size={18} />}
+            </button>
           </div>
+        </header>
+      )}
 
-          <button
-            className="nav__burger"
-            type="button"
-            onClick={() => setMenuOpen((o) => !o)}
-            aria-expanded={menuOpen}
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-          >
-            {menuOpen ? <X size={18} /> : <Menu size={18} />}
-          </button>
-        </div>
-      </header>
-
-      {menuOpen && (
+      {menuOpen && !isHome && (
         <div className="drawer" role="dialog" aria-modal="true" aria-label="Menu">
           <nav className="drawer__links">
             {NAV.map((item) => (
@@ -156,6 +161,7 @@ export default function App() {
         <Outlet />
       </main>
 
+      {/* Shared bottom brand footer */}
       <footer className="foot">
         <div className="shell foot__inner">
           <div className="foot__brand">
