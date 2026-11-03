@@ -6,6 +6,7 @@ import { BRAND, TAGLINE, NAV } from "./data";
 import { usePWAInstall } from "./hooks/usePWAInstall";
 import { useAuth } from "./auth/authContext";
 import { PWAInstallPrompt } from "./components/PWAInstallPrompt";
+import { KashiFooter } from "./components/KashiFooter";
 import "./App.css";
 
 /** Every navigation should land at the top of the new page, not mid-scroll. */
@@ -25,7 +26,7 @@ export default function App() {
 
   const isHome = pathname === "/" || pathname === "";
 
-  /* sticky header state */
+  /* sticky header state for non-home pages */
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
@@ -63,7 +64,8 @@ export default function App() {
 
   return (
     <div className="page">
-      {/* If we are on Home, BanarasHomePremium renders its own full-width Dark Navy Navbar matching the reference screenshot */}
+      {/* On Home page, KashiThemeFullWidth renders its own full-width Kashi Navy Navbar.
+          On other public routes, render the consistent top navigation bar */}
       {!isHome && (
         <header className={`nav ${scrolled ? "nav--solid" : ""}`}>
           <div className="shell nav__inner">
@@ -158,81 +160,13 @@ export default function App() {
       )}
 
       <main>
-        <Outlet />
+        <Outlet context={{ openManualGuide }} />
       </main>
 
-      {/* Shared bottom brand footer */}
-      <footer className="foot">
-        <div className="shell foot__inner">
-          <div className="foot__brand">
-            <Logo size={72} />
-            <p className="foot__tagline">{TAGLINE}</p>
-            <p>Local-led Varanasi tours, since 2019.</p>
-          </div>
-
-          <nav className="foot__col" aria-label="Explore">
-            <h4>Explore</h4>
-            {NAV.map((item) => (
-              <Link key={item.to} to={item.to}>
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-
-          <nav className="foot__col" aria-label="Company">
-            <h4>Company</h4>
-            <Link to="/become-a-buddy">Become a buddy</Link>
-            <Link to="/why-buddy">Safety promise</Link>
-            <Link to="/plan">Contact</Link>
-            <button
-              type="button"
-              className="foot__install-link"
-              onClick={openManualGuide}
-              style={{
-                background: "none",
-                border: "none",
-                padding: 0,
-                color: "inherit",
-                font: "inherit",
-                textAlign: "left",
-                cursor: "pointer",
-                opacity: 0.85,
-                transition: "opacity 0.2s",
-              }}
-            >
-              Install App 📲
-            </button>
-          </nav>
-
-          <div className="foot__col">
-            <h4>Reach us</h4>
-            <a href="mailto:hello@travelonbuddy.in">hello@travelonbuddy.in</a>
-            <a href="tel:+911140001234">+91 11 4000 1234</a>
-            <p className="foot__hours">Mon–Sat, 9am–8pm IST</p>
-          </div>
-        </div>
-
-        <div className="shell foot__credits">
-          <h4>Popular in Varanasi</h4>
-          <p>
-            <span><Link to="/plan">Sunrise boat ride on the Ganga</Link></span> ·{" "}
-            <span><Link to="/plan">Ganga Aarti at Dashashwamedh Ghat</Link></span> ·{" "}
-            <span><Link to="/plan">Kashi Vishwanath Temple</Link></span> ·{" "}
-            <span><Link to="/plan">Sarnath &amp; the Dhamek Stupa</Link></span> ·{" "}
-            <span><Link to="/plan">Banarasi silk weavers&apos; lanes</Link></span> ·{" "}
-            <span><Link to="/plan">Old-city galli food walk</Link></span> ·{" "}
-            <span><Link to="/plan">Assi Ghat mornings</Link></span> ·{" "}
-            <span><Link to="/plan">Ramnagar Fort</Link></span>
-          </p>
-        </div>
-
-        <div className="shell foot__base">
-          <p>
-            © {new Date().getFullYear()} {BRAND}. All rights reserved.
-          </p>
-          <p>Made in India 🇮🇳</p>
-        </div>
-      </footer>
+      {/* When NOT on the Home page, render the single unified Dark Kashi Navy Footer.
+          (On Home page, KashiThemeFullWidth renders the same Dark Kashi Navy Footer directly).
+          The legacy brown footer has been completely eliminated! */}
+      {!isHome && <KashiFooter openManualGuide={openManualGuide} />}
 
       {/* Progressive Web App Install Prompt & Manual Guide */}
       <PWAInstallPrompt
