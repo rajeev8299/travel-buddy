@@ -1,0 +1,1827 @@
+/* =========================================================================
+   TRAVELONBUDDY — FULL-WIDTH PREMIUM KASHI THEME STYLES
+   Inspired by Lord Shiva, Kashi Vishwanath, sacred Ganga & ancient heritage
+   Palette:
+   - Deep Kashi Navy: #11172D | Shiv Blue: #243B63 | Midnight Blue: #10182A
+   - Antique Gold: #D5A84A | Temple Saffron: #E97824 | Copper: #B96B3E
+   - Warm Cream: #FAF7EF | Light Ivory: #FFFDF8 | Soft Sand: #F0E8D9
+   - Deep Charcoal: #29251F | Muted Grey: #77736B | White: #FFFFFF
+   ========================================================================= */
+
+:root {
+  --kashi-navy: #11172D;
+  --kashi-navy-dark: #0B0F1F;
+  --kashi-shiv-blue: #243B63;
+  --kashi-midnight: #10182A;
+  
+  --kashi-gold: #D5A84A;
+  --kashi-gold-light: #F4D38B;
+  --kashi-gold-soft: rgba(213, 168, 74, 0.15);
+  
+  --kashi-saffron: #E97824;
+  --kashi-saffron-bright: #F78E3D;
+  --kashi-copper: #B96B3E;
+  
+  --kashi-bg-main: #FAF7EF;
+  --kashi-bg-ivory: #FFFDF8;
+  --kashi-bg-sand: #F0E8D9;
+  
+  --kashi-text-charcoal: #29251F;
+  --kashi-text-muted: #77736B;
+  --kashi-line: #E8DFC8;
+  
+  --kashi-font-serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --kashi-font-sans: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  /* Responsive horizontal gutter: 2.5% on desktop so edge-to-edge content breathes luxuriously */
+  --kashi-gutter: clamp(1.25rem, 3.2vw, 3.5rem);
+}
+
+.kashi-theme-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--kashi-bg-main);
+  color: var(--kashi-text-charcoal);
+  font-family: var(--kashi-font-sans);
+  overflow-x: hidden;
+}
+
+/* Full-width container using viewport with controlled inner gutter */
+.kashi-full-container {
+  width: 100%;
+  padding-left: var(--kashi-gutter);
+  padding-right: var(--kashi-gutter);
+  box-sizing: border-box;
+}
+
+/* =========================================================================
+   1. FULL-WIDTH DARK KASHI NAVY NAVBAR
+   ========================================================================= */
+.kashi-nav {
+  width: 100%;
+  background: var(--kashi-navy);
+  border-bottom: 1px solid rgba(213, 168, 74, 0.25);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(11, 15, 31, 0.35);
+}
+
+.kashi-nav__row {
+  width: 100%;
+  padding-left: var(--kashi-gutter);
+  padding-right: var(--kashi-gutter);
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.kashi-nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: #FFFFFF;
+  flex-shrink: 0;
+}
+
+.kashi-nav__logo-seal {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--kashi-saffron), var(--kashi-copper));
+  border: 1.5px solid var(--kashi-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(233, 120, 36, 0.45);
+}
+
+.kashi-seal-icon {
+  font-family: var(--kashi-font-serif);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #FFFFFF;
+}
+
+.kashi-nav__brand-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.kashi-nav__brand-main {
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: -0.3px;
+  color: #FFFFFF;
+  line-height: 1.1;
+}
+
+.kashi-nav__brand-sub {
+  font-size: 0.68rem;
+  color: var(--kashi-gold);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-weight: 600;
+}
+
+.kashi-nav__links {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 2.2rem);
+  flex-wrap: nowrap;
+}
+
+.kashi-nav__link {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.94rem;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  padding: 0.45rem 0;
+  transition: color 0.15s ease;
+  white-space: nowrap;
+}
+
+.kashi-nav__link:hover {
+  color: var(--kashi-gold);
+}
+
+.kashi-nav__link.is-active::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  background: linear-gradient(90deg, var(--kashi-saffron), var(--kashi-gold));
+  border-radius: 2px;
+}
+
+.kashi-nav__dropdown {
+  position: relative;
+}
+
+.kashi-nav__dropdown-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.kashi-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.6rem);
+  left: 0;
+  background: var(--kashi-navy-dark);
+  border: 1px solid rgba(213, 168, 74, 0.3);
+  border-radius: 10px;
+  padding: 0.5rem 0;
+  min-width: 230px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+.kashi-dropdown-menu a {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: rgba(255, 255, 255, 0.88);
+  padding: 0.65rem 1.2rem;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.kashi-dropdown-menu a:hover {
+  background: rgba(213, 168, 74, 0.12);
+  color: var(--kashi-gold);
+  padding-left: 1.4rem;
+}
+
+.kashi-nav__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.kashi-nav__search-toggle,
+.kashi-nav__bell-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.15s ease;
+}
+
+.kashi-nav__search-toggle:hover,
+.kashi-nav__bell-btn:hover {
+  background: rgba(213, 168, 74, 0.2);
+  border-color: var(--kashi-gold);
+  color: var(--kashi-gold);
+}
+
+.kashi-bell-dot {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  width: 6px;
+  height: 6px;
+  background: var(--kashi-saffron);
+  border-radius: 50%;
+}
+
+.kashi-nav__login-btn {
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 0.5rem 1.3rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.kashi-nav__login-btn:hover {
+  border-color: var(--kashi-gold);
+  color: var(--kashi-gold);
+  background: rgba(213, 168, 74, 0.1);
+}
+
+.kashi-nav__signup-btn {
+  background: linear-gradient(135deg, var(--kashi-saffron), #D65A15);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1.4rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 3px 12px rgba(233, 120, 36, 0.4);
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.kashi-nav__signup-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 16px rgba(233, 120, 36, 0.55);
+}
+
+.kashi-search-drawer {
+  background: var(--kashi-navy-dark);
+  border-bottom: 1px solid rgba(213, 168, 74, 0.2);
+  padding: 0.75rem var(--kashi-gutter);
+}
+
+.kashi-search-drawer__inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(213, 168, 74, 0.35);
+  border-radius: 999px;
+  padding: 0.5rem 1.25rem;
+}
+
+.kashi-search-drawer__inner input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #FFFFFF;
+  font-size: 0.95rem;
+}
+
+/* =========================================================================
+   2. FULL-WIDTH HERO SECTION (Lord Shiva & Kashi Sacred Presence)
+   ========================================================================= */
+.kashi-hero {
+  position: relative;
+  width: 100%;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: #FFFFFF;
+}
+
+.kashi-hero__backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.kashi-hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 46%;
+}
+
+.kashi-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(17, 23, 45, 0.95) 0%,
+    rgba(17, 23, 45, 0.88) 40%,
+    rgba(17, 23, 45, 0.55) 75%,
+    rgba(17, 23, 45, 0.2) 100%
+  );
+}
+
+.kashi-hero__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding-left: var(--kashi-gutter);
+  padding-right: var(--kashi-gutter);
+  padding-top: 4.5rem;
+  padding-bottom: 3.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+.kashi-hero__left {
+  max-width: 820px;
+}
+
+.kashi-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(213, 168, 74, 0.18);
+  border: 1px solid var(--kashi-gold);
+  color: var(--kashi-gold-light);
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  backdrop-filter: blur(6px);
+}
+
+.trishul-glyph {
+  font-size: 1.1rem;
+  color: var(--kashi-gold);
+  line-height: 1;
+}
+
+.kashi-hero__title {
+  font-family: var(--kashi-font-serif);
+  font-size: clamp(2.6rem, 5.2vw, 4.2rem);
+  line-height: 1.08;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 1.2rem;
+  letter-spacing: -0.5px;
+}
+
+.kashi-title-accent {
+  color: var(--kashi-gold);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.kashi-hero__subtitle {
+  font-size: clamp(1rem, 1.4vw, 1.18rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 2rem;
+  max-width: 680px;
+}
+
+.kashi-hero__ctas {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.8rem;
+}
+
+.btn-kashi-saffron {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: linear-gradient(135deg, var(--kashi-saffron) 0%, #D65A15 100%);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 0.85rem 1.9rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 18px rgba(233, 120, 36, 0.45);
+  transition: all 0.2s ease;
+}
+
+.btn-kashi-saffron:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(233, 120, 36, 0.6);
+}
+
+.btn-kashi-ivory {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--kashi-navy);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 0.85rem 1.9rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+}
+
+.btn-kashi-ivory:hover {
+  background: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.kashi-hero__metrics-strip {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2.5vw, 2.5rem);
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(213, 168, 74, 0.25);
+  padding-top: 1.5rem;
+}
+
+.kashi-metric-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.kashi-metric-icon {
+  color: var(--kashi-gold);
+}
+
+.kashi-metric-text strong {
+  display: block;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.1;
+}
+
+.kashi-metric-text span {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.kashi-hero__right {
+  margin-bottom: 2.8rem;
+  flex-shrink: 0;
+}
+
+.btn-kashi-watch {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1.5px solid var(--kashi-gold);
+  border-radius: 999px;
+  padding: 0.5rem 1.4rem 0.5rem 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.btn-kashi-watch:hover {
+  transform: scale(1.04);
+  background: #FFFFFF;
+}
+
+.watch-disc {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--kashi-saffron), #D65A15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(233, 120, 36, 0.4);
+}
+
+.watch-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.watch-text span {
+  font-size: 0.72rem;
+  color: var(--kashi-text-muted);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.watch-text strong {
+  font-size: 0.92rem;
+  color: var(--kashi-navy);
+  font-weight: 700;
+}
+
+/* =========================================================================
+   GENERIC FULL-WIDTH SECTION DECORATIONS
+   ========================================================================= */
+.kashi-full-section {
+  width: 100%;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  box-sizing: border-box;
+}
+
+.kashi-section-head {
+  text-align: center;
+  margin-bottom: 3rem;
+  width: 100%;
+}
+
+.kashi-sub-kicker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 0.6rem;
+}
+
+.kashi-gold-rule {
+  display: inline-block;
+  width: 60px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--kashi-gold), transparent);
+}
+
+.kashi-kicker-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--kashi-saffron);
+}
+
+.kashi-section-title {
+  font-family: var(--kashi-font-serif);
+  font-size: clamp(2rem, 3.4vw, 2.75rem);
+  font-weight: 700;
+  color: var(--kashi-navy);
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.kashi-section-desc {
+  max-width: 680px;
+  margin: 0.75rem auto 0;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--kashi-text-muted);
+}
+
+/* =========================================================================
+   SECTION A: EXPLORE BANARAS (4 Balanced Full-Width Cards)
+   ========================================================================= */
+.kashi-four-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1.2rem, 2vw, 2.2rem);
+  width: 100%;
+}
+
+.kashi-explore-card {
+  background: var(--kashi-bg-ivory);
+  border: 1px solid var(--kashi-line);
+  border-radius: 16px;
+  overflow: visible;
+  position: relative;
+  box-shadow: 0 4px 18px rgba(41, 37, 31, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.kashi-explore-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(41, 37, 31, 0.1);
+  border-color: var(--kashi-gold);
+}
+
+.kashi-explore-card__photo {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  overflow: hidden;
+}
+
+.kashi-explore-card__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.kashi-explore-card:hover .kashi-explore-card__photo img {
+  transform: scale(1.06);
+}
+
+.kashi-card-badge-seal {
+  position: absolute;
+  top: 178px;
+  left: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1.5px solid var(--kashi-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--kashi-saffron);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  z-index: 2;
+}
+
+.om-seal {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--kashi-saffron);
+}
+
+.kashi-explore-card__info {
+  padding: 1.8rem 1.35rem 1.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.kashi-card-texts h3 {
+  font-family: var(--kashi-font-sans);
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--kashi-navy);
+  margin: 0 0 0.35rem;
+}
+
+.kashi-card-texts p {
+  font-size: 0.86rem;
+  color: var(--kashi-text-muted);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.kashi-card-link-arrow {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--kashi-bg-sand);
+  color: var(--kashi-saffron);
+  border: 1px solid rgba(233, 120, 36, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.kashi-card-link-arrow:hover {
+  background: var(--kashi-saffron);
+  color: #FFFFFF;
+  transform: translateX(3px);
+}
+
+/* =========================================================================
+   SECTION B: BANARAS FOOD EXPLORER (Full-Width Responsive Split)
+   ========================================================================= */
+.kashi-food-split {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: clamp(2rem, 3.5vw, 4rem);
+  align-items: center;
+  width: 100%;
+}
+
+.kashi-food-lead {
+  display: flex;
+  flex-direction: column;
+}
+
+.kashi-food-seal {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1.2rem;
+}
+
+.food-icon-urn {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(233, 120, 36, 0.12);
+  border: 1.5px solid var(--kashi-gold);
+  color: var(--kashi-saffron);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.food-seal-names {
+  display: flex;
+  flex-direction: column;
+}
+
+.seal-script {
+  font-family: var(--kashi-font-serif);
+  font-size: 1.25rem;
+  color: var(--kashi-saffron);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.seal-main {
+  font-family: var(--kashi-font-sans);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--kashi-navy);
+  line-height: 1.15;
+}
+
+.kashi-food-lead__title {
+  font-family: var(--kashi-font-serif);
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--kashi-navy);
+  margin: 0 0 0.85rem;
+  line-height: 1.2;
+}
+
+.kashi-food-lead__desc {
+  font-size: 0.96rem;
+  color: var(--kashi-text-muted);
+  line-height: 1.6;
+  margin: 0 0 1.8rem;
+}
+
+.kashi-food-carousel-wrap {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+}
+
+.carousel-paddle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1.5px solid var(--kashi-line);
+  color: var(--kashi-navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  transition: all 0.2s ease;
+}
+
+.carousel-paddle:hover {
+  background: var(--kashi-saffron);
+  color: #FFFFFF;
+  border-color: var(--kashi-saffron);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.carousel-paddle.paddle-left {
+  left: -20px;
+}
+
+.carousel-paddle.paddle-right {
+  right: -20px;
+}
+
+.kashi-food-track {
+  display: flex;
+  gap: 1.35rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 0.75rem 0.25rem 1.25rem;
+  scrollbar-width: none;
+}
+
+.kashi-food-track::-webkit-scrollbar {
+  display: none;
+}
+
+.kashi-food-card {
+  min-width: 250px;
+  max-width: 250px;
+  background: var(--kashi-bg-ivory);
+  border: 1px solid var(--kashi-line);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(41, 37, 31, 0.05);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kashi-food-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(41, 37, 31, 0.09);
+}
+
+.kashi-food-card__img {
+  position: relative;
+  width: 100%;
+  height: 145px;
+  overflow: hidden;
+}
+
+.kashi-food-card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.kashi-food-card:hover .kashi-food-card__img img {
+  transform: scale(1.07);
+}
+
+.kashi-heart-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.4);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: background 0.15s ease;
+}
+
+.kashi-heart-btn.is-active {
+  background: #FFFFFF;
+}
+
+.kashi-food-card__details {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.kashi-food-title {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--kashi-navy);
+  margin: 0 0 0.4rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.kashi-status-tag {
+  display: inline-block;
+  background: #E8F8F0;
+  color: #1E824C;
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  margin-bottom: 0.45rem;
+  align-self: flex-start;
+}
+
+.kashi-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.82rem;
+  margin-bottom: 0.45rem;
+}
+
+.rating-bold {
+  font-weight: 700;
+  color: var(--kashi-navy);
+}
+
+.rating-count {
+  color: var(--kashi-text-muted);
+}
+
+.kashi-location-price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--kashi-text-muted);
+  margin-bottom: 0.9rem;
+}
+
+.kashi-loc-text {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  max-width: 140px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.kashi-price-val {
+  font-weight: 700;
+  color: var(--kashi-saffron);
+}
+
+.btn-kashi-directions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  background: linear-gradient(135deg, var(--kashi-saffron), #D65A15);
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 0.84rem;
+  font-weight: 600;
+  padding: 0.55rem;
+  border-radius: 8px;
+  transition: opacity 0.15s ease;
+}
+
+.btn-kashi-directions:hover {
+  opacity: 0.92;
+}
+
+/* =========================================================================
+   SECTION C: UNFORGETTABLE EXPERIENCES (Full-Width Responsive 6-Grid)
+   ========================================================================= */
+.kashi-experiences-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: clamp(0.85rem, 1.4vw, 1.4rem);
+  width: 100%;
+}
+
+.kashi-exp-card {
+  position: relative;
+  height: 220px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+
+.kashi-exp-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.kashi-exp-card:hover img {
+  transform: scale(1.08);
+}
+
+.kashi-exp-card__veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 40%, rgba(17, 23, 45, 0.94) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 1.1rem 0.85rem;
+}
+
+.kashi-exp-card__title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: #FFFFFF;
+}
+
+.kashi-exp-gold-icon {
+  color: var(--kashi-gold);
+  flex-shrink: 0;
+}
+
+.kashi-exp-card__title-row span {
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+/* =========================================================================
+   SECTION D & E: PLAN YOUR TRIP & MAP (Full-Width Balanced Duo)
+   ========================================================================= */
+.kashi-duo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.5rem, 2.5vw, 3rem);
+  width: 100%;
+}
+
+.kashi-panel-box {
+  background: var(--kashi-bg-ivory);
+  border: 1px solid var(--kashi-line);
+  border-radius: 18px;
+  padding: clamp(1.4rem, 2.2vw, 2.5rem);
+  box-shadow: 0 4px 20px rgba(41, 37, 31, 0.04);
+  display: flex;
+  flex-direction: column;
+}
+
+.kashi-panel-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.kashi-panel-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(233, 120, 36, 0.12);
+  border: 1.5px solid var(--kashi-gold);
+  color: var(--kashi-saffron);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.kashi-panel-head-titles h3 {
+  font-family: var(--kashi-font-serif);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--kashi-navy);
+  margin: 0 0 0.35rem;
+}
+
+.kashi-panel-head-titles p {
+  font-size: 0.9rem;
+  color: var(--kashi-text-muted);
+  margin: 0;
+  line-height: 1.45;
+}
+
+.kashi-duration-selector {
+  display: flex;
+  gap: 0.65rem;
+  margin-bottom: 1.6rem;
+}
+
+.kashi-duration-pill {
+  flex: 1;
+  background: var(--kashi-bg-sand);
+  border: 1px solid var(--kashi-line);
+  color: var(--kashi-navy);
+  padding: 0.65rem 0.5rem;
+  border-radius: 9px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.kashi-duration-pill.is-active {
+  background: var(--kashi-saffron);
+  color: #FFFFFF;
+  border-color: var(--kashi-saffron);
+  box-shadow: 0 2px 8px rgba(233, 120, 36, 0.35);
+}
+
+.kashi-checklist-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem 1.25rem;
+  margin-bottom: 1.8rem;
+}
+
+.kashi-check-item {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--kashi-text-charcoal);
+}
+
+.kashi-check-gold {
+  color: var(--kashi-gold);
+}
+
+.kashi-planner-foot {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.planner-thumbnail-preview {
+  width: 170px;
+  height: 75px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--kashi-line);
+}
+
+.planner-thumbnail-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Map specific styling */
+.kashi-map-body {
+  display: grid;
+  grid-template-columns: 1fr 160px;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.kashi-map-canvas {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--kashi-line);
+}
+
+.kashi-osm-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.kashi-map-pin-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--kashi-gold);
+  padding: 0.35rem 0.85rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  text-align: center;
+  pointer-events: none;
+}
+
+.kashi-map-pin-overlay strong {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--kashi-navy);
+}
+
+.kashi-map-pin-overlay span {
+  font-size: 0.72rem;
+  color: var(--kashi-text-muted);
+}
+
+.kashi-filters-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.kashi-filter-option {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+  color: var(--kashi-text-charcoal);
+  cursor: pointer;
+  user-select: none;
+}
+
+.kashi-filter-option input {
+  display: none;
+}
+
+.kashi-custom-checkbox {
+  width: 17px;
+  height: 17px;
+  border: 1.5px solid var(--kashi-line);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFFFFF;
+}
+
+.kashi-filter-option input:checked + .kashi-custom-checkbox {
+  background: #1E824C;
+  border-color: #1E824C;
+  color: #FFFFFF;
+}
+
+/* =========================================================================
+   SECTION F: BANARAS IN FRAMES (Full-Width Responsive 6-Strip)
+   ========================================================================= */
+.kashi-gallery-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.75rem;
+}
+
+.gallery-lead-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.gallery-lead-title h3 {
+  font-family: var(--kashi-font-serif);
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--kashi-navy);
+  margin: 0;
+}
+
+.kashi-gold-cam {
+  color: var(--kashi-saffron);
+}
+
+.gallery-view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--kashi-saffron);
+  font-size: 0.94rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.gallery-view-all:hover {
+  transform: translateX(3px);
+}
+
+.kashi-gallery-strip {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: clamp(0.75rem, 1.2vw, 1.35rem);
+  width: 100%;
+}
+
+.kashi-frame-item {
+  position: relative;
+  height: 155px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(41, 37, 31, 0.08);
+  cursor: pointer;
+}
+
+.kashi-frame-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.kashi-frame-item:hover img {
+  transform: scale(1.09);
+}
+
+.kashi-frame-curtain {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 23, 45, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.kashi-frame-curtain span {
+  color: #FFFFFF;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  border: 1px solid var(--kashi-gold);
+}
+
+.kashi-frame-item:hover .kashi-frame-curtain {
+  opacity: 1;
+}
+
+/* =========================================================================
+   RICH CONTENT SECTIONS: SPIRITUAL SIDE, MARKETS, SEASONS, LOCAL TIPS
+   ========================================================================= */
+.kashi-dark-feature {
+  background: var(--kashi-navy);
+  color: #FFFFFF;
+  border-top: 1px solid rgba(213, 168, 74, 0.2);
+  border-bottom: 1px solid rgba(213, 168, 74, 0.2);
+}
+
+.kashi-dark-feature .kashi-section-title {
+  color: #FFFFFF;
+}
+
+.kashi-dark-feature .kashi-section-desc {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.kashi-spiritual-trio {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.2rem, 2vw, 2.5rem);
+  width: 100%;
+}
+
+.spiritual-feature-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(213, 168, 74, 0.3);
+  border-radius: 16px;
+  padding: 2rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.spiritual-feature-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--kashi-gold);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.spiritual-feature-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: rgba(213, 168, 74, 0.15);
+  border: 1px solid var(--kashi-gold);
+  color: var(--kashi-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.spiritual-feature-card h4 {
+  font-family: var(--kashi-font-serif);
+  font-size: 1.35rem;
+  color: #FFFFFF;
+  margin: 0 0 0.6rem;
+}
+
+.spiritual-feature-card p {
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.6;
+  margin: 0 0 1.25rem;
+}
+
+.spiritual-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--kashi-gold);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: auto;
+}
+
+/* Local Markets Section */
+.kashi-markets-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.2rem, 2vw, 2.5rem);
+  width: 100%;
+}
+
+.market-card {
+  background: var(--kashi-bg-ivory);
+  border: 1px solid var(--kashi-line);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(41, 37, 31, 0.04);
+  transition: transform 0.2s ease;
+}
+
+.market-card:hover {
+  transform: translateY(-3px);
+}
+
+.market-card__image {
+  height: 175px;
+  overflow: hidden;
+}
+
+.market-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.market-card:hover .market-card__image img {
+  transform: scale(1.06);
+}
+
+.market-card__body {
+  padding: 1.5rem;
+}
+
+.market-tag {
+  display: inline-block;
+  background: var(--kashi-bg-sand);
+  color: var(--kashi-saffron);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.market-card__body h4 {
+  font-family: var(--kashi-font-serif);
+  font-size: 1.25rem;
+  color: var(--kashi-navy);
+  margin: 0 0 0.45rem;
+}
+
+.market-card__body p {
+  font-size: 0.88rem;
+  color: var(--kashi-text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Best Time & Local Tips Grid */
+.kashi-tips-duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.5rem, 3vw, 3.5rem);
+  width: 100%;
+}
+
+.tips-card {
+  background: var(--kashi-bg-ivory);
+  border: 1px solid var(--kashi-line);
+  border-radius: 18px;
+  padding: clamp(1.5rem, 2.5vw, 2.5rem);
+}
+
+.tips-card h3 {
+  font-family: var(--kashi-font-serif);
+  font-size: 1.5rem;
+  color: var(--kashi-navy);
+  margin: 0 0 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.tips-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tip-entry {
+  display: flex;
+  gap: 0.85rem;
+}
+
+.tip-bullet {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--kashi-bg-sand);
+  color: var(--kashi-saffron);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.tip-entry strong {
+  display: block;
+  font-size: 0.94rem;
+  color: var(--kashi-navy);
+  margin-bottom: 0.2rem;
+}
+
+.tip-entry p {
+  margin: 0;
+  font-size: 0.86rem;
+  color: var(--kashi-text-muted);
+  line-height: 1.45;
+}
+
+/* FAQ Accordion Section */
+.kashi-faq-wrapper {
+  max-width: 980px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  width: 100%;
+}
+
+.kashi-faq-item {
+  background: var(--kashi-bg-ivory);
+  border: 1px solid var(--kashi-line);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.15s ease;
+}
+
+.kashi-faq-item.is-open {
+  border-color: var(--kashi-gold);
+}
+
+.kashi-faq-btn {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--kashi-navy);
+  cursor: pointer;
+}
+
+.kashi-faq-answer {
+  padding: 0 1.5rem 1.25rem;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--kashi-text-muted);
+}
+
+/* Final Travel CTA */
+.kashi-final-cta {
+  background: linear-gradient(135deg, var(--kashi-navy) 0%, var(--kashi-shiv-blue) 100%);
+  color: #FFFFFF;
+  text-align: center;
+  padding: 5rem var(--kashi-gutter);
+  border-top: 2px solid var(--kashi-gold);
+}
+
+.kashi-final-cta h2 {
+  font-family: var(--kashi-font-serif);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 0.85rem;
+}
+
+.kashi-final-cta p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 620px;
+  margin: 0 auto 2.2rem;
+  line-height: 1.5;
+}
+
+/* =========================================================================
+   8. DARK NAVY STATISTICS STRIP & FULL-WIDTH FOOTER
+   ========================================================================= */
+.kashi-stats-strip {
+  width: 100%;
+  background: var(--kashi-navy);
+  color: #FFFFFF;
+  padding: 2.2rem 0;
+  border-top: 1px solid rgba(213, 168, 74, 0.25);
+  border-bottom: 1px solid rgba(213, 168, 74, 0.25);
+}
+
+.kashi-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width: 100%;
+}
+
+.kashi-stat-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0 1rem;
+}
+
+.kashi-stat-col:last-child {
+  border-right: none;
+}
+
+.kashi-stat-icon {
+  color: var(--kashi-gold);
+  flex-shrink: 0;
+}
+
+.kashi-stat-num strong {
+  display: block;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.1;
+}
+
+.kashi-stat-num span {
+  display: block;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Full Width Kashi Footer */
+.kashi-footer {
+  width: 100%;
+  background: var(--kashi-navy-dark);
+  color: #FFFFFF;
+  padding: 4.5rem var(--kashi-gutter) 2.5rem;
+  box-sizing: border-box;
+}
+
+.kashi-footer__top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
+  gap: clamp(1.5rem, 3vw, 3.5rem);
+  padding-bottom: 3.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.kashi-footer__brand-col p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 1rem 0 1.5rem;
+  max-width: 320px;
+}
+
+.kashi-footer__col h4 {
+  font-family: var(--kashi-font-serif);
+  font-size: 1.12rem;
+  color: var(--kashi-gold);
+  margin: 0 0 1.25rem;
+  font-weight: 600;
+}
+
+.kashi-footer__col a {
+  display: block;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.88rem;
+  text-decoration: none;
+  margin-bottom: 0.75rem;
+  transition: color 0.15s ease;
+}
+
+.kashi-footer__col a:hover {
+  color: var(--kashi-gold);
+}
+
+.kashi-footer__contact p {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0.4rem 0;
+}
+
+.kashi-footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 2rem;
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.6);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* =========================================================================
+   RESPONSIVE DESIGN SYSTEM
+   ========================================================================= */
+@media (max-width: 1200px) {
+  .kashi-four-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .kashi-experiences-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .kashi-gallery-strip {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .kashi-food-split {
+    grid-template-columns: 1fr;
+  }
+  .kashi-footer__top {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .kashi-nav__links {
+    display: none;
+  }
+  .kashi-hero__content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .kashi-hero__right {
+    margin-top: 1rem;
+    margin-bottom: 0;
+  }
+  .kashi-duo-grid {
+    grid-template-columns: 1fr;
+  }
+  .kashi-spiritual-trio,
+  .kashi-markets-grid,
+  .kashi-tips-duo {
+    grid-template-columns: 1fr;
+  }
+  .kashi-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem 0;
+  }
+  .kashi-stat-col {
+    border-right: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .kashi-four-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .kashi-experiences-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .kashi-gallery-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .kashi-map-body {
+    grid-template-columns: 1fr;
+  }
+  .kashi-checklist-grid {
+    grid-template-columns: 1fr;
+  }
+  .kashi-footer__top {
+    grid-template-columns: 1fr;
+  }
+  .kashi-hero__ctas {
+    flex-direction: column;
+    width: 100%;
+  }
+  .btn-kashi-saffron,
+  .btn-kashi-ivory {
+    width: 100%;
+    justify-content: center;
+  }
+}

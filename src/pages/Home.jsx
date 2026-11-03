@@ -1,6 +1,6 @@
 import { memo } from "react";
-import { BanarasHomePremium } from "../components/BanarasHomePremium";
+import { KashiThemeFullWidth } from "../components/KashiThemeFullWidth";
 
 export default memo(function Home() {
-  return <BanarasHomePremium />;
+  return <KashiThemeFullWidth />;
 });
