@@ -9,6 +9,8 @@ import Stories from "./pages/Stories.jsx";
 import BecomeBuddy from "./pages/BecomeBuddy.jsx";
 import Plan from "./pages/Plan.jsx";
 import BookTrip from "./pages/BookTrip.jsx";
+import FoodExplorer from "./pages/FoodExplorer.jsx";
+import FoodShopDetail from "./pages/FoodShopDetail.jsx";
 import Login from "./pages/Login.jsx";
 import Signup from "./pages/Signup.jsx";
 import NotFound from "./pages/NotFound.jsx";
@@ -18,6 +20,7 @@ import AdminLogin from "./admin/AdminLogin.jsx";
 import AdminLayout from "./admin/AdminLayout.jsx";
 import Dashboard from "./admin/pages/Dashboard.jsx";
 import HeroAdmin from "./admin/pages/HeroAdmin.jsx";
+import FoodAdmin from "./admin/pages/FoodAdmin.jsx";
 import Applications from "./admin/pages/Applications.jsx";
 import PlanRequests from "./admin/pages/PlanRequests.jsx";
 import BuddiesAdmin from "./admin/pages/BuddiesAdmin.jsx";
@@ -38,6 +41,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<Dashboard />} />
+            <Route path="food-explorer" element={<FoodAdmin />} />
             <Route path="hero" element={<HeroAdmin />} />
             <Route path="applications" element={<Applications />} />
             <Route path="plan-requests" element={<PlanRequests />} />
@@ -48,6 +52,8 @@ createRoot(document.getElementById("root")).render(
 
           <Route element={<App />}>
             <Route index element={<Home />} />
+            <Route path="food-explorer" element={<FoodExplorer />} />
+            <Route path="food-explorer/:slug" element={<FoodShopDetail />} />
             <Route path="why-buddy" element={<WhyBuddy />} />
             <Route path="buddies" element={<Buddies />} />
             <Route path="stories" element={<Stories />} />

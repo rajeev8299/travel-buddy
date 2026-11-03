@@ -3,6 +3,7 @@ import { fileURLToPath } from "node:url";
 import path from "node:path";
 import fs from "node:fs";
 import { BUDDIES, STORIES, HERO_SLIDES } from "./seedData.js";
+import { FOOD_CATEGORIES, FOOD_LOCALITIES, INITIAL_FOOD_SHOPS } from "./foodSeedData.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const dataDir = path.join(__dirname, "..", "data");
@@ -166,6 +167,65 @@ db.exec(`
     pos TEXT NOT NULL DEFAULT 'center 50%',
     sort_order INTEGER NOT NULL
   );
+
+  /* Banaras Food Explorer Schema */
+  CREATE TABLE IF NOT EXISTS food_categories (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL UNIQUE,
+    slug TEXT NOT NULL UNIQUE,
+    icon TEXT DEFAULT 'UtensilsCrossed',
+    sort_order INTEGER DEFAULT 0
+  );
+
+  CREATE TABLE IF NOT EXISTS food_localities (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL UNIQUE,
+    slug TEXT NOT NULL UNIQUE
+  );
+
+  CREATE TABLE IF NOT EXISTS food_shops (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    slug TEXT NOT NULL UNIQUE,
+    category_id INTEGER NOT NULL REFERENCES food_categories(id),
+    locality_id INTEGER NOT NULL REFERENCES food_localities(id),
+    address TEXT NOT NULL,
+    nearby_landmark TEXT,
+    latitude REAL,
+    longitude REAL,
+    google_maps_url TEXT,
+    phone TEXT,
+    description TEXT,
+    must_try TEXT,
+    price_for_two INTEGER DEFAULT 150,
+    price_tier TEXT DEFAULT '₹',
+    open_time TEXT DEFAULT '08:00 AM',
+    close_time TEXT DEFAULT '10:30 PM',
+    opening_days TEXT DEFAULT 'Mon - Sun',
+    is_pure_veg INTEGER DEFAULT 1,
+    is_verified INTEGER DEFAULT 1,
+    is_published INTEGER DEFAULT 1,
+    rating REAL DEFAULT 4.7,
+    review_count INTEGER DEFAULT 120,
+    cover_image TEXT DEFAULT 'img/street_food.jpg',
+    location_verified_at TEXT,
+    created_at TEXT NOT NULL DEFAULT (datetime('now'))
+  );
+
+  CREATE TABLE IF NOT EXISTS food_menu_items (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    shop_id INTEGER NOT NULL REFERENCES food_shops(id) ON DELETE CASCADE,
+    name TEXT NOT NULL,
+    price INTEGER NOT NULL,
+    description TEXT,
+    is_veg INTEGER DEFAULT 1,
+    is_popular INTEGER DEFAULT 0,
+    image TEXT
+  );
+
+  CREATE INDEX IF NOT EXISTS idx_food_shops_locality ON food_shops(locality_id);
+  CREATE INDEX IF NOT EXISTS idx_food_shops_category ON food_shops(category_id);
+  CREATE INDEX IF NOT EXISTS idx_food_shops_coords ON food_shops(latitude, longitude);
 `);
 
 migrateUsersTableForAdminRole();
@@ -196,3 +256,81 @@ seedIfEmpty(
   HERO_SLIDES.map((s, i) => ["static", s.path, s.pos, i]),
   "INSERT INTO hero_slides (source, image_path, pos, sort_order) VALUES (?, ?, ?, ?)",
 );
+
+/* Seed Food Categories */
+seedIfEmpty(
+  "food_categories",
+  FOOD_CATEGORIES.map((c) => [c.name, c.slug, c.icon, c.sort_order]),
+  "INSERT INTO food_categories (name, slug, icon, sort_order) VALUES (?, ?, ?, ?)",
+);
+
+/* Seed Food Localities */
+seedIfEmpty(
+  "food_localities",
+  FOOD_LOCALITIES.map((l) => [l.name, l.slug]),
+  "INSERT INTO food_localities (name, slug) VALUES (?, ?)",
+);
+
+/* Seed Initial Verified Food Shops & Menus */
+function seedFoodShops() {
+  const { count } = db.prepare("SELECT COUNT(*) AS count FROM food_shops").get();
+  if (count > 0) return;
+
+  const getCatId = db.prepare("SELECT id FROM food_categories WHERE slug = ?");
+  const getLocId = db.prepare("SELECT id FROM food_localities WHERE slug = ?");
+
+  const insertShop = db.prepare(`
+    INSERT INTO food_shops (
+      name, slug, category_id, locality_id, address, nearby_landmark,
+      latitude, longitude, phone, description, must_try, price_for_two,
+      price_tier, open_time, close_time, opening_days, is_pure_veg,
+      is_verified, is_published, rating, review_count, cover_image, location_verified_at
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))
+  `);
+
+  const insertMenu = db.prepare(`
+    INSERT INTO food_menu_items (shop_id, name, price, description, is_veg, is_popular)
+    VALUES (?, ?, ?, ?, ?, ?)
+  `);
+
+  for (const s of INITIAL_FOOD_SHOPS) {
+    const cat = getCatId.get(s.category_slug);
+    const loc = getLocId.get(s.locality_slug);
+    const catId = cat ? cat.id : 1;
+    const locId = loc ? loc.id : 1;
+
+    const res = insertShop.run(
+      s.name,
+      s.slug,
+      catId,
+      locId,
+      s.address,
+      s.nearby_landmark,
+      s.latitude,
+      s.longitude,
+      s.phone,
+      s.description,
+      s.must_try,
+      s.price_for_two,
+      s.price_tier,
+      s.open_time,
+      s.close_time,
+      s.opening_days,
+      s.is_pure_veg,
+      s.is_verified,
+      s.is_published,
+      s.rating,
+      s.review_count,
+      s.cover_image,
+    );
+
+    const shopId = res.lastInsertRowid;
+    if (s.menu && s.menu.length) {
+      for (const m of s.menu) {
+        insertMenu.run(shopId, m.name, m.price, m.description || "", m.is_veg, m.is_popular);
+      }
+    }
+  }
+}
+
+seedFoodShops();

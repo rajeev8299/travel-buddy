@@ -1,0 +1,256 @@
+.food-card {
+  background: var(--bg-card, #fff);
+  border: 1px solid var(--line, #e2dbce);
+  border-radius: var(--radius, 16px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 18px rgba(48, 39, 31, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+}
+
+.food-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--orange, #f7931a);
+  box-shadow: 0 12px 32px rgba(48, 39, 31, 0.12);
+}
+
+.food-card__img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--sand, #eeeae1);
+}
+
+.food-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  display: block;
+}
+
+.food-card:hover .food-card__img {
+  transform: scale(1.04);
+}
+
+.food-card__badges {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  z-index: 2;
+}
+
+.food-card__category {
+  background: rgba(48, 39, 31, 0.88);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.food-card__veg-tag {
+  background: #059669;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+
+.food-card__verified {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #059669;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
+
+.food-card__body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.food-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.food-card__title {
+  margin: 0;
+  font-family: "Fraunces", serif;
+  font-size: 1.18rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.food-card__title a {
+  text-decoration: none;
+  color: var(--ink, #30271f);
+  transition: color 0.15s ease;
+}
+
+.food-card__title a:hover {
+  color: var(--orange-deep, #d97706);
+}
+
+.food-card__rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.82rem;
+  color: #d97706;
+  white-space: nowrap;
+}
+
+.food-card__rating span {
+  color: var(--muted, #776a5e);
+  font-size: 0.75rem;
+}
+
+.food-card__locality {
+  font-size: 0.82rem;
+  color: var(--muted, #776a5e);
+  margin: 0 0 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.loc-pin {
+  color: var(--orange, #f7931a);
+  flex-shrink: 0;
+}
+
+.landmark {
+  color: var(--ink, #30271f);
+  opacity: 0.8;
+}
+
+.food-card__must-try {
+  font-size: 0.82rem;
+  background: var(--orange-soft, #fdf3e6);
+  color: var(--orange-deeper, #b45309);
+  padding: 6px 10px;
+  border-radius: 8px;
+  margin: 0 0 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.flame-icon {
+  color: var(--orange, #f7931a);
+  flex-shrink: 0;
+}
+
+.food-card__meta-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.78rem;
+  color: var(--ink, #30271f);
+  padding-bottom: 14px;
+  margin-top: auto;
+  border-bottom: 1px solid rgba(216, 208, 195, 0.45);
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--muted, #776a5e);
+}
+
+.meta-item--dist {
+  color: var(--orange-deep, #d97706);
+  font-weight: 600;
+  margin-left: auto;
+}
+
+/* Action Toolbar */
+.food-card__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 12px;
+}
+
+.btn-view-details {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px 12px;
+  background: var(--sand, #eeeae1);
+  color: var(--ink, #30271f);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm, 8px);
+  transition: all 0.15s ease;
+}
+
+.btn-view-details:hover {
+  background: var(--line, #e2dbce);
+  color: var(--ink, #30271f);
+}
+
+/* Standout Brand Direction Button */
+.btn-get-directions {
+  flex: 1.2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: var(--orange, #f7931a);
+  color: var(--ink, #30271f);
+  text-decoration: none;
+  font-size: 0.84rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm, 8px);
+  box-shadow: 0 3px 12px rgba(247, 147, 26, 0.35);
+  transition: all 0.2s ease;
+}
+
+.btn-get-directions:hover {
+  background: var(--orange-deep, #d97706);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 16px rgba(217, 119, 6, 0.4);
+}
+
+.nav-arrow {
+  color: inherit;
+  transition: transform 0.2s ease;
+}
+
+.btn-get-directions:hover .nav-arrow {
+  transform: translateX(2px) translateY(-1px);
+}

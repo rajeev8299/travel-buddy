@@ -7,6 +7,7 @@ import planRequestsRoutes from "./planRequests.js";
 import buddiesRoutes from "./buddies.js";
 import storiesRoutes from "./stories.js";
 import heroSlidesRoutes from "./heroSlides.js";
+import foodExplorerRoutes from "./foodExplorer.js";
 
 const router = Router();
 
@@ -19,5 +20,6 @@ router.use("/plan-requests", planRequestsRoutes);
 router.use("/buddies", buddiesRoutes);
 router.use("/stories", storiesRoutes);
 router.use("/hero-slides", heroSlidesRoutes);
+router.use("/food-explorer", foodExplorerRoutes);
 
 export default router;

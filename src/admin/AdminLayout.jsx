@@ -6,6 +6,7 @@ import {
   Users2,
   Quote,
   Image,
+  UtensilsCrossed,
   LogOut,
 } from "lucide-react";
 import { useAuth } from "../auth/authContext";
@@ -13,6 +14,7 @@ import "./admin.css";
 
 const LINKS = [
   { to: "/admin", label: "Dashboard", icon: LayoutDashboard, end: true },
+  { to: "/admin/food-explorer", label: "Food Explorer", icon: UtensilsCrossed },
   { to: "/admin/hero", label: "Hero Photos", icon: Image },
   { to: "/admin/applications", label: "Buddy Applications", icon: ClipboardList },
   { to: "/admin/plan-requests", label: "Plan Requests", icon: MapPinned },

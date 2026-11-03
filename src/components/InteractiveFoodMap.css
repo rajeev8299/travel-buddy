@@ -1,0 +1,286 @@
+.food-map-container {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-card, #fff);
+  border: 1px solid var(--line, #e2dbce);
+  border-radius: var(--radius, 16px);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(48, 39, 31, 0.08);
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.food-map-container--fullscreen {
+  position: fixed;
+  inset: 10px;
+  z-index: 9999;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.food-map-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background: var(--sand, #eeeae1);
+  border-bottom: 1px solid var(--line, #e2dbce);
+  font-size: 0.9rem;
+}
+
+.food-map-toolbar__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--ink, #30271f);
+}
+
+.food-map-toolbar__icon {
+  color: var(--orange, #f7931a);
+}
+
+.food-map-toolbar__badge {
+  background: var(--orange-soft, #fdf3e6);
+  color: var(--orange-deeper, #b45309);
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.food-map-toolbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.food-map-toolbar__gps {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #059669;
+}
+
+.gps-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+}
+
+.food-map-toolbar__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid var(--line, #e2dbce);
+  background: #fff;
+  cursor: pointer;
+  color: var(--ink, #30271f);
+}
+
+.food-map-viewport {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  background: #f0ebe1;
+}
+
+.food-map-container--compact .food-map-viewport {
+  height: 380px;
+}
+
+.food-map-container--fullscreen .food-map-viewport {
+  height: calc(100vh - 75px);
+}
+
+.food-map-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* Floating selector rail */
+.food-map-rail {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  z-index: 10;
+  scrollbar-width: thin;
+}
+
+.food-map-rail__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--line, #e2dbce);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink, #30271f);
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  transition: all 0.2s ease;
+}
+
+.food-map-rail__pill:hover {
+  background: #fff;
+  border-color: var(--orange, #f7931a);
+  transform: translateY(-1px);
+}
+
+.food-map-rail__pill.is-selected {
+  background: var(--orange, #f7931a);
+  color: var(--ink, #30271f);
+  border-color: var(--orange-deep, #d97706);
+}
+
+.rail-pill-dist {
+  font-size: 0.72rem;
+  opacity: 0.85;
+  background: rgba(0, 0, 0, 0.08);
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+/* Bottom Floating Info Card */
+.food-map-infocard {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  max-width: 480px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--line, #e2dbce);
+  border-radius: 14px;
+  padding: 12px;
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 14px;
+  box-shadow: 0 8px 24px rgba(48, 39, 31, 0.16);
+  z-index: 10;
+}
+
+.food-map-infocard__img {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 96px;
+}
+
+.food-map-infocard__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.food-map-infocard__tag {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  font-size: 0.68rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.food-map-infocard__content h4 {
+  margin: 0 0 3px 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink, #30271f);
+}
+
+.food-map-infocard__loc {
+  margin: 0 0 4px 0;
+  font-size: 0.78rem;
+  color: var(--muted, #776a5e);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.food-map-infocard__meta {
+  font-size: 0.78rem;
+  color: var(--ink, #30271f);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dist-highlight {
+  color: var(--orange-deep, #d97706);
+  font-weight: 600;
+}
+
+.food-map-infocard__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.food-map-dir-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  background: var(--orange, #f7931a);
+  color: var(--ink, #30271f);
+  font-weight: 600;
+  font-size: 0.8rem;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(247, 147, 26, 0.35);
+  transition: all 0.15s ease;
+}
+
+.food-map-dir-btn:hover {
+  background: var(--orange-deep, #d97706);
+  transform: translateY(-1px);
+}
+
+.food-map-view-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 10px;
+  background: var(--sand, #eeeae1);
+  color: var(--ink, #30271f);
+  font-size: 0.78rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.food-map-view-btn:hover {
+  background: var(--line, #e2dbce);
+}
+
+@media (max-width: 640px) {
+  .food-map-infocard {
+    grid-template-columns: 1fr;
+    max-width: none;
+  }
+  .food-map-infocard__img {
+    height: 72px;
+  }
+}

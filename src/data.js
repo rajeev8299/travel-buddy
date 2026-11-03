@@ -17,6 +17,7 @@ export const resolveSrc = (src) => (/^https?:\/\//.test(src) ? src : asset(src))
    Home would light up as active on every page. */
 export const NAV = [
   { to: "/", label: "Home", end: true },
+  { to: "/food-explorer", label: "Food Explorer" },
   { to: "/why-buddy", label: "Why Buddy" },
   { to: "/buddies", label: "Your Buddies" },
   { to: "/stories", label: "Stories" },
