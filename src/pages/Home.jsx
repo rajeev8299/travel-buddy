@@ -59,18 +59,25 @@ export default function Home() {
         <div className="shell hero__inner">
           <p className="eyebrow" data-reveal>
             <Sparkles size={14} strokeWidth={2.2} aria-hidden="true" />
-            Local-led tours in Varanasi
+            EXPLORE VARANASI (KASHI)
           </p>
 
           <h1 data-reveal style={{ "--delay": "60ms" }}>
-            Travel with someone who <em>actually lives there</em>
+            Discover the Soul of <em>Banaras</em>
           </h1>
 
           <p className="hero__sub" data-reveal style={{ "--delay": "120ms" }}>
-            Not a tour group. Not a checklist. A buddy who knows every ghat, every galli, and every
-            story the guidebooks leave out — and who builds the day around you.
+            Where every Ghat tells a story, every street has a flavour, and every journey becomes a memory.
           </p>
 
+          <div className="hero__actions" data-reveal style={{ display: "flex", gap: "0.85rem", justifyContent: "center", flexWrap: "wrap", margin: "1rem 0 1.8rem" }}>
+            <a href="#explore-banaras" className="btn btn--primary" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "0.75rem 1.6rem", fontSize: "1rem", fontWeight: "600", borderRadius: "999px", background: "linear-gradient(135deg, #F07824 0%, #E06010 100%)", color: "#fff", textDecoration: "none", boxShadow: "0 4px 14px rgba(240, 120, 36, 0.4)" }}>
+              Explore Banaras
+            </a>
+            <Link to="/plan" className="btn btn--secondary" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "0.75rem 1.6rem", fontSize: "1rem", fontWeight: "600", borderRadius: "999px", background: "rgba(255,255,255,0.92)", color: "#29251F", textDecoration: "none", border: "1px solid rgba(255,255,255,0.4)", backdropFilter: "blur(8px)" }}>
+              Plan Your Trip
+            </Link>
+          </div>
           <Finder />
 
           <ul className="stats" data-reveal style={{ "--delay": "240ms" }}>
@@ -84,7 +91,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section" id="explore-banaras">
         <div className="shell">
           <header className="section__head" data-reveal>
             <div>

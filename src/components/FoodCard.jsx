@@ -112,3 +112,4 @@ export const FoodCard = memo(function FoodCard({ shop }) {
 });
 
 export default FoodCard;
+

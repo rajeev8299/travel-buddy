@@ -272,3 +272,4 @@ export const INITIAL_FOOD_SHOPS = [
     ],
   },
 ];
+
